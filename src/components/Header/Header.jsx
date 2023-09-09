@@ -23,7 +23,11 @@ const navLinks = [
 
 const Header = () => {
   return (
+    
     <header className='header'>
+        <div className="containerNav">
+             <div className="message">Free shipping available on all orders!</div>
+        </div>
       <Container>
         <Row>
           <div className='nav__wrapper'>
@@ -56,7 +60,10 @@ const Header = () => {
                 <span className='badge'>1</span>
               </span>
               <span>
-                <motion.img whileTap={{ scale: 1.2 }} src={userIcon} alt='' />
+                <motion.img
+                whileTap={{ scale: 1.2 }}
+                initial={{ marginTop: 0 }}
+                animate={{ marginTop: -20 }} src={userIcon} alt='' />
               </span>
             </div>
             <div className='bags_menu'>
