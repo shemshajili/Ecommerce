@@ -31,7 +31,7 @@ import productImg14 from "../images/ArtDeco.webp";
 import productImg15 from "../images/WaveWallet.webp";
 
 // All Shoes
-import productImg16 from "../images/PleatedHeelMule1.webp";
+import productImg16 from "../images/PleatedHeelBoat1.webp";
 
 import productImg17 from "../images/Sandal1.webp";
 
@@ -39,7 +39,7 @@ import productImg18 from "../images/Thelma1.webp";
 
 import productImg19 from "../images/Boot1.webp";
 
-import productImg20 from "../images/PleatedHeelBoat1.webp";
+import productImg20 from "../images/PleatedHeelMule1.webp";
 
 import productImg21 from "../images/OttiCompat.webp";
 
@@ -311,14 +311,14 @@ const products = [
   // Shoes
   {
     id: "16",
-    productName: "Wave Wallet - Milky",
+    productName: "Pleated Heel Boot",
     imgUrl: productImg16,
     category: "bag",
-    price: 389.00,
+    price: 585.00,
     shortDesc:
-      "A wallet-turned-shoulder-bag, the Wave Wallet features two conjoined leather flaps that open to reveal space for all your financial essentials.",
+      "The Pleated Heel Boots take a cue from our iconic Pleated Lantern Bag, but this time, reimagining pleats using solid oak. Features a square toe and a padded insole for extra comfort.",
     description:
-      "A wallet-turned-shoulder-bag, the Wave Wallet features two conjoined leather flaps that open to reveal space for all your financial essentials. A leather divider creates two compartments, with one side for notes and cards, and the other large enough to fit the iPhone Max, and your passport.",
+      "The Pleated Heel Boots take a cue from our iconic Pleated Lantern Bag, but this time, reimagining pleats using solid oak. Features a square toe and a padded insole for extra comfort.",
     reviews: [
       {
         rating: 4.7,
@@ -328,14 +328,14 @@ const products = [
   },
   {
     id: "17",
-    productName: "Wave Wallet - Milky",
+    productName: "Louise Slide Sandal - Buttermilk",
     imgUrl: productImg17,
     category: "bag",
-    price: 389.00,
+    price: 717.00,
     shortDesc:
-      "A wallet-turned-shoulder-bag, the Wave Wallet features two conjoined leather flaps that open to reveal space for all your financial essentials.",
+      "Our experimentation with texture continues. Elevated sense of design and craftsmanship manifests in our Italian-made Louise sandals",
     description:
-      "A wallet-turned-shoulder-bag, the Wave Wallet features two conjoined leather flaps that open to reveal space for all your financial essentials. A leather divider creates two compartments, with one side for notes and cards, and the other large enough to fit the iPhone Max, and your passport.",
+      "Our experimentation with texture continues. Elevated sense of design and craftsmanship manifests in our Italian-made Louise sandals. They have a square-toed silhouette with a wide band formed with leather pleats and extra comfortable leather-wrapped fussbett for day-long wear.",
     reviews: [
       {
         rating: 4.7,
@@ -345,14 +345,14 @@ const products = [
   },
   {
     id: "18",
-    productName: "Wave Wallet - Milky",
+    productName: "Thelma Sandal - Black",
     imgUrl: productImg18,
     category: "bag",
-    price: 389.00,
+    price: 682.00,
     shortDesc:
-      "A wallet-turned-shoulder-bag, the Wave Wallet features two conjoined leather flaps that open to reveal space for all your financial essentials.",
+      "Italian-made Thelma sandals. ",
     description:
-      "A wallet-turned-shoulder-bag, the Wave Wallet features two conjoined leather flaps that open to reveal space for all your financial essentials. A leather divider creates two compartments, with one side for notes and cards, and the other large enough to fit the iPhone Max, and your passport.",
+      "Our experimentation with texture continues. Elevated sense of design and craftsmanship manifests in our Italian-made Thelma sandals. Square-toed flat pair sits on extra comfortable leather-wrapped fussbett for day-long wear while two straps around the vamps and toes keep your feet in place.",
     reviews: [
       {
         rating: 4.7,
@@ -362,14 +362,14 @@ const products = [
   },
   {
     id: "19",
-    productName: "Wave Wallet - Milky",
+    productName: "Otti Summer Boot",
     imgUrl: productImg19,
     category: "bag",
-    price: 389.00,
+    price: 479.00,
     shortDesc:
-      "A wallet-turned-shoulder-bag, the Wave Wallet features two conjoined leather flaps that open to reveal space for all your financial essentials.",
+      "The Summer Boots feature a lace up front, high neck with mesh throat, and a leather toe..",
     description:
-      "A wallet-turned-shoulder-bag, the Wave Wallet features two conjoined leather flaps that open to reveal space for all your financial essentials. A leather divider creates two compartments, with one side for notes and cards, and the other large enough to fit the iPhone Max, and your passport.",
+      "The Summer Boots feature a lace up front, high neck with mesh throat, and a leather toe. For the woman who needs to make every second count, inner zippers make running out the door easy. Worn with warm weather essentials, the Summer Boots ooze comfort, stability and style.",
     reviews: [
       {
         rating: 4.7,
@@ -379,14 +379,99 @@ const products = [
   },
   {
     id: "20",
-    productName: "Wave Wallet - Milky",
+    productName: "Pleated Heel Mule",
     imgUrl: productImg20,
     category: "bag",
-    price: 389.00,
+    price: 495.00,
     shortDesc:
-      "A wallet-turned-shoulder-bag, the Wave Wallet features two conjoined leather flaps that open to reveal space for all your financial essentials.",
+      "The Pleated Heel Mules take a cue from our iconic Pleated Lantern Bag",
     description:
-      "A wallet-turned-shoulder-bag, the Wave Wallet features two conjoined leather flaps that open to reveal space for all your financial essentials. A leather divider creates two compartments, with one side for notes and cards, and the other large enough to fit the iPhone Max, and your passport.",
+      "The Pleated Heel Mules take a cue from our iconic Pleated Lantern Bag, but this time, reimagining pleats using solid oak. Features a square toe and a padded insole for extra comfort.",
+    reviews: [
+      {
+        rating: 4.7,
+      },
+    ],
+    avgRating: 4.5,
+  },
+  {
+    id: "21",
+    productName: "Otti Combat Boot",
+    imgUrl: productImg21,
+    category: "bag",
+    price: 595.00,
+    shortDesc:
+      "Derby-style high neck ankle boots features a 6cm chunky sole, and a rebellious style that perfectly suits a 90s dress or combat jean and tee combination.",
+    description:
+      "Derby-style high neck ankle boots features a 6cm chunky sole, and a rebellious style that perfectly suits a 90s dress or combat jean and tee combination.Derby-style high neck ankle boots features a 6cm chunky sole, and a rebellious style that perfectly suits a 90s dress or combat jean and tee combination.",
+    reviews: [
+      {
+        rating: 4.7,
+      },
+    ],
+    avgRating: 4.5,
+  },
+  {
+    id: "22",
+    productName: "Puffy Sandal - Pink Cloud",
+    imgUrl: productImg22,
+    category: "bag",
+    price: 751.00,
+    shortDesc:
+      "Made from super soft nappa like our Puff clutches, they're set on our signature pleated heels.",
+    description:
+      "Made from super soft nappa like our Puff clutches, they're set on our signature pleated heels. The cushioning leather insoles and 50mm low heels are primed for long-lasting comfort.",
+    reviews: [
+      {
+        rating: 4.7,
+      },
+    ],
+    avgRating: 4.5,
+  },
+  {
+    id: "23",
+    productName: "Thong Sandal - White",
+    imgUrl: productImg23,
+    category: "bag",
+    price: 596.00,
+    shortDesc:
+      "A thong silhouette blending our signature pleated heels and chic toe straps.",
+    description:
+      "A thong silhouette blending our signature pleated heels and chic toe straps. Thanks to the 50mm low heels and added pads for cushioning support you will find them practical and comfortable.",
+    reviews: [
+      {
+        rating: 4.7,
+      },
+    ],
+    avgRating: 4.5,
+  },
+  {
+    id: "24",
+    productName: "Pleated Heel Mule - Multicolor",
+    imgUrl: productImg24,
+    category: "bag",
+    price: 855.00,
+    shortDesc:
+      "The Pleated Heel Mules take a cue from our iconic Pleated Lantern Bag, but this time, reimagining pleats using solid oak. Features a square toe and a padded insole for extra comfort.",
+    description:
+      "The Pleated Heel Mules take a cue from our iconic Pleated Lantern Bag, but this time, reimagining pleats using solid oak. Features a square toe and a padded insole for extra comfort.",
+    reviews: [
+      {
+        rating: 4.7,
+      },
+    ],
+    avgRating: 4.5,
+  },
+  {
+    id: "25",
+    productName: "Louise Heeled Slide - Multicolor",
+    imgUrl: productImg25,
+    category: "bag",
+    price: 751.00,
+    shortDesc:
+      "Our experimentation with texture continues. Elevated sense of design and craftsmanship manifests in our Italian-made Louise sandals.",
+    description:
+      "Our experimentation with texture continues. Elevated sense of design and craftsmanship manifests in our Italian-made Louise sandals. They have a square-toed silhouette with a wide band formed with leather pleats and extra comfortable leather-wrapped fussbett for day-long wear.",
     reviews: [
       {
         rating: 4.7,
