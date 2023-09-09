@@ -1,0 +1,41 @@
+.buy_btn {
+    background: transparent;
+    border: 1px solid white;
+    width: 90px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+    right: 500px;
+  }
+  
+  .buy_btn:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+  
+  .buy_btn_text {
+    color: white;
+    font-weight: 400;
+    font-size: 10px;
+    text-transform: uppercase;
+  }
+
+  .text {
+    color: white;
+  }
+  
+  .scnd_text  {
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: 5px;
+    backdrop-filter: blur(1px);
+    color: white;
+    display: inline-block;
+    font-size: 12px;
+  }
+  
+  .parallax-background {
+    filter: brightness(0.7);
+  }
+  

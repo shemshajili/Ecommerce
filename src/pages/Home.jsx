@@ -1,7 +1,8 @@
-import Helmet from '../components/Helmet/Helmet'
+import Helmet from '../components/Helmet/Helmet';
 import { Container } from 'reactstrap';
 import { Parallax, ParallaxLayer } from "@react-spring/parallax";
 import layer1 from '../assets/images/blueimg.webp';
+import '../styles/home.css';
 
 const Home = () => {
     return (
@@ -25,8 +26,8 @@ const Home = () => {
                 {/* Parallax background image */}
                 <ParallaxLayer
                     offset={0}
-                    speed={0.5} 
-                    factor={2}
+                    speed={0.5} // Daha hızlı bir hız
+                    factor={1.5} // Daha fazla yakınlaştırma
                     style={{
                         backgroundImage: `url(${layer1})`,
                         backgroundSize: 'cover',
@@ -38,7 +39,7 @@ const Home = () => {
                 {/* Parallax content layer */}
                 <ParallaxLayer
                     offset={0}
-                    speed={0.3}
+                    speed={0.8} // Daha hızlı bir hız
                     style={{
                         display: 'flex',
                         justifyContent: 'center',
@@ -51,13 +52,15 @@ const Home = () => {
                     <section className="hero__section">
                         <Container>
                             {/* Hero title */}
-                            <h2>Industrial design meets fashion.</h2>
+                            <h2 className='text'>Industrial design meets fashion.</h2>
                             
                             {/* Hero description */}
-                            <p>Atypical leather goods</p>
+                            <p className='scnd_text'>Atypical leather goods</p>
 
                             {/* Shop Now button */}
-                            <button className='buy_btn'>Shop Now</button>
+                            <button className='buy_btn'>
+                                <span className='buy_btn_text'>Shop Now</span>
+                            </button>
                         </Container>
                     </section>
                 </ParallaxLayer>
