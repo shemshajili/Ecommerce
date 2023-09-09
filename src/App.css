@@ -1,7 +1,7 @@
-/* google fonts */
+/* Google Fonts */
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap");
 
-/*  css variables */
+/* CSS Variables */
 :root {
   --card-bg-01: #fdefe6;
   --card-bg-02: #d6e5fb;
@@ -14,7 +14,7 @@
   --heading-text-color: #0a1d37;
 }
 
-/* reset browser default */
+/* Reset Browser Defaults */
 * {
   margin: 0;
   padding: 0;
@@ -25,24 +25,15 @@ body {
   font-family: "Montserrat", sans-serif;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
 p {
-  padding: 0;
   margin: 0;
-}
-
-p {
   color: var(--small-text-color);
   font-size: 1rem;
 }
 
 h1,
 h2 {
+  margin: 0;
   font-size: var(--heading-fontSize);
 }
 
@@ -55,10 +46,10 @@ a {
   color: unset;
 }
 
-img{
+img {
   width: 100%;
 }
 
-section{
-  padding: 60px 0px;
+section {
+  padding: 60px 0;
 }
