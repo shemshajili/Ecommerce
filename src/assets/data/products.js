@@ -1,5 +1,5 @@
 // All Bags
-
+// Importing images for product items.
 import productImg01 from "../images/TeddyBag1.webp";
 
 import productImg02 from "../images/Stormi1.webp";
@@ -51,6 +51,7 @@ import productImg24 from "../images/MultiColor.webp";
 
 import productImg25 from "../images/HeeliedSlide.webp";
 
+// Creating an array named 'products' to store information about various products.
 const products = [
   // Bags
   {
@@ -482,6 +483,7 @@ const products = [
 
 ];
 
+// Exporting the 'products' array to be used in other parts of the application.
 export default products;
 
 
