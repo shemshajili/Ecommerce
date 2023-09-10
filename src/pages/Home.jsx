@@ -1,8 +1,12 @@
 import Helmet from '../components/Helmet/Helmet';
-import { Container, Row } from 'reactstrap';
+import { Container, Row,Col } from 'reactstrap';
 import { Parallax, ParallaxLayer } from "@react-spring/parallax";
 import layer1 from '../assets/images/blueimg.webp';
 import '../styles/home.css';
+import { Link	 } from 'react-router-dom';
+import {motion} from 'framer-motion'
+import Services from '../services/Services';
+
 
 const Home = () => {
     return (
@@ -61,10 +65,27 @@ const Home = () => {
                     </section>
                       {/* Hero description */}
                       <p className="hero__description">Atypical leather goods</p>
-                    {/* Shop Now button */}
-                    <button className='buy_btn'><span className='buy_btn_text'>Shop Now</span></button>
+                     {/* Shop Now button */}
+                    <motion.button whileTap={{ scale: 1 }} className='buy_btn'>
+                        {/* Shop Now text with a link */}
+                     <span className='buy_btn_text'>
+                    <Link to='/shop'>Shop Now</Link>
+                    </span>
+                    </motion.button>
                 </ParallaxLayer>
             </Parallax>
+
+            <Services/>
+            <setion className="trending__products">
+                <Container>
+                    <Row>
+                        <Col lg='12' className='text-center'>
+                            <h2 className='section__title'>Obsessive Attention. Intelligent Effort.</h2>
+                            <p class="custom-paragraph">Functional handbags made of luxurious materials to improve people's lives in small but mighty ways.</p>
+                        </Col>
+                    </Row>
+                </Container>
+            </setion>
         </div>
     );
 }

@@ -53,3 +53,13 @@ img {
 section {
   padding: 60px 0;
 }
+
+.section__title {
+  color: #0a1d37;
+  font-weight: 600px;
+}
+
+.custom-paragraph {
+  margin-top: 15px;
+  font-size: 12px;
+}
