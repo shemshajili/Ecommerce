@@ -49,4 +49,37 @@
     pointer-events: none;
   }
   
-  
+  .section__tittle{
+    font-size: 25px;
+    margin-top: -50px;
+  }
+
+  /* CSS dosyanıza aşağıdaki stilleri ekleyin */
+.main__img-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.main__img {
+  position: relative;
+  transition: transform 0.3s, border-bottom 0.3s; /* Transform ve border-bottom efektlerinin süresini ayarlayabilirsiniz */
+  width: 500px;
+  cursor: pointer;
+}
+
+.main__img img {
+  width: 100%;
+  height: auto;
+}
+
+.img__text {
+  text-align: center;
+  margin-top: 10px;
+  cursor: pointer;
+  font-size:17px;
+}
+
+.main__img:hover {
+  transform: translateY(-4px);
+  border-bottom: 1px solid #5b5b5a; 
+}

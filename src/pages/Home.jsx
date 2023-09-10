@@ -9,6 +9,9 @@ import { motion } from 'framer-motion';
 import Services from '../services/Services';
 import ProductsList from '../components/UI/ProductsList';
 import products from '../assets/data/products';
+import mainImg from '../assets/images/LookBook12.webp'
+import mainImg2 from '../assets/images/LookBook11.webp'
+// import YouTube from 'react-youtube';
 
 const Home = () => {
   const [data, setData] = useState([]);
@@ -18,6 +21,8 @@ const Home = () => {
     setData(filteredProducts);
   }, []);
 
+
+  
   return (
     <div>
       {/* Page title */}
@@ -94,6 +99,29 @@ const Home = () => {
             </Col>
             <ProductsList data={data} />
           </Row>
+        </Container>
+      </section>
+      <section className='back_stock'>
+        <Container>
+          <Row>
+            <Col>
+              <h2 className="section__tittle">Back in Stock !</h2>
+            </Col>
+          </Row>
+          <div className="main__img-container" style={{ display: 'flex', justifyContent: 'space-between' }}>
+            <div className="main__img" style={{ marginRight: '20px' }}>
+              <Link to='/bags'>
+                <img src={mainImg} alt="" />
+                <h4 className="img__text">Bags</h4>
+              </Link>
+            </div>
+            <div className="main__img">
+              <Link to='/shoes'>
+                <img src={mainImg2} alt="" />
+                <h4 className="img__text">Shoes</h4>
+              </Link>
+            </div>
+          </div>
         </Container>
       </section>
     </div>

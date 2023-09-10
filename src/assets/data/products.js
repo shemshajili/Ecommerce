@@ -51,6 +51,12 @@ import productImg24 from "../images/MultiColor.webp";
 
 import productImg25 from "../images/HeeliedSlide.webp";
 
+import productImg26 from "../images/Sandalblue.webp"
+
+import productImg27 from "../images/Sandal5.webp"
+
+import productImg28 from "../images/SandalBlack.webp"
+
 // Creating an array named 'products' to store information about various products.
 const products = [
   // Bags
@@ -480,6 +486,58 @@ const products = [
     ],
     avgRating: 4.5,
   },
+  {
+    id: "26",
+    productName: "Louise Slide Sandal - Denim",
+    imgUrl: productImg26,
+    category: "bag",
+    price: 59.00,
+    shortDesc:
+      "Our experimentation with texture continues.",
+    description:
+      "Our experimentation with texture continues. Elevated sense of design and craftsmanship manifests in our Italian-made Louise sandals. They have a square-toed silhouette with a wide band formed with leather pleats and extra comfortable leather-wrapped fussbett for day-long wear.",
+    reviews: [
+      {
+        rating: 4.7,
+      },
+    ],
+    avgRating: 4.5,
+  },
+  {
+    id: "27",
+    productName: "Louise Slide Sandal - Denim",
+    imgUrl: productImg27,
+    category: "bag",
+    price: 717.00,
+    shortDesc:
+      "Our experimentation with texture continues.",
+    description:
+      "Our experimentation with texture continues. Elevated sense of design and craftsmanship manifests in our Italian-made Louise sandals. They have a square-toed silhouette with a wide band formed with leather pleats and extra comfortable leather-wrapped fussbett for day-long wear.",
+    reviews: [
+      {
+        rating: 4.7,
+      },
+    ],
+    avgRating: 4.5,
+  },
+  {
+    id: "28",
+    productName: "Thong Sandal - Black",
+    imgUrl: productImg28,
+    category: "bag",
+    price: 596.00,
+    shortDesc:
+      "A thong silhouette blending our signature pleated heels and chic toe straps.",
+    description:
+      "A thong silhouette blending our signature pleated heels and chic toe straps. Thanks to the 50mm low heels and added pads for cushioning support you will find them practical and comfortable.",
+    reviews: [
+      {
+        rating: 4.7,
+      },
+    ],
+    avgRating: 4.5,
+  },
+
 
 ];
 
