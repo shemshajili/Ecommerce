@@ -1,3 +1,4 @@
+
 import Helmet from '../components/Helmet/Helmet';
 import { Container, Row,Col } from 'reactstrap';
 import { Parallax, ParallaxLayer } from "@react-spring/parallax";
@@ -6,9 +7,19 @@ import '../styles/home.css';
 import { Link	 } from 'react-router-dom';
 import {motion} from 'framer-motion'
 import Services from '../services/Services';
+import ProductsList from '../components/UI/ProductsList';
+import products from '../assets/data/products'
+import { useEffect, useState } from 'react';
 
 
 const Home = () => {
+
+    const [data, setData]=useState(products)
+    useEffect(()=>{
+        const filterProducts=products.filter((item)=>item.category==='Bags');
+        setData(filterProducts);
+    },[]);
+    
     return (
         <div>
             {/* Page title */}
@@ -76,16 +87,17 @@ const Home = () => {
             </Parallax>
 
             <Services/>
-            <setion className="trending__products">
+            <section className="trending__products">
                 <Container>
                     <Row>
                         <Col lg='12' className='text-center'>
                             <h2 className='section__title'>Obsessive Attention. Intelligent Effort.</h2>
-                            <p class="custom-paragraph">Functional handbags made of luxurious materials to improve people's lives in small but mighty ways.</p>
+                            <p className="custom-paragraph">Functional handbags made of luxurious materials to improve people's lives in small but mighty ways.</p>
                         </Col>
+                        <ProductsList data={data}/>
                     </Row>
                 </Container>
-            </setion>
+            </section>
         </div>
     );
 }
