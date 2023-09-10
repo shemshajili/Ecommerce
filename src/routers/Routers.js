@@ -7,6 +7,8 @@ import CheckOut from '../pages/CheckOut'
 import Login from '../pages/Login'
 import ProductDetails from '../pages/ProductDetails'
 import SignUp from '../pages/SignUp'
+import Shoes from '../pages/Shoes'
+import Bags from '../pages/Bags'
 
 const Routers = () => {
     return <Routes>
@@ -18,6 +20,8 @@ const Routers = () => {
         <Route path='login' element={<Login/>}/>
         <Route path='signup' element={<SignUp/>}/>
         <Route path='shop/:id' element={<ProductDetails/>}/>
+        <Route path='shoes' element={<Shoes/>}/>
+        <Route path='bags' element={<Bags/>}/>
     </Routes>
 };
 

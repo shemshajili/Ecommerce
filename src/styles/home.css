@@ -1,14 +1,13 @@
 .buy_btn {
     background: transparent;
     border: 1px solid white;
-    width: 90px;
-    height: 40px;
+    width: 120px;
+    height: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
     transition: background-color 0.3s ease-in-out;
-    right: 500px;
   }
   
   .buy_btn:hover {
@@ -18,24 +17,30 @@
   .buy_btn_text {
     color: white;
     font-weight: 400;
-    font-size: 10px;
+    font-size: 13px;
     text-transform: uppercase;
   }
 
-  .text {
+  .hero__content h2 {
     color: white;
+    font-size: 2.5rem;
+    font-weight: 600px;
   }
   
-  .scnd_text  {
+  .hero__description {
     background-color: rgba(255, 255, 255, 0.5);
     padding: 5px;
     backdrop-filter: blur(1px);
     color: white;
     display: inline-block;
-    font-size: 12px;
+    font-size: 13px;
+    margin: 0;
+    margin-top: -50px;
+    margin: 20px 0px;
   }
   
+  
   .parallax-background {
-    filter: brightness(0.7);
+    filter: brightness(0.3);
   }
   

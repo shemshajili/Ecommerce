@@ -36,6 +36,7 @@
     align-items: center;
     column-gap: 8px;
     margin-top: -6px;
+    cursor: pointer;
   }
   
   .logo img {
@@ -60,6 +61,7 @@
     color: var(--primary-color);
     font-weight: 500;
     cursor: pointer;
+    font-size: 13px;
   }
   
   .nav__icons {
@@ -110,6 +112,6 @@
   }
   
 .nav__active{
-  font-weight: 600 !important	; 
+  font-weight: 700 !important	; 
 }
   

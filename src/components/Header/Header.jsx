@@ -19,8 +19,19 @@ const navLinks = [
     path: 'cart',
     display: 'Cart',
   },
+  {
+    path: 'shoes',
+    display: 'Shoes',
+  },
+  {
+    path: 'bags',
+    display: 'Bags',
+  },
 ];
 
+const handleLogoClick = () => {
+  window.location.href = '/';
+};
 const Header = () => {
   return (
     
@@ -31,12 +42,12 @@ const Header = () => {
       <Container>
         <Row>
           <div className='nav__wrapper'>
-            <div className='logo'>
+          <div className='logo' onClick={handleLogoClick}>
               <img src={logo} alt='logo' />
-              <div>
-                <h1>VogueVie</h1>
-              </div>
-            </div>
+                <div>
+                   <h1 onClick={handleLogoClick}>VogueVie</h1>
+                </div>
+          </div>
             <div className='navigation'>
             <ul className='menu'>
                 {navLinks.map((item, index) => (
