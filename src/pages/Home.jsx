@@ -9,20 +9,19 @@ import { motion } from 'framer-motion';
 import Services from '../services/Services';
 import ProductsList from '../components/UI/ProductsList';
 import products from '../assets/data/products';
-import mainImg from '../assets/images/LookBook12.webp'
-import mainImg2 from '../assets/images/LookBook11.webp'
-// import YouTube from 'react-youtube';
+import mainImg from '../assets/images/LookBook12.webp';
+import mainImg2 from '../assets/images/LookBook11.webp';
+import '../styles/home.css';
+import logoImg from '../assets/images/RefinerLogo.webp'
+import cutImg from '../assets/images/TheCutLogo.webp'
 
 const Home = () => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    const filteredProducts = products.filter((item) => item.category === 'bag');
-    setData(filteredProducts);
+    setData(products);
   }, []);
 
-
-  
   return (
     <div>
       {/* Page title */}
@@ -95,8 +94,10 @@ const Home = () => {
           <Row>
             <Col lg='12' className='text-center'>
               <h2 className='section__title'>Obsessive Attention. Intelligent Effort.</h2>
-              <p className="custom-paragraph">Functional handbags made of luxurious materials to improve people's lives in small but mighty ways.</p>
+              <p className="custom-paragraph"></p>
             </Col>
+          </Row>
+          <Row>
             <ProductsList data={data} />
           </Row>
         </Container>
@@ -110,13 +111,13 @@ const Home = () => {
           </Row>
           <div className="main__img-container" style={{ display: 'flex', justifyContent: 'space-between' }}>
             <div className="main__img" style={{ marginRight: '20px' }}>
-              <Link to='/bags'>
+              <Link to='/bags' className='custom-link'>
                 <img src={mainImg} alt="" />
                 <h4 className="img__text">Bags</h4>
               </Link>
             </div>
             <div className="main__img">
-              <Link to='/shoes'>
+              <Link to='/shoes' className='custom-link'>
                 <img src={mainImg2} alt="" />
                 <h4 className="img__text">Shoes</h4>
               </Link>
@@ -124,6 +125,22 @@ const Home = () => {
           </div>
         </Container>
       </section>
+<section>
+  <div className="marka__logo">
+    <div className="refiry__logo">
+      <img src={logoImg} alt="" />
+      <div className="refiry__logo-text">
+        " The leather is sourced from environmentally friendly tanneries in Italy,<br></br>France, and Turkey, where Rure is based and everything is assembled hand. "
+      </div>
+    </div>
+    <div className="cut__logo">
+      <img src={cutImg} alt="" />
+      <div className="cut__logo-text">
+       " All too often, we're forced to pick: style, or sustainability. Recently,<br></br>more designers have been making environmental impact a top priority. "
+      </div>
+    </div>
+  </div>
+</section>
     </div>
   );
 }

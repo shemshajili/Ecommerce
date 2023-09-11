@@ -48,13 +48,23 @@
     background: rgba(0, 0, 0, 0.7);
     pointer-events: none;
   }
+
+  .custom-link {
+    color: black;
+    text-decoration: none;
+  }
+  
+  .custom-link:hover {
+    color: rgb(0, 0, 0);
+  }
+  
   
   .section__tittle{
     font-size: 25px;
     margin-top: -50px;
   }
 
-  /* CSS dosyanıza aşağıdaki stilleri ekleyin */
+
 .main__img-container {
   display: flex;
   justify-content: space-between;
@@ -62,7 +72,7 @@
 
 .main__img {
   position: relative;
-  transition: transform 0.3s, border-bottom 0.3s; /* Transform ve border-bottom efektlerinin süresini ayarlayabilirsiniz */
+  transition: transform 0.3s, border-bottom 0.3s;
   width: 500px;
   cursor: pointer;
 }
@@ -83,3 +93,40 @@
   transform: translateY(-4px);
   border-bottom: 1px solid #5b5b5a; 
 }
+
+.marka__logo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.refiry__logo {
+  width: 200px;
+  text-align: center;
+  margin-left: 100px !important;
+}
+
+.cut__logo {
+  width: 130px;
+  text-align: center;
+  margin-right: 400px !important;
+}
+
+.refiry__logo-text,
+.cut__logo-text {
+  white-space: nowrap;
+  font-size: 13px;
+  padding: 20px 0px;
+  white-space: 20px;
+}
+
+.refiry__logo img{
+  align-items: center;
+  margin-left: 100px!important;
+}
+
+.cut__logo img{
+  margin-left: 150px!important;
+}
+
+
