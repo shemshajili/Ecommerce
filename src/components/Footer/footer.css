@@ -1,0 +1,126 @@
+/* Footer Styles */
+.footer {
+    background-color: #f8f8f8;
+    padding-top: 100px;
+    border-top: 1px solid #f8f8f8;
+    text-align: center;
+  }
+  
+  .logo img {
+    max-width: 100px;
+    margin-bottom: 10px;
+  }
+  
+  .logo h1 {
+    font-size: 24px;
+    color: #333;
+    margin: 0;
+  }
+  
+  .footer__text {
+    font-size: 14px;
+    color: #666;
+    margin-top: 20px;
+    line-height: 1.5;
+  }
+  
+  .quick__links-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .footer__quick-links ul li a {
+    font-size: 14px;
+    font-weight: 500;
+    color: #555;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .footer__quick-links ul li a:hover {
+    color: #333;
+  }
+  
+  .footer__contact {
+    margin-top: 20px;
+  }
+  
+  .footer__contact li span {
+    font-size: 18px;
+    color: #333;
+  }
+  
+  .footer__contact p {
+    font-size: 14px;
+    color: #555;
+    font-weight: 500;
+    margin: 0;
+  }
+  
+  .footer__copyright {
+    margin-top: 30px;
+    font-size: 12px;
+    color: #888;
+  }
+
+.footer__quick-links ul li a {
+    position: relative;
+    text-decoration: none;
+    color: #555;
+    font-size: 14px;
+    font-weight: 500;
+    transition: color 0.3s ease, border-bottom 0.3s ease;
+  }
+  
+  .footer__quick-links ul li a::after {
+    content: "";
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #555;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+  }
+  
+  .footer__quick-links ul li a:hover {
+    color: #333;
+  }
+  
+  .footer__quick-links ul li a:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+  
+  
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+    .footer {
+      padding-top: 60px;
+    }
+  
+    .logo img {
+      max-width: 80px;
+    }
+  
+    .logo h1 {
+      font-size: 20px;
+    }
+  
+    .footer__quick-links ul li a {
+      font-size: 12px;
+    }
+  
+    .footer__contact li span {
+      font-size: 16px;
+    }
+  
+    .footer__copyright {
+      font-size: 10px;
+    }
+  }
+  
