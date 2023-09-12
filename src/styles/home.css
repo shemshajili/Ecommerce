@@ -109,18 +109,19 @@
 }
 
 .refiry__logo img {
-  max-width: 100%;
+  width: 250px;
   height: auto;
 }
 
 .refiry__logo-text {
   text-align: center;
-  font-size: 12px;
+  font-size: 12px !important;
   line-height: 2rem;
+  color: #5b5b5a;
 }
 
 .cut__logo img {
-  max-width: 100%;
+  width: 150px !important;
   height: auto;
   margin-left: 0;
   margin-top: -5px;
@@ -128,9 +129,10 @@
 
 .cut__logo-text {
   text-align: center;
-  font-size: 12px;
+  font-size: 12px !important	;
   line-height: 1.5;
   margin-left: 0;
+  color: #5b5b5a;
 }
 
 @media only screen and (max-width:992px){
