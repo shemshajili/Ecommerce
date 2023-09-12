@@ -8,6 +8,7 @@ import Login from '../pages/Login'
 import ProductDetails from '../pages/ProductDetails'
 import SignUp from '../pages/SignUp'
 import LookBook from '../pages/LookBook'
+import About from '../pages/About'
 
 
 const Routers = () => {
@@ -21,6 +22,7 @@ const Routers = () => {
         <Route path='signup' element={<SignUp/>}/>
         <Route path='shop/:id' element={<ProductDetails/>}/>
         <Route path='lookbook' element={<LookBook/>}/>
+        <Route path='about' element={<About/>}/>
     </Routes>
 };
 
