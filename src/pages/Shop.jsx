@@ -1,10 +1,22 @@
-import React from 'react';
+import React,{useState} from 'react';
 import CommonSection from '../components/UI/CommonSection';
 import Helmet from '../components/Helmet/Helmet'
 import { Container,Row,Col } from 'reactstrap';
 import '../styles/shop.css'
+import products from '../assets/data/products'
+import ProductList from '../components/UI/ProductsList'
 
 const Shop = () => {
+
+    const [productsData,setProductsData]=useState(products)
+    const handleFilter= e=>{
+        const filterVale=e.target.value
+        if(filterVale==='bags'){
+            const filteredProducts=products.filter(item=> item.category==='bags')
+
+            setProductsData(filteredProducts)
+        }
+    }
     return (
         <Helmet title='Shop'>
         <CommonSection tittle='Products'/>
@@ -13,7 +25,7 @@ const Shop = () => {
                 <Row>
                     <Col lg='3' md='4'>
                         <div className="filter__widget">
-                            <select >
+                            <select onChange={handleFilter}>
                                 <option>Filter By Category</option>
                                 <option value="bags">Bags</option>
                                 <option value="shoes">Shoes</option>
@@ -35,6 +47,15 @@ const Shop = () => {
                             <span><i className="ri-search-line"></i></span>
                         </div>
                     </Col>
+                </Row>
+            </Container>
+        </section>
+        <section>
+            <Container>
+                <Row>
+                    {
+                        productsData.length===0? <h1>No products are found!</h1>:<ProductList data={productsData}/>
+                    }
                 </Row>
             </Container>
         </section>
