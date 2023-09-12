@@ -1,0 +1,47 @@
+/* Güncellenmiş CSS kodu */
+.common__section {
+    background: linear-gradient(rgba(0, 0, 0, 0.462), rgba(0, 0, 0, 0.462)),
+                url("../assets/images/LookBook4.jpg") no-repeat center center;
+    background-size: cover;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #fff;
+    position: relative;
+    overflow: hidden;
+    perspective: 1000px;
+}
+
+.common__section::before {
+    content: "";
+    background: rgba(255, 255, 255, 0.2);
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    transform: translateZ(-1px);
+}
+
+.common__section h1 {
+    color: #fff;
+    font-weight: 600;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    font-size: 36px;
+    text-transform: uppercase;
+    animation: fadeIn 3s ease;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
