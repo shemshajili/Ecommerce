@@ -1,15 +1,15 @@
-section {
+.section__shop {
     background-color: #f7f7f7;
     padding: 20px 0;
   }
   
-  .container {
+  .container__shop {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 15px;
   }
   
-  .row {
+  .row__shop {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;

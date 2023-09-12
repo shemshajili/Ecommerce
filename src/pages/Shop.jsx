@@ -10,24 +10,32 @@ const Shop = () => {
 
     const [productsData,setProductsData]=useState(products)
     const handleFilter= e=>{
-        const filterVale=e.target.value
-        if(filterVale==='bags'){
-            const filteredProducts=products.filter(item=> item.category==='bags')
+        const filterValue=e.target.value
+        if(filterValue==='bag'){
+            const filteredProducts=products.filter(item=> item.category==='bag')
+
+            setProductsData(filteredProducts)
+        }
+
+        if(filterValue==='shoes'){
+            const filteredProducts=products.filter(item=> item.category==='shoes')
 
             setProductsData(filteredProducts)
         }
     }
+
+    
     return (
         <Helmet title='Shop'>
         <CommonSection tittle='Products'/>
-        <section>
-            <Container>
-                <Row>
+        <section className='section__shop'>
+            <Container className='container__shop'>
+                <Row className='row__shop'>
                     <Col lg='3' md='4'>
                         <div className="filter__widget">
                             <select onChange={handleFilter}>
                                 <option>Filter By Category</option>
-                                <option value="bags">Bags</option>
+                                <option value="bag">Bags</option>
                                 <option value="shoes">Shoes</option>
                             </select>
                         </div>
