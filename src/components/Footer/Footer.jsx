@@ -28,14 +28,23 @@ const Footer = () => {
                         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minus distinctio sed provident adipisci omnis quis iste, consequuntur porro, id harum fuga.
                         </p>
                 </Col>
+                    <Col lg='3'>
+                    <div className="footer__quick-links">
+                    <h4 className="quick__links-title">Quick Links</h4>
+                    <ListGroup className='mb-3'>
+                    <ListGroupItem className='ps-0 border-0'>
+                                    <Link to='/shop'>Shop</Link>
+                    </ListGroupItem>
+                    <ListGroupItem className='ps-0 border-0'>
+                                    <Link to='/lookbook'>Look Book</Link>
+                    </ListGroupItem>
+                    </ListGroup>
+                    </div>
+                    </Col>
                     <Col lg='2'>
                     <div className="footer__quick-links">
                             <h4 className="quick__links-title">Useful Links</h4>
                             <ListGroup className='mb-3'>
-                                <ListGroupItem className='ps-0 border-0'>
-                                    <Link to='/shop'>Shop</Link>
-                                </ListGroupItem>
-
                                 <ListGroupItem className='ps-0 border-0'>
                                     <Link to='/cart'>Cart</Link>
                                 </ListGroupItem>
@@ -48,7 +57,7 @@ const Footer = () => {
                                     <Link to='#'>Privacy Policy</Link>
                                 </ListGroupItem>
                             </ListGroup>
-                        </div>
+                    </div>
                     </Col>
 
                     <Col lg='3'>
