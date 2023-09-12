@@ -10,6 +10,9 @@
     transition: background-color 0.3s ease-in-out;
     margin-top: 20px;
   }
+  .ri-add-line{
+    cursor: pointer;
+  }
   
   .buy_btn:hover {
     background-color: rgba(255, 255, 255, 0.2);
@@ -113,13 +116,14 @@
 .refiry__logo-text {
   text-align: center;
   font-size: 12px;
-  line-height: 1.5;
+  line-height: 2rem;
 }
 
 .cut__logo img {
   max-width: 100%;
   height: auto;
   margin-left: 0;
+  margin-top: -5px;
 }
 
 .cut__logo-text {
@@ -167,7 +171,7 @@
   .refiry__logo-text {
     text-align: center;
     font-size: 12px;
-    line-height: 1.5rem;
+    line-height: 1.5;
   }
 
   .cut__logo img {

@@ -19,14 +19,6 @@ const navLinks = [
     path: 'cart',
     display: 'Cart',
   },
-  {
-    path: 'shoes',
-    display: 'Shoes',
-  },
-  {
-    path: 'bags',
-    display: 'Bags',
-  },
 ];
 
 const handleLogoClick = () => {
