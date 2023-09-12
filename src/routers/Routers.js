@@ -7,6 +7,7 @@ import CheckOut from '../pages/CheckOut'
 import Login from '../pages/Login'
 import ProductDetails from '../pages/ProductDetails'
 import SignUp from '../pages/SignUp'
+import LookBook from '../pages/LookBook'
 
 
 const Routers = () => {
@@ -19,6 +20,7 @@ const Routers = () => {
         <Route path='login' element={<Login/>}/>
         <Route path='signup' element={<SignUp/>}/>
         <Route path='shop/:id' element={<ProductDetails/>}/>
+        <Route path='lookbook' element={<LookBook/>}/>
     </Routes>
 };
 

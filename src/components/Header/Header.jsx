@@ -20,6 +20,10 @@ const navLinks = [
     path: 'cart',
     display: 'Cart',
   },
+  {
+    path: 'lookbook',
+    display: 'LookBook',
+  },
 ];
 
 const handleLogoClick = () => {

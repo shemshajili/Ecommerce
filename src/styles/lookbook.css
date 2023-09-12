@@ -1,0 +1,74 @@
+.lookbook1__img, .lookbook2__img, .lookbook3__img, .lookbook4__img {
+    display: flex;
+}
+
+.look1 {
+    width: 900px;
+    height: 600px;
+}
+
+.look2 {
+    width: 400px;
+    height: 600px;
+    margin-left: 10px;
+}
+
+.look3 {
+    width: 400px;
+    height: 600px;
+    margin-left: 10px;
+    margin-top: -100px !important;
+}
+
+.look4 {
+    width: 900px;
+    height: 600px;
+    margin-top: -100px !important;
+}
+
+.look5{
+    margin-top: -100px !important;
+}
+
+.look6 {
+    width: 350px;
+    height: 500px;
+    margin-left: 10px;
+    margin-top: -100px !important;
+}
+
+.look7 {
+    width: 350px;
+    height: 500px;
+    margin-top: -100px !important;
+}
+
+.look8 {
+    width: 350px;
+    height: 500px;
+    margin-top: -100px !important;
+}
+
+.lookbook1__img img, .lookbook2__img img, .lookbook3__img img, .lookbook4__img img {
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+    margin: 0 10px;
+    border-radius: 10px; 
+}
+
+.lookbook1__img img:hover, .lookbook2__img img:hover, .lookbook3__img img:hover, .lookbook4__img img:hover {
+    transform: scale(1.02); 
+    transition: transform 0.3s ease-in-out;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 10px; 
+}
+
+.lookbokk__text {
+    font-size: 24px;
+    font-weight: 500;
+    margin-top: 55px; 
+    color: #474747;
+    text-transform: uppercase;
+    margin-left: 15px;
+}
+
+
