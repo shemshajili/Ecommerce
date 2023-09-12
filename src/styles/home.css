@@ -129,5 +129,19 @@
   margin-left: 150px!important;
 }
 
+@media only screen and (max-width:992px){
+  .hero__content h2{
+    font-size: 2rem;
+  }
 
+}
 
+@media only screen and (max-width:576px){
+  .hero__content{
+    padding-top: 0;	
+    margin-bottom: 40px;
+  }  
+  .hero__content h2{
+    font-size: 1.8rem;
+  }
+}

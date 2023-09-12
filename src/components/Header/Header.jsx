@@ -34,7 +34,9 @@ const handleLogoClick = () => {
 };
 const Header = () => {
 
-  const headerRef =useRef(null)
+const headerRef =useRef(null)
+
+const menuRef=useRef(null)
 
   const stickyHeaderFunc=()=>{
     window.addEventListener('scroll',()=>{
@@ -50,7 +52,9 @@ const Header = () => {
     stickyHeaderFunc()
 
     return ()=> window.removeEventListener("scroll",stickyHeaderFunc)
-  })
+  });
+
+  const menuToggle=()=>menuRef.current.classList.toggle('nav__active')
 
   return (
     
@@ -67,7 +71,7 @@ const Header = () => {
                    <h1 onClick={handleLogoClick}>VogueVie</h1>
                 </div>
           </div>
-            <div className='navigation'>
+            <div className='navigation' ref={menuRef} onClick={menuToggle}>
             <ul className='menu'>
                 {navLinks.map((item, index) => (
                   <li className='nav__item' key={index}>
@@ -95,11 +99,11 @@ const Header = () => {
                 initial={{ marginTop: 0 }}
                 animate={{ marginTop: -20 }} src={userIcon} alt='' />
               </span>
-            </div>
-            <div className='bags_menu'>
-              <span>
+              <div className='bags_menu'>
+              <span onClick={menuToggle}>
                 <i className='ri-menu-line'></i>
               </span>
+            </div>
             </div>
           </div>
         </Row>
