@@ -5,7 +5,7 @@
 
 .about1, .about2, .about3 {
     width: 550px;
-    height: 350px;
+    height: 450px;
     border-radius: 10px;
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }

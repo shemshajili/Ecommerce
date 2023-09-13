@@ -28,6 +28,7 @@
 
 .look5{
     margin-top: -100px !important;
+    height: 500px;
 }
 
 .look6 {
@@ -78,6 +79,7 @@
     padding: 20px 0;
     position: relative;
     margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .lookbokk__text::before {
@@ -98,3 +100,17 @@
     transform-origin: bottom left;
 }
 
+.fetured__product {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  .fetured__product h2 {
+    font-size: 30px;
+    color: #333;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  
+  

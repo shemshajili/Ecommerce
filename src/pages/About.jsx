@@ -1,13 +1,16 @@
 import React from 'react';
 import '../styles/about.css';
 import { Container, Row } from 'reactstrap';
-import about1 from '../assets/images/about1.webp';
-import about2 from '../assets/images/about2.webp';
-import about3 from '../assets/images/about3.webp';
+import Helmet from '../components/Helmet/Helmet';
+import about1 from '../assets/images/Mlouye.jpeg';
+import about2 from '../assets/images/mlouye3.jpg';
+import about3 from '../assets/images/home1.jpg';
 
 const About = () => {
     return (
+        
         <div className="about__page">
+            <Helmet title={"About"} />
             <Container>
                 <div className="about__name">About</div>
                 <Row>

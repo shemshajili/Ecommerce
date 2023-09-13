@@ -57,6 +57,17 @@ import productImg27 from "../images/Sandal5.webp"
 
 import productImg28 from "../images/SandalBlack.webp"
 
+//Featured
+
+import productImg29 from "../images/featuredimg1.webp"
+
+import productImg30 from "../images/featured2.webp"
+
+import productImg31 from "../images/featured3.webp"
+
+import productImg32 from "../images/featured4.webp"
+
+
 // Creating an array named 'products' to store information about various products.
 const products = [
   // Bags
@@ -537,8 +548,75 @@ const products = [
     ],
     avgRating: 4.5,
   },
-
-
+  {
+    id: "29",
+    productName: "Brick",
+    imgUrl: productImg29,
+    category: "featured",
+    price:"$385",
+    shortDesc:
+      "A thong silhouette blending our signature pleated heels and chic toe straps.",
+    description:
+      "Inspired by the structural boxy form and shape of a brick, which lends its name, the bag is perfectly sized for your everyday essentials, from a large phone to your wallet and lipstick.",
+    reviews: [
+      {
+        rating: 4.7,
+      },
+    ],
+    avgRating: 4.5,
+  },
+  {
+    id: "30",
+    productName: "Sera Tote",
+    imgUrl: productImg30,
+    category: "featured",
+    price:"$556",
+    shortDesc:
+      "Mix of symmetry and fluid, clean lines, The Sera Tote is designed to complement any modern ensemble.",
+    description:
+      "Its exterior design is a surrealist dream, reminiscent of a maze-like structure protruding outwards, with sharp, clean lines, and a 3D façade. Opening the top handles reveals a suede drawstring top edge, securing your belongings on the go.",
+    reviews: [
+      {
+        rating: 4.7,
+      },
+    ],
+    avgRating: 4.5,
+  },
+  {
+    id: "31",
+    productName: "Mini Naomi Bag",
+    imgUrl: productImg31,
+    category: "featured",
+    price:"$556",
+    shortDesc:
+      "Mini Naomi Bag is perfectly proportioned for your essentials like a big-screen phone, cardholder, and lipstick.",
+    description:
+      "Mini Naomi Bag is perfectly proportioned for your essentials like a big-screen phone, cardholder, and lipstick. You can wear it around your waist or slung over one shoulder, and it comes with an extra shoulder strap, so you can also wear it crossbody.",
+    reviews: [
+      {
+        rating: 4.7,
+      },
+    ],
+    avgRating: 4.5,
+  },
+  {
+    id: "32",
+    productName: "Hobo Medium",
+    imgUrl: productImg32,
+    category: "featured",
+    price:"$446",
+    shortDesc:
+      "Versatile and minimally designed in a curved silhouette. Hobo is made from smooth Italian leather detailed with contrasting black leather trim.",
+    description:
+      "Versatile and minimally designed in a curved silhouette. Hobo is made from smooth Italian leather detailed with contrasting black leather trim. Sleek interior is lined in micro suede textile. The stud closure at the top keeps your belongings secure. It comes with a detachable pouch, which is perfect for securing smaller essentials. This medium sized version is large enough to hold all of your essentials, plus a book or tablet.",
+    reviews: [
+      {
+        rating: 4.7,
+      },
+    ],
+    avgRating: 4.5,
+  },
+  
 ];
 
 // Exporting the 'products' array to be used in other parts of the application.

@@ -31,6 +31,7 @@
     font-weight: 600px;
   }
   
+
   .hero__description {
     background-color: rgba(255, 255, 255, 0.5);
     padding: 5px;
@@ -50,6 +51,10 @@
     height: 100%;
     background: rgba(0, 0, 0, 0.7);
     pointer-events: none;
+  }
+
+  .home1{
+    height: 800px;
   }
 
   .custom-link {
@@ -115,7 +120,7 @@
 
 .refiry__logo-text {
   text-align: center;
-  font-size: 12px !important;
+  font-size: 15px !important;
   line-height: 2rem;
   color: #5b5b5a;
 }
@@ -124,12 +129,12 @@
   width: 150px !important;
   height: auto;
   margin-left: 0;
-  margin-top: -5px;
+  margin-top: -8px;
 }
 
 .cut__logo-text {
   text-align: center;
-  font-size: 12px !important	;
+  font-size: 15px !important	;
   line-height: 1.5;
   margin-left: 0;
   color: #5b5b5a;

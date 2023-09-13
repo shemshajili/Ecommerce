@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Helmet from '../components/Helmet/Helmet';
 import { Container, Row, Col } from 'reactstrap';
 import { Parallax, ParallaxLayer } from "@react-spring/parallax";
-import layer1 from '../assets/images/blueimg.webp';
+import layer1 from '../assets/images/mlouye2.jpeg';
 import '../styles/home.css';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
@@ -87,7 +87,6 @@ const Home = () => {
           </motion.button>
         </ParallaxLayer>
       </Parallax>
-
       <Services />
       <section className="trending__products">
         <Container>
@@ -130,13 +129,13 @@ const Home = () => {
     <div className="refiry__logo">
       <img src={logoImg} alt="" />
       <div className="refiry__logo-text">
-        " The leather is sourced from environmentally friendly tanneries in Italy,<br></br>France, and Turkey, where Rure is based and everything is assembled hand. "
+        " What it takes to make an eco-friendly handbag."
       </div>
     </div>
     <div className="cut__logo">
       <img src={cutImg} alt="" />
       <div className="cut__logo-text">
-       " All too often, we're forced to pick: style, or sustainability. Recently,<br></br>more designers have been making environmental impact a top priority. "
+       " This bag is going to be everywhere soon. "
       </div>
     </div>
   </div>
