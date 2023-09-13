@@ -57,17 +57,37 @@ const [tab,setTab] = useState('desc');
                                 {
                                     tab==='desc' ?  <div className="tab__content mt-5">
                                                         <p>{description}</p>
-                                                    </div>:<div className='product__review'>
+                                                    </div>:<div className='product__review mt-5'>
                                                         <div className="review__wrapper">
                                                             <ul>
                                                                 {
-                                                                    reviews.map((item,index)=>(
-                                                                        <li><span>{item.rating}</span>
-                                                                        <p>{text}</p>
+                                                                    reviews?.map((item,index)=>(
+                                                                        <li key={index} className='mb-4'>
+                                                                            <h6>Jhon Doe</h6>
+                                                                        <span>{item.rating} ( rating)</span>
+                                                                        <p>{ImageBitmapRenderingContext.text}</p>
                                                                         </li>
                                                                     ))
                                                                 }
                                                             </ul>
+                                                            <div className="review__form">
+                                                                <h4>Live your experience</h4>
+                                                                <form action=''>
+                                                                    <div className="form__group">
+                                                                            <input type="text" placeholder='Enter name' />
+                                                                    </div>
+                                                                        <div className="form__group">
+                                                                            <span>1<i class="ri-star-fill"></i></span>
+                                                                            <span>2<i class="ri-star-fill"></i></span>
+                                                                            <span>3<i class="ri-star-fill"></i></span>
+                                                                            <span>4<i class="ri-star-fill"></i></span>
+                                                                            <span>5<i class="ri-star-fill"></i></span>
+                                                                        </div>
+                                                                        <div className="form__group">
+                                                                            <input type="text" placeholder='Review Message..' />
+                                                                        </div>
+                                                                </form>
+                                                            </div>
                                                         </div>
                                                     </div>
                                 }

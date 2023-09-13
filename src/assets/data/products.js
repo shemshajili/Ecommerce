@@ -66,6 +66,7 @@ import productImg30 from "../images/featured2.webp"
 import productImg31 from "../images/featured3.webp"
 
 import productImg32 from "../images/featured4.webp"
+import { ListGroupItem } from "reactstrap";
 
 
 // Creating an array named 'products' to store information about various products.
@@ -100,6 +101,7 @@ const products = [
       "“Stormi is Objet d'art with its unique and sculptural design inspired by nature’s favorite form - swirl. It is the form of constant movement and transmitting energy from galactic scales to the double helix structure of DNA. To make this project happen, we went through a challenging development and used new techniques never used in the industry previously.” says Meb Rure, Creative Director at Mlouye.",
     reviews: [
       {
+        
         rating: 4.7,
       },
     ],

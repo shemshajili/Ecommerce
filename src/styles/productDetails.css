@@ -96,3 +96,11 @@
     color:#333;
 }
 
+.review__wrapper ul li span{
+     color: #f08800;
+     font-weight: 600;
+}
+
+.review__wrapper ul li p{
+    margin-top: 10px;
+}
