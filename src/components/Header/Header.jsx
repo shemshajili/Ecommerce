@@ -1,11 +1,12 @@
 import React, {useRef,useEffect} from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink,useNavigate } from 'react-router-dom';
 import { Container, Row } from 'reactstrap';
 import './Header.css';
 import logo from '../../assets/images/eco-logo.png';
 import userIcon from '../../assets/images/usericon1.png';
 import { motion } from 'framer-motion';
 import { useSelector } from 'react-redux';
+
 
 const navLinks = [
   {
@@ -35,6 +36,7 @@ const headerRef =useRef(null)
 const totalQuantity=useSelector(state=>state.cart.totalQuantity)
 
 const menuRef=useRef(null)
+const navigate=useNavigate()
 
   const stickyHeaderFunc=()=>{
     window.addEventListener('scroll',()=>{
@@ -53,7 +55,9 @@ const menuRef=useRef(null)
   });
 
   const menuToggle=()=>menuRef.current.classList.toggle('nav__active')
-
+  const navigateToCart=()=>{
+      navigate('/cart')
+   }
   return (
     
     <header className='header' ref={headerRef}>
@@ -87,7 +91,7 @@ const menuRef=useRef(null)
                 <i className='ri-heart-3-line'></i>
                 <span className='badge'>1</span>
               </span>
-              <span className='cart__icon'>
+              <span className='cart__icon ' onClick={navigateToCart}>
                 <i className='ri-shopping-bag-line'></i>
                 <span className='badge'>{totalQuantity}</span>
               </span>

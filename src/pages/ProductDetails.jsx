@@ -67,6 +67,8 @@ const ProductDetails = () => {
     // console.log(reviewObj) Check
 
     // console.log(reviewUserName,reviewMsg,rating) CHECK
+
+    toast.success('Review submitted')
   }
 
   const addToCart=()=>{
@@ -169,7 +171,7 @@ const ProductDetails = () => {
                       <h4>Live your experience</h4>
                       <form action="" onSubmit={submitHandler}>
                         <div className="form__group">
-                          <input type="text" placeholder="Enter name" ref={reviewUser} />
+                          <input type="text" placeholder="Enter name" ref={reviewUser} required/>
                         </div>
                         <div className="form__group d-flex star-group">
                           <motion.span whileTap={{ scale: 1.2 }} onClick={() => setRating(1)}>
@@ -190,7 +192,8 @@ const ProductDetails = () => {
                         </div>
 
                         <div className="form__group">
-                          <textarea ref={reviewMsg} rows={4} type="text" placeholder="Review Message.." />
+                          <textarea ref={reviewMsg} rows={4} type="text" placeholder="Review Message.." 
+                          required/>
                         </div>
                         <motion.button whileTap={{ scale: 1.2 }} type='submit' className="buy__btn">Submit</motion.button>
                       </form>

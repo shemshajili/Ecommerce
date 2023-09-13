@@ -30,6 +30,7 @@ const Home = () => {
         }
     }
 }, []);
+
   const [data, setData] = useState([]);
 
   useEffect(() => {
