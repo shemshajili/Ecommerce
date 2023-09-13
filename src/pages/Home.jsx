@@ -16,6 +16,20 @@ import logoImg from '../assets/images/RefinerLogo.webp'
 import cutImg from '../assets/images/TheCutLogo.webp'
 
 const Home = () => {
+
+  useEffect(() => {
+        
+    window.scroll(0, 0);
+    
+    // sehifenin basa getmesi ucun kod
+    const hash = window.location.hash;
+    if (hash) {
+        const targetElement = document.querySelector(hash);
+        if (targetElement) {
+            targetElement.scrollIntoView({ behavior: 'smooth' });
+        }
+    }
+}, []);
   const [data, setData] = useState([]);
 
   useEffect(() => {

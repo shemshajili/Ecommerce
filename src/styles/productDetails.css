@@ -180,7 +180,6 @@
     margin-right: 5px;
     color: #f66714;
     cursor: pointer;
-    column-gap: 20px;
     display: flex;
   }
   
@@ -204,6 +203,22 @@
     margin-top: 70px;
   }
 
+  .ri-star-fill{
+    font-size: 13px !important;
+  }
 
+  .form__group span{
+    font-size: 13px !important;
+  }
+
+  .star-group {
+    display: flex;
+    align-items: center;
+    gap: 20px; 
+  }
+  
+  .star-group i {
+    vertical-align: middle;
+  }
   
   
