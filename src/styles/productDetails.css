@@ -104,3 +104,83 @@
 .review__wrapper ul li p{
     margin-top: 10px;
 }
+.Container {
+    max-width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  
+  .tab__wrapper {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    background-color: #f0f0f0;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  
+  .active__tab {
+    font-weight: bold;
+    color: #007bff;
+    cursor: pointer;
+  }
+  
+  .tab__content {
+    margin-top: 20px;
+  }
+  
+  .review__wrapper {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 5px;
+  }
+  
+  .review__wrapper ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .review__wrapper li {
+    margin-bottom: 20px;
+  }
+  
+  .review__form {
+    margin-top: 20px;
+  }
+  
+  .review__form h4 {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .form__group {
+    margin-bottom: 15px;
+  }
+  
+  .form__group input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .form__group span {
+    font-size: 20px;
+    margin-right: 5px;
+    color: #ffc107;
+    cursor: pointer;
+  }
+  
+  .submit__button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .submit__button:hover {
+    background-color: #0056b3;
+  }
+  
