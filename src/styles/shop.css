@@ -50,6 +50,19 @@
     transform: translateY(-50%);
     cursor: pointer;
   }
+
+  select:focus {
+    background-color: #fff; 
+    outline: none;
+    border-color: #ccc;
+    cursor: pointer;
+}
+  input:focus {
+  outline: none;
+  border-color: #ccc;
+  cursor: pointer;
+}
+
   
   .search__box i {
     font-size: 20px;
