@@ -3,8 +3,9 @@ import { Container, Row, Col } from 'reactstrap';
 import { useParams } from 'react-router-dom';
 import products from '../assets/data/products';
 import Helmet from '../components/Helmet/Helmet';
-import CommonSection from '../components/UI/CommonSection';
 import '../styles/productDetails.css';
+import ProductsList from '../components/UI/ProductsList';
+import CommonSection from '../components/UI/CommonSection'
 
 const ProductDetails = () => {
   const { id } = useParams();
@@ -18,43 +19,47 @@ const ProductDetails = () => {
     reviews,
     description,
     shortDesc,
+    category
   } = product;
 
+  const relatedProducts=products.filter(item=> item.category===category)
+
   const [tab, setTab] = useState('desc');
+  const [rating,setRating]=useState()
 
   return (
     <Helmet title={productName}>
-      <CommonSection title={productName} />
+        <CommonSection tittle={productName}/>
       <section className="pt-0">
         <Container>
           <Row>
             <Col lg="6">
-              <img className="img" src={imgUrl} alt="" />
+            <img className="img" src={imgUrl} alt="" />
             </Col>
             <Col lg="6">
               <div className="product__details">
                 <h2>{productName}</h2>
                 <div className="product__rating">
                   <div>
-                    <span>
+                    <span onClick={()=>setRating(1)}>
                       <i className="ri-star-s-fill"></i>
                     </span>
-                    <span>
+                    <span onClick={()=>setRating(2)}>
                       <i className="ri-star-s-fill"></i>
                     </span>
-                    <span>
+                    <span onClick={()=>setRating(3)}>
                       <i className="ri-star-s-fill"></i>
                     </span>
-                    <span>
+                    <span onClick={()=>setRating(4)}>
                       <i className="ri-star-s-fill"></i>
                     </span>
-                    <span>
+                    <span onClick={()=>setRating(5)}>
                       <i className="ri-star-half-s-line"></i>
                     </span>
                   </div>
                   <p>({avgRating} ratings)</p>
                 </div>
-                <span>{price}</span>
+                <span className='price'>{price}</span>
                 <p className="short__desc">{shortDesc}</p>
                 <button className="buy__btn">Add to Cart</button>
               </div>
@@ -104,7 +109,7 @@ const ProductDetails = () => {
                         <div className="form__group">
                           <input type="text" placeholder="Enter name" />
                         </div>
-                        <div className="form__group">
+                        <div className="form__group d-flex ">
                           <span>1<i className="ri-star-fill"></i></span>
                           <span>2<i className="ri-star-fill"></i></span>
                           <span>3<i className="ri-star-fill"></i></span>
@@ -112,14 +117,19 @@ const ProductDetails = () => {
                           <span>5<i className="ri-star-fill"></i></span>
                         </div>
                         <div className="form__group">
-                          <input type="text" placeholder="Review Message.." />
+                          <textarea rows={4} type="text" placeholder="Review Message.." />
                         </div>
+                        <button type='submit' className="buy__btn">Submit</button>
                       </form>
                     </div>
                   </div>
                 </div>
               )}
             </Col>
+            <Col lg='12'>
+                <h2 className="related__title">You might also like</h2>
+            </Col>
+            <ProductsList data={relatedProducts}/>
           </Row>
         </Container>
       </section>
