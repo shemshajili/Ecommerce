@@ -113,4 +113,41 @@
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
   }
   
+  @media screen and (max-width: 768px) {
+    .look1,
+    .look4 {
+        width: 100%;
+        height: auto;
+    }
+
+    .look2,
+    .look3,
+    .look5,
+    .look6,
+    .look7,
+    .look8 {
+        width: 100%;
+        height: auto;
+        margin-left: 0;
+    }
+
+    .lookbook1__img,
+    .lookbook2__img,
+    .lookbook3__img,
+    .lookbook4__img {
+        flex-direction: column;
+    }
+
+    .lookbook1__img img,
+    .lookbook2__img img,
+    .lookbook3__img img,
+    .lookbook4__img img {
+        margin: 10px 0; 
+    }
+
+    .fetured__product {
+        flex-direction: column;
+    }
+}
+  
   
