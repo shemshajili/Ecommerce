@@ -63,7 +63,7 @@ const [tab,setTab] = useState('desc');
                                                                 {
                                                                     reviews.map((item,index)=>(
                                                                         <li><span>{item.rating}</span>
-                                                                        
+                                                                        <p>{text}</p>
                                                                         </li>
                                                                     ))
                                                                 }
