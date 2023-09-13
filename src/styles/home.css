@@ -155,15 +155,44 @@
   .hero__content h2{
     font-size: 1.8rem;
   }
-}
-
-@media (min-width: 768px) and (max-width: 1023px)  {
   .marka__logo {
     display: block;
     flex-direction: column;
     align-items: center;
   }
 
+  .refiry__logo,
+  .cut__logo {
+    text-align: center;
+    margin-bottom: 60px;
+  }
+
+  .refiry__logo img {
+    width: 250px;;
+    height: auto;
+  }
+
+  .refiry__logo-text {
+    text-align: center;
+    font-size: 12px;
+    line-height: 1.5;
+  }
+
+  .cut__logo img {
+    width: 170px;
+    height: auto;
+    margin-left: 0;
+  }
+
+  .cut__logo-text {
+    text-align: center;
+    font-size: 12px;
+    line-height: 1.5;
+    margin-left: 0;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px)  {
   .refiry__logo,
   .cut__logo {
     text-align: center;
