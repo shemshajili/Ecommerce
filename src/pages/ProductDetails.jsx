@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,useRef } from 'react';
 import { Container, Row, Col } from 'reactstrap';
 import { useParams } from 'react-router-dom';
 import products from '../assets/data/products';
@@ -6,9 +6,16 @@ import Helmet from '../components/Helmet/Helmet';
 import '../styles/productDetails.css';
 import ProductsList from '../components/UI/ProductsList';
 import CommonSection from '../components/UI/CommonSection'
+import { useDispatch } from 'react-redux';
+import { cartActions } from '../redux/slices/cartSlice';
+import { toast } from 'react-toastify';
 
 const ProductDetails = () => {
   const { id } = useParams();
+  const reviewUser=useRef('')
+  const reviewMsg=useRef('')
+  const dispstch=useDispatch()
+
   const product = products.find((item) => item.id === id);
 
   const {
@@ -23,6 +30,23 @@ const ProductDetails = () => {
   } = product;
 
   const relatedProducts=products.filter(item=> item.category===category)
+
+  const submitHandler=(e)=>{
+    e.preventDefault()
+
+    const reviewUserName=reviewUser.current.value
+    const reviewUserMsg=reviewMsg.current.value
+  }
+
+  const addToCart=()=>{
+    dispstch(cartActions.addItem({
+        id,
+        image:imgUrl,
+        productName,
+        price
+    }))
+    toast.success('Product added successfully!')
+  }
 
   const [tab, setTab] = useState('desc');
   const [rating,setRating]=useState()
@@ -59,9 +83,12 @@ const ProductDetails = () => {
                   </div>
                   <p>({avgRating} ratings)</p>
                 </div>
+                <div className='d-flex align-items-center gap-5'>
                 <span className='price'>{price}</span>
+                    <span className='categry__name'>Category:{category}</span>
+                </div>
                 <p className="short__desc">{shortDesc}</p>
-                <button className="buy__btn">Add to Cart</button>
+                <button className="buy__btn" onClick={addToCart}>Add to Cart</button>
               </div>
             </Col>
           </Row>
@@ -105,9 +132,9 @@ const ProductDetails = () => {
                     </ul>
                     <div className="review__form">
                       <h4>Live your experience</h4>
-                      <form action="">
+                      <form action="" onSubmit={submitHandler}>
                         <div className="form__group">
-                          <input type="text" placeholder="Enter name" />
+                          <input type="text" placeholder="Enter name" ref={reviewUser} />
                         </div>
                         <div className="form__group d-flex ">
                           <span>1<i className="ri-star-fill"></i></span>
@@ -117,7 +144,7 @@ const ProductDetails = () => {
                           <span>5<i className="ri-star-fill"></i></span>
                         </div>
                         <div className="form__group">
-                          <textarea rows={4} type="text" placeholder="Review Message.." />
+                          <textarea ref={reviewMsg} rows={4} type="text" placeholder="Review Message.." />
                         </div>
                         <button type='submit' className="buy__btn">Submit</button>
                       </form>
