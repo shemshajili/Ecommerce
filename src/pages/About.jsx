@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import '../styles/about.css';
 import { Container, Row } from 'reactstrap';
 import Helmet from '../components/Helmet/Helmet';
@@ -7,12 +7,25 @@ import about2 from '../assets/images/mlouye3.jpg';
 import about3 from '../assets/images/home1.jpg';
 
 const About = () => {
-    return (
+    useEffect(() => {
         
+        window.scroll(0, 0);
+        
+        // sehifenin basa getmesi ucun kod
+        const hash = window.location.hash;
+        if (hash) {
+            const targetElement = document.querySelector(hash);
+            if (targetElement) {
+                targetElement.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+    }, []);
+
+    return (
         <div className="about__page">
             <Helmet title={"About"} />
             <Container>
-                <div className="about__name">About</div>
+                <div className="about__name" id="about__name">About</div>
                 <Row>
                     <section className='about__img'>
                         <img className='about1' src={about1} alt="" />
@@ -34,7 +47,7 @@ const About = () => {
                 </Row>
             </Container>
         </div>
-    )
+    );
 }
 
 export default About;

@@ -14,6 +14,19 @@ import look7 from '../assets/images/LookBook9.webp'
 import look8 from '../assets/images/LookBook2.webp'
 
 const LookBook = () => {
+    useEffect(() => {
+        
+        window.scroll(0, 0);
+        
+        // sehifenin basa getmesi ucun kod
+        const hash = window.location.hash;
+        if (hash) {
+            const targetElement = document.querySelector(hash);
+            if (targetElement) {
+                targetElement.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+    }, []);
     const [data, setData] = useState([]);
     const [featuredProducts, setFeaturedProducts] = useState([]);
 

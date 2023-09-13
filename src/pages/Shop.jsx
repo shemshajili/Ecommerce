@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React,{useState,useEffect} from 'react';
 import CommonSection from '../components/UI/CommonSection';
 import Helmet from '../components/Helmet/Helmet'
 import { Container,Row,Col } from 'reactstrap';
@@ -7,7 +7,19 @@ import products from '../assets/data/products'
 import ProductList from '../components/UI/ProductsList'
 
 const Shop = () => {
-
+    useEffect(() => {
+        
+        window.scroll(0, 0);
+        
+        // sehifenin basa getmesi ucun kod
+        const hash = window.location.hash;
+        if (hash) {
+            const targetElement = document.querySelector(hash);
+            if (targetElement) {
+                targetElement.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+    }, []);
     const [productsData,setProductsData]=useState(products)
     const handleFilter= e=>{
         const filterValue=e.target.value
