@@ -31,8 +31,16 @@
 .table tbody td i:hover {
     color: darkred;
 }
+.noitems{
+    text-align: center !important;
+    margin-left: 300px;
+}
 
 @media (max-width: 418px) {
+    .noitems {
+        text-align: center !important;
+        margin-left: 0;
+    }
     .table td, .table th {
         display: block;
         text-align: center;
@@ -50,3 +58,17 @@
         text-align: center;
     }
 }
+
+@media (max-width: 768px){
+    .noitems {
+        text-align: center !important;
+        margin-left: 0;
+    }
+}
+@media (max-width: 956px){
+    .noitems {
+        text-align: center !important;
+        margin-left: 0;
+    }
+}
+

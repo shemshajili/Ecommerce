@@ -31,7 +31,7 @@ const Cart = () => {
                 <Container>
                     <Row>
                         <Col lg='9'>
-                            { cartItems.length === 0 ?( <h2 className='fs-4 text-center'>No item added to the
+                            { cartItems.length === 0 ?( <h2 className='noitems'>No item added to the
                                  cart</h2>):(
                                         <table className='table bordered'>
                                           <thead>
@@ -53,7 +53,6 @@ const Cart = () => {
                                          </tbody>
                                      </table>
                                 )
-                               
                             }
                         </Col>
                         <Col lg='3'>
