@@ -27,7 +27,7 @@ const Cart = () => {
 
     return (
         <Helmet title="Cart">
-            <CommonSection title="Shopping Cart" />
+            <CommonSection tittle={"Shopping Cart"}/>
             <section>
                 <Container>
                     <Row>
