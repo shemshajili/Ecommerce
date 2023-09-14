@@ -17,6 +17,7 @@ import home3 from '../assets/images/home3.jpeg';
 import '../styles/home.css';
 import logoImg from '../assets/images/RefinerLogo.webp'
 import cutImg from '../assets/images/TheCutLogo.webp'
+import victryIMg from '../assets/images/victoryimg.jpg'
 
 const Home = () => {
 
@@ -36,10 +37,30 @@ const Home = () => {
     }
 }, []);
 
-  const [data, setData] = useState([]);
+  // const [data, setData] = useState([]);
+
+  // useEffect(() => {        productlari getirme
+  //   setData(products);
+  // }, []);
+
+  const [data1,setData] = useState([]);
+  const [shoesHomeProducts, setShoesProducts] = useState([]);
 
   useEffect(() => {
-    setData(products);
+      setData(products);
+
+      const shoesHome = products.filter(product => product.category === 'shoesHome');
+      setShoesProducts(shoesHome);
+  }, []);
+
+  const [data,setData1] = useState([]);
+  const [bagsHomeProducts, setBagProducts] = useState([]);
+
+  useEffect(() => {
+      setData1(products);
+
+      const bagHome = products.filter(product => product.category === 'bagHome');
+      setBagProducts(bagHome);
   }, []);
 
   return (
@@ -139,7 +160,9 @@ const Home = () => {
             </Col>
           </Row>
           <Row>
-            <ProductsList data={data} />
+            {/* <ProductsList data={data} />      productlar getirmek */}
+            <ProductsList data={shoesHomeProducts} />
+            <ProductsList data={bagsHomeProducts} />
           </Row>
         </Container>
       </section>
@@ -179,8 +202,16 @@ const Home = () => {
       <div className="cut__logo-text">
        " This bag is going to be everywhere soon. "
       </div>
-       </div>
+    </div>
       </div>
+    </section>
+    <section>
+      <Row>
+        <div className="image-container">
+          <img src={victryIMg} alt="" />
+          <div className="overlay-text">VogueVia</div>
+        </div>
+      </Row>
     </section>
     </div>
   );

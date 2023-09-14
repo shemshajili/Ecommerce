@@ -76,7 +76,7 @@ const products = [
     id: "01",
     productName: "Convertible Teddy Bag - Gummy ",
     imgUrl: productImg01,
-    category: "bag",
+    category: "bagHome",
     price:"$889.00",
     shortDesc:
       "Reminiscent of a teddy bear, the convertible style has a flap magnetic closure, comes with a detachable strap that allows multiple carrying options; backpack, crossbody or as a top handle bag.",
@@ -93,7 +93,7 @@ const products = [
     id: "02",
     productName: "Stormi - Cognac ",
     imgUrl: productImg02,
-    category: "bag",
+    category: "bagHome",
     price:"$941.00",
     shortDesc:
       "“Stormi is Objet d'art with its unique and sculptural design inspired by nature’s favorite form - swirl.",
@@ -111,7 +111,7 @@ const products = [
     id: "03",
     productName: "Atlas - Jade ",
     imgUrl: productImg03,
-    category: "bag",
+    category: "bagHome",
     price:"$906.00",
     shortDesc:
       "Our new Atlas is the representation of kaleidoscope patterns put into a symmetrical geometry to create a mesmerizing mirrored effect on the bag.",
@@ -128,7 +128,7 @@ const products = [
     id: "04",
     productName: "Mini Flex Bag - Gummy",
     imgUrl: productImg04,
-    category: "bag",
+    category: "bagHome",
     price:"$682.00",
     shortDesc:
       "Our architectural, origami-inspired Flex Bag is now available in mini size.",
@@ -435,7 +435,7 @@ const products = [
     id: "22",
     productName: "Puffy Sandal - Pink Cloud",
     imgUrl: productImg22,
-    category: "shoes",
+    category: "shoesHome",
     price:"$751.00",
     shortDesc:
       "Made from super soft nappa like our Puff clutches, they're set on our signature pleated heels.",
@@ -452,7 +452,7 @@ const products = [
     id: "23",
     productName: "Thong Sandal - White",
     imgUrl: productImg23,
-    category: "shoes",
+    category: "shoesHome",
     price:"$596.00",
     shortDesc:
       "A thong silhouette blending our signature pleated heels and chic toe straps.",
@@ -469,7 +469,7 @@ const products = [
     id: "24",
     productName: "Pleated Heel Mule - Multicolor",
     imgUrl: productImg24,
-    category: "shoes",
+    category: "shoesHome",
     price:"$855.00",
     shortDesc:
       "The Pleated Heel Mules take a cue from our iconic Pleated Lantern Bag, but this time, reimagining pleats using solid oak. Features a square toe and a padded insole for extra comfort.",
@@ -486,7 +486,7 @@ const products = [
     id: "25",
     productName: "Louise Heeled Slide - Multicolor",
     imgUrl: productImg25,
-    category: "shoes",
+    category: "shoesHome",
     price:"$751.00",
     shortDesc:
       "Our experimentation with texture continues. Elevated sense of design and craftsmanship manifests in our Italian-made Louise sandals.",
