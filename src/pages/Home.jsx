@@ -11,11 +11,16 @@ import ProductsList from '../components/UI/ProductsList';
 import products from '../assets/data/products';
 import mainImg from '../assets/images/LookBook12.webp';
 import mainImg2 from '../assets/images/LookBook11.webp';
+import home1 from '../assets/images/home1.jpeg';
+import home2 from '../assets/images/home2.jpeg';
+import home3 from '../assets/images/home3.jpeg';
 import '../styles/home.css';
 import logoImg from '../assets/images/RefinerLogo.webp'
 import cutImg from '../assets/images/TheCutLogo.webp'
 
 const Home = () => {
+
+
 
   useEffect(() => {
         
@@ -103,6 +108,28 @@ const Home = () => {
         </ParallaxLayer>
       </Parallax>
       <Services />
+      <Row>
+        <section className='home__img'>
+          <div className='image-container'>
+            <Link to="/shop">
+              <img className='home1' src={home1} alt="" />
+              <div className='image-text'>Tedy-Gummy</div>
+            </Link>
+          </div>
+          <div className='image-container'>
+            <Link to="/shop">
+              <img className='home2' src={home2} alt="" />
+              <div className='image-text'>Mini Flex</div>
+            </Link>
+          </div>
+          <div className='image-container'>
+            <Link to="/shop">
+              <img className='home3' src={home3} alt="" />
+              <div className='image-text'>Atlas-Jade</div>
+            </Link>
+          </div>
+        </section>
+      </Row>
       <section className="trending__products">
         <Container>
           <Row>
@@ -139,10 +166,10 @@ const Home = () => {
           </div>
         </Container>
       </section>
-<section>
-  <div className="marka__logo">
-    <div className="refiry__logo">
-      <img src={logoImg} alt="" />
+    <section>
+     <div className="marka__logo">
+       <div className="refiry__logo">
+            <img src={logoImg} alt="" />
       <div className="refiry__logo-text">
         " What it takes to make an eco-friendly handbag."
       </div>
@@ -152,9 +179,9 @@ const Home = () => {
       <div className="cut__logo-text">
        " This bag is going to be everywhere soon. "
       </div>
-    </div>
-  </div>
-</section>
+       </div>
+      </div>
+    </section>
     </div>
   );
 }

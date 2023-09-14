@@ -25,6 +25,10 @@ const navLinks = [
     path: 'lookbook',
     display: 'LookBook',
   },
+  {
+    path: 'about',
+    display: 'About',
+  },
 ];
 
 const handleLogoClick = () => {
