@@ -6,9 +6,11 @@ import { Container, Row, Col } from "reactstrap"
 import { motion } from 'framer-motion';
 import { cartActions } from '../redux/slices/cartSlice'
 import { useSelector, useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 const Cart = () => {
-    const cartItems = useSelector(state => state.cart.cartItems);
+    const cartItems = useSelector((state) => state.cart.cartItems);
+    const totalAmount=useSelector((state)=>state.cart.totalAmount);
 
     useEffect(() => {
         
@@ -56,6 +58,15 @@ const Cart = () => {
                             }
                         </Col>
                         <Col lg='3'>
+                            <div>
+                                <h6>Subtotal</h6>
+                                <span>${totalAmount}</span>
+                            </div>
+                            <p>taxes and shipping will calculate in checkout</p>
+                            <div>
+                                <button className="buy__btn"><Link to='/shop'>Continue Shopping</Link></button>
+
+                                <button className="buy__btn"><Link to='/checkout'>CheckOut</Link></button>                            </div>
                         </Col>
                     </Row>
                 </Container>
@@ -75,7 +86,7 @@ const Tr =({item})=>{
     return   <tr >
     <td><img src={item.imgUrl} alt="" /></td>
     <td>{item.productName}</td>
-    <td>${item.price}</td>
+    <td>{item.price}</td>
     <td>{item.quantity}px</td>
     <td>
         <motion.i whileHover={{scale:1.2}}
