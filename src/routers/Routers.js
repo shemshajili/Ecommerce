@@ -9,6 +9,7 @@ import ProductDetails from '../pages/ProductDetails'
 import SignUp from '../pages/SignUp'
 import LookBook from '../pages/LookBook'
 import About from '../pages/About'
+import ProtectedRoute from './protectedRoute'
 
 
 const Routers = () => {
@@ -17,7 +18,9 @@ const Routers = () => {
         <Route path='home' element={<Home/>}/>
         <Route path='shop' element={<Shop/>}/>
         <Route path='cart' element={<Cart/>}/>
-        <Route path='checkout' element={<CheckOut/>}/>
+        <Route path='checkout' element={<ProtectedRoute>
+            <CheckOut/>
+        </ProtectedRoute>}/>
         <Route path='login' element={<Login/>}/>
         <Route path='signup' element={<SignUp/>}/>
         <Route path='shop/:id' element={<ProductDetails/>}/>

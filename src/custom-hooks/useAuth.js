@@ -1,5 +1,5 @@
 import {useState,useEffect} from 'react';
-import {onAuthStateChange} from 'firebase/auth'
+import {onAuthStateChanged} from 'firebase/auth'
 import {auth} from '../firebase.config'
 
 const UseAuth = () => {
@@ -7,7 +7,7 @@ const UseAuth = () => {
     const [currentUser,setCurretUser]=useState({})
 
     useEffect(()=>{
-        onAuthStateChange(auth,(user)=>{
+        onAuthStateChanged(auth,(user)=>{
             if(user){
                 setCurretUser(user)
             }
