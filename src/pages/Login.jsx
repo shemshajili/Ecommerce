@@ -7,6 +7,7 @@ import '../styles/login.css'
 const Login = () => {
 
     const [email,setEmail]=useState('')
+    const [password,setPassword]=useState('')
 
     return <Helmet title='Login'>
         <section>
@@ -17,13 +18,15 @@ const Login = () => {
 
                         <Form className='auth__form'>
                             <FormGroup className='form__group'>
-                                <input type="email" placeholder='Enter your email' />
+                                <input type="email" placeholder='Enter your email'
+                                 value={email} onClick={e=>setEmail(e.target.value)} />
                             </FormGroup>
                             <FormGroup className='form__group'>
-                                <input type="password" placeholder='Enter your password' />
+                                <input type="password" placeholder='Enter your password'
+                                value={password} onClick={e=>setPassword(e.target.value)} />
                             </FormGroup>
 
-                            <button className='buy__btn auth__btn'>Login</button>
+                            <button type='submit' className='buy__btn auth__btn'>Login</button>
                             <p>Don't have an account? <Link to='/signup'>Create an account</Link></p>
                         </Form>
                     </Col>
