@@ -6,6 +6,8 @@ import logo from '../../assets/images/eco-logo.png';
 import userIcon from '../../assets/images/usericon1.png';
 import { motion } from 'framer-motion';
 import { useSelector } from 'react-redux';
+import useAuth from '../../custom-hooks/useAuth'
+import { Link } from 'react-router-dom';
 
 
 const navLinks = [
@@ -34,13 +36,16 @@ const navLinks = [
 const handleLogoClick = () => {
   window.location.href = '/';
 };
+
 const Header = () => {
 
 const headerRef =useRef(null)
 const totalQuantity=useSelector((state)=>state.cart.totalQuantity)
+// const profileAction
 
 const menuRef=useRef(null)
 const navigate=useNavigate()
+const {currentUser}=useAuth()
 
   const stickyHeaderFunc=()=>{
     window.addEventListener('scroll',()=>{
@@ -60,6 +65,7 @@ const navigate=useNavigate()
 
   const menuToggle=()=>menuRef.current.classList.toggle('nav__active')
   const navigateToCart=()=>{navigate('/cart')}
+
   return (
     
     <header className='header' ref={headerRef}>
@@ -97,12 +103,21 @@ const navigate=useNavigate()
                 <i className='ri-shopping-bag-line'></i>
                 <span className='badge'>{totalQuantity}</span>
               </span>
-              <span>
+              <div className='profile'>
                 <motion.img
                 whileTap={{ scale: 1.2 }}
                 initial={{ marginTop: 0 }}
-                animate={{ marginTop: -20 }} src={userIcon} alt='' />
-              </span>
+                animate={{ marginTop: -20 }} src={ currentUser? currentUser.photoURL:userIcon} alt='' />
+                
+                <div className="profile__actions">
+                  {
+                    currentUser? <span>Logout</span>:<div>
+                      <Link to='/signup'>Signup</Link>
+                      <Link to='/login'>Login</Link>
+                    </div>
+                  }
+                </div>
+              </div>
               <div className='bags_menu'>
               <span onClick={menuToggle}>
                 <i className='ri-menu-line'></i>
