@@ -64,7 +64,7 @@ const ProductDetails = () => {
       rating,
     };
 
-    // console.log(reviewObj) Check
+    // console.log(reviewObj)
 
     // console.log(reviewUserName,reviewMsg,rating) CHECK
 

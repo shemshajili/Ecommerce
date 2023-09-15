@@ -66,7 +66,7 @@ import productImg30 from "../images/featured2.webp"
 import productImg31 from "../images/featured3.webp"
 
 import productImg32 from "../images/featured4.webp"
-import { ListGroupItem } from "reactstrap";
+
 
 
 // Creating an array named 'products' to store information about various products.

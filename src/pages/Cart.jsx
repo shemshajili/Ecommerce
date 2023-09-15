@@ -33,29 +33,26 @@ const Cart = () => {
                 <Container>
                     <Row>
                         <Col lg='9'>
-                            { cartItems.length === 0 ?( <h2 className='noitems'>No item added to the
-                                 cart</h2>):(
-                                        <table className='table bordered'>
-                                          <thead>
-                                                 <tr>
-                                                     <th>Image</th>
-                                                     <th>Title</th>
-                                                     <th>Price</th>
-                                                     <th>Qty</th>
-                                                     <th >Delete</th>
-                                                 </tr>
+                            { cartItems.length === 0 ?(
+                                 <h2 className='noitems'>No item added to the cart</h2>
+                                 ):(
+                                <table className='table bordered'>
+                                    <thead>
+                                            <tr>
+                                                <th>Image</th>
+                                                <th>Title</th>
+                                                <th>Price</th>
+                                                <th>Qty</th>
+                                                <th >Delete</th>
+                                            </tr>
                                          </thead>
-     
-                                         <tbody>
-                                                {
-                                                 cartItems.map((item,index)=>(
-                                                    <Tr item={item} key={index}/>
-                                                 ))
-                                                }
-                                         </tbody>
-                                     </table>
-                                )
-                            }
+                                    <tbody>
+                                        {cartItems.map((item,index)=>(
+                                        <Tr item={item} key={index}/>
+                                        ))}
+                                    </tbody>
+                                </table>
+                            )}
                         </Col>
                         <Col lg='3'>
                             <div>
@@ -64,9 +61,9 @@ const Cart = () => {
                             </div>
                             <p>taxes and shipping will calculate in checkout</p>
                             <div>
-                                <button className="buy__btn"><Link to='/shop'>Continue Shopping</Link></button>
-
-                                <button className="buy__btn"><Link to='/checkout'>CheckOut</Link></button>                            </div>
+                            <button className="buy__btn"><Link to='/shop'>Continue Shopping</Link></button>
+                            <button className="buy__btn"><Link to='/checkout'>CheckOut</Link></button>
+                            </div>
                         </Col>
                     </Row>
                 </Container>
@@ -80,10 +77,10 @@ const Tr =({item})=>{
     const dispatch =useDispatch()
 
     const deleteProduct =()=>{
-        dispatch(cartActions.deleteItem(item.id))
+    dispatch(cartActions.deleteItem(item.id))
     }
 
-    return   <tr >
+    return   <tr>
     <td><img src={item.imgUrl} alt="" /></td>
     <td>{item.productName}</td>
     <td>{item.price}</td>

@@ -37,7 +37,7 @@ const handleLogoClick = () => {
 const Header = () => {
 
 const headerRef =useRef(null)
-const totalQuantity=useSelector(state=>state.cart.totalQuantity)
+const totalQuantity=useSelector((state)=>state.cart.totalQuantity)
 
 const menuRef=useRef(null)
 const navigate=useNavigate()
@@ -59,9 +59,7 @@ const navigate=useNavigate()
   });
 
   const menuToggle=()=>menuRef.current.classList.toggle('nav__active')
-  const navigateToCart=()=>{
-      navigate('/cart')
-   }
+  const navigateToCart=()=>{navigate('/cart')}
   return (
     
     <header className='header' ref={headerRef}>
