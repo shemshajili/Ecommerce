@@ -56,8 +56,8 @@ const Cart = () => {
                         </Col>
                         <Col lg='3'>
                             <div>
-                                <h6 className='d-flex align-items-center  justify-content-between fw-bold fs-6'>Subtotal
-                                 <span className='fs-4 fw-bold'>${totalAmount}</span></h6>
+                            <h6 className='d-flex align-items-center  justify-content-between fw-bold fs-6'>Subtotal
+                            <span className='fs-4 fw-bold'>${totalAmount}</span></h6>
                             </div>
                             <p className='fs-6 mt-2'>taxes and shipping will calculate in checkout</p>
                             <div>

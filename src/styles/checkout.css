@@ -1,0 +1,24 @@
+  .form__group {
+    margin-bottom: 20px;
+  }
+  
+  .form__group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  .form__group input:focus {
+    outline: none;
+    border-color: #007bff; 
+  }
+  
+  h6 {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  
+  
