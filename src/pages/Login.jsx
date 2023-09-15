@@ -1,10 +1,13 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Helmet from '../components/Helmet/Helmet'
 import { Container,Row,Col,Form,FormGroup } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import '../styles/login.css'
 
 const Login = () => {
+
+    const [email,setEmail]=useState('')
+
     return <Helmet title='Login'>
         <section>
             <Container>

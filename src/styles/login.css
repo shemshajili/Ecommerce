@@ -1,0 +1,63 @@
+/* login.css */
+.auth__form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f1f1f1;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .auth__form h3 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .form__group {
+    margin-bottom: 20px;
+  }
+  
+  .form__group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  .form__group input:focus {
+    outline: none;
+    border-color: #007bff;
+  }
+  
+  .buy__btn.auth__btn {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .buy__btn.auth__btn:hover {
+    background-color: #0056b3;
+  }
+  
+  p {
+    font-size: 14px;
+    margin-top: 10px;
+    color: black;
+  }
+  
+  p a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  p a:hover {
+    text-decoration: underline;
+  }
+  
