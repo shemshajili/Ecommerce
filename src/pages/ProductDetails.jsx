@@ -10,6 +10,8 @@ import { useDispatch } from 'react-redux';
 import { cartActions } from '../redux/slices/cartSlice';
 import { toast } from 'react-toastify';
 import { motion } from 'framer-motion';
+import kind from '../assets/images/kind.webp'
+import kind2 from '../assets/images/Brand..jpeg'
 
 
 const ProductDetails = () => {
@@ -206,6 +208,18 @@ const ProductDetails = () => {
                 <h2 className="related__title">You might also like</h2>
             </Col>
             <ProductsList data={relatedProducts}/>
+            <Col className='d-flex'>
+            <div className="kindof">
+              <img src={kind} alt="" />
+              <h2>A new kind of bag.</h2>
+              <h4>Unexpected shapes with smart details, functionality, a new luxury feel with a contemporary price point.</h4>
+            </div>
+            <div className="kindof2">
+              <img src={kind2} alt="" />
+              <h2>A new kind of shoes</h2>
+              <h4>Unexpected shapes with smart details, functionality, a new luxury feel with a contemporary price point.</h4>
+            </div>
+            </Col>
           </Row>
         </Container>
       </section>
