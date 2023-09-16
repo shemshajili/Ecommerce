@@ -44,6 +44,9 @@ const Footer = () => {
                     <ListGroupItem className='ps-0 border-0'>
                                 <Link to='/shoes'>Shoes</Link>
                     </ListGroupItem>
+                    <ListGroupItem className='ps-0 border-0'>
+                                <Link to='/blog'>Blog</Link>
+                    </ListGroupItem>
                     </ListGroup>
                     </div>
                     </Col>

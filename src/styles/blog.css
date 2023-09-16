@@ -1,0 +1,121 @@
+.news {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+    margin-top: 100px;
+  }
+  
+  .news h3 {
+    font-size: 25px;
+    color: #000000;
+    font-weight: 600;
+  }
+  
+  .news h2 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #000000;
+    margin-top: 20px;
+    cursor: pointer;
+    position: relative;
+  }
+  
+  .news p {
+    font-size: 16px;
+    line-height: 1.5;
+    color: #666;
+  }
+.blog {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .blog > div {
+    flex-basis: calc(50% - 10px);
+    margin-bottom: 20px;
+  }
+  
+  .blog__img1 {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .blog p {
+    font-size: 15px;
+    line-height: 1.5;
+    color: #666;
+    font-weight: 500;
+  }
+  .news p{
+    font-size: 15px;
+    line-height: 1.5;
+    color: #666;
+    font-weight: 500;
+  }
+
+  .news h2{
+    cursor: pointer;
+    position: relative;
+  }
+
+  .news h2::before{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: #333;
+    bottom: 0;
+    left: 0;
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.3s ease-in-out;
+  }
+  .news h2:hover::before{
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+
+  .blog h2{
+    font-size: 20px;
+    font-weight: 600;
+    cursor: pointer;
+    position: relative;
+  }
+  .blog h2::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: #333;
+    bottom: 0;
+    left: 0;
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.3s ease-in-out;
+}
+
+.blog h2:hover::before {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+  .blog__img1{
+    transform: translateY(-5px); 
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  }
+
+  .blog-link {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+}
+
+.blog-link:hover {
+    color: black;
+}

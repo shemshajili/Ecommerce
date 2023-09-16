@@ -1,0 +1,121 @@
+.gummysec {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .gummysec h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 50px;
+  }
+
+  .gummyintro{
+    width: 900px;
+    height: 500px;
+    margin-top: 20px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 5%;
+  }
+
+  .gummyimg1{
+    width: 450px;
+    height: 450px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 5%;
+    margin-top: 50px;
+    margin-right: 20px;
+  }
+  .gummyimg2{
+    width: 450px;
+    height: 450px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 5%;
+    margin-top: 50px;
+    margin-left: 20px;
+  }
+  
+  .gummysec p {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-top: 20px;
+    color: #4b4b4b;
+    font-weight: 500;
+    
+  }
+  .gummyback {
+    text-align: left;
+    margin-top: 30px;
+    display: flex;
+  }
+  
+  .gummyback h2 {
+    font-size: 18px;
+  }
+  
+  .gummyback a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+  }
+  
+  .gummyback i {
+    margin-right: 10px;
+  }
+  @media (max-width: 780px) {
+    .gummyintro {
+      width: 100%;
+      height: auto;
+    }
+  
+    .gummyimg1,
+    .gummyimg2 {
+      width: 100%;
+      height: auto;
+      margin: 20px 0;
+    }
+  }
+
+/* Paylaşım düğmesi stilini ayarlayın */
+.share-button button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 16px;
+    font-weight: bold;
+    margin-left: 40px;
+    margin-top: -5px;
+  }
+  
+  .share-button button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Paylaşım seçenekleri stilini ayarlayın */
+  .share-options {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 10px;
+  }
+  
+  .share h2,
+  .insta {
+    color: #333;
+    font-weight: 600;
+    font-size: 16px;
+    margin-top: 5px;
+  }
+  
+  .share a {
+    text-decoration: none;
+    color: #007bff;
+  }
+  
+  .share a:hover {
+    text-decoration: underline;
+  }
+  

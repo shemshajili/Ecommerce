@@ -1,0 +1,75 @@
+.gummysec {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .gummysec h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 50px;
+  }
+
+  .gummyintro{
+    width: 900px;
+    height: 500px;
+    margin-top: 20px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 5%;
+  }
+
+  .gummyimg1{
+    width: 450px;
+    height: 450px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 5%;
+    margin-top: 50px;
+    margin-right: 20px;
+  }
+  .gummyimg2{
+    width: 450px;
+    height: 450px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 5%;
+    margin-top: 50px;
+    margin-left: 20px;
+  }
+  
+  .gummysec p {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-top: 20px;
+    color: #4b4b4b;
+    font-weight: 500;
+    
+  }
+  .gummyback {
+    text-align: left;
+    margin-top: 30px;
+  }
+  
+  .gummyback h2 {
+    font-size: 18px;
+  }
+  
+  .gummyback a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+  }
+  
+  .gummyback i {
+    margin-right: 10px;
+  }
+  @media (max-width: 780px) {
+    .gummyintro {
+      width: 100%;
+      height: auto;
+    }
+  
+    .gummyimg1,
+    .gummyimg2 {
+      width: 100%;
+      height: auto;
+      margin: 20px 0;
+    }
+  }

@@ -12,6 +12,10 @@ import About from '../pages/About'
 import ProtectedRoute from './protectedRoute'
 import Shoes from '../pages/Shoes'
 import Bags from '../pages/Bags'
+import Blog from '../pages/Blog'
+import Story from '../pages/Story'
+import Gummy from '../pages/Intro-Gummy'
+import Mirror from '../pages/Intro-Mirror'
 
 
 const Routers = () => {
@@ -30,6 +34,10 @@ const Routers = () => {
         <Route path='about' element={<About/>}/>
         <Route path='shoes' element={<Shoes/>}></Route>
         <Route path='bags' element={<Bags/>}></Route>
+        <Route path='blog' element={<Blog/>}></Route>
+        <Route path='story' element={<Story/>}></Route>
+        <Route path='mirror' element={<Mirror/>}></Route>
+        <Route path='gummy' element={<Gummy/>}></Route>
     </Routes>
 };
 
