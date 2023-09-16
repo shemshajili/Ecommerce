@@ -348,3 +348,34 @@
   opacity: 1; 
   font-size: 30px;
 }
+
+.animation-container {
+  height: 50px;
+  width: 100%;
+  background-color: rgb(255, 255, 255);
+  overflow: hidden;
+  position: relative;
+}
+
+.text-container {
+  display: flex;
+  position: absolute;
+  white-space: nowrap;
+  animation: moveText 18s linear infinite;
+}
+
+.moving-text {
+  color: rgb(0, 0, 0);
+  font-size: 38px;
+  padding-right: 30px; 
+  font-weight: 600;
+}
+
+@keyframes moveText {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}

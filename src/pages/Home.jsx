@@ -129,6 +129,7 @@ const Home = () => {
         </ParallaxLayer>
       </Parallax>
       <Services />
+   
       <Row>
         <section className='home__img'>
           <div className='image-container'>
@@ -150,6 +151,28 @@ const Home = () => {
             </Link>
           </div>
         </section>
+        <div class="animation-container">
+      <div class="text-container">
+        <span class="moving-text">VogueVie</span>
+        <span class="moving-text">VogueVie</span>
+        <span class="moving-text">VogueVie</span>
+        <span class="moving-text">VogueVie</span>
+        <span class="moving-text">VogueVie</span>
+        <span class="moving-text">VogueVie</span>
+        <span class="moving-text">VogueVie</span>
+        <span class="moving-text">VogueVie</span>
+        <span class="moving-text">VogueVie</span>
+        <span class="moving-text">VogueVie</span>
+        <span class="moving-text">VogueVie</span>
+        <span class="moving-text">VogueVie</span>
+        <span class="moving-text">VogueVie</span>
+        <span class="moving-text">VogueVie</span>
+        <span class="moving-text">VogueVie</span>
+        <span class="moving-text">VogueVie</span>
+        <span class="moving-text">VogueVie</span>
+        <span class="moving-text">VogueVie</span>
+      </div>
+      </div>
       </Row>
       <section className="trending__products">
         <Container>
