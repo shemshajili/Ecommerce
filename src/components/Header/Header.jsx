@@ -1,14 +1,15 @@
-import React, {useRef,useEffect} from 'react';
-import { NavLink,useNavigate } from 'react-router-dom';
+import React, { useRef, useEffect } from 'react';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { Container, Row } from 'reactstrap';
 import './Header.css';
 import logo from '../../assets/images/eco-logo.png';
 import userIcon from '../../assets/images/usericon1.png';
 import { motion } from 'framer-motion';
 import { useSelector } from 'react-redux';
-import useAuth from '../../custom-hooks/useAuth'
+import useAuth from '../../custom-hooks/useAuth';
 import { Link } from 'react-router-dom';
-
+import { signOut } from 'firebase/auth';
+import { auth } from '../../firebase.config';
 
 const navLinks = [
   {
@@ -38,57 +39,65 @@ const handleLogoClick = () => {
 };
 
 const Header = () => {
+  const headerRef = useRef(null);
+  const totalQuantity = useSelector((state) => state.cart.totalQuantity);
+  const profileActionRef = useRef(null);
 
-const headerRef =useRef(null)
-const totalQuantity=useSelector((state)=>state.cart.totalQuantity)
-// const profileAction
+  const menuRef = useRef(null);
+  const navigate = useNavigate();
+  const { currentUser } = useAuth();
 
-const menuRef=useRef(null)
-const navigate=useNavigate()
-const {currentUser}=useAuth()
-
-  const stickyHeaderFunc=()=>{
-    window.addEventListener('scroll',()=>{
-      if(document.body.scrollTop > 80 || document.documentElement.scrollTop > 80){
-        headerRef.current.classList.add('sticky__header')
-      } else{
-        headerRef.current.classList.remove('sticky__header')
+  const stickyHeaderFunc = () => {
+    window.addEventListener('scroll', () => {
+      if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
+        headerRef.current.classList.add('sticky__header');
+      } else {
+        headerRef.current.classList.remove('sticky__header');
       }
-    })
+    });
+  };
+
+  const logout =()=>{
+    signOut(auth)
   }
 
-  useEffect(()=>{
-    stickyHeaderFunc()
+  useEffect(() => {
+    stickyHeaderFunc();
 
-    return ()=> window.removeEventListener("scroll",stickyHeaderFunc)
-  });
+    return () => window.removeEventListener('scroll', stickyHeaderFunc);
+  }, []);
 
-  const menuToggle=()=>menuRef.current.classList.toggle('nav__active')
-  const navigateToCart=()=>{navigate('/cart')}
+  const menuToggle = () => menuRef.current.classList.toggle('nav__active');
+  const navigateToCart = () => {
+    navigate('/cart');
+  };
+
+  const toggleProfileActions = () =>
+    profileActionRef.current.classList.toggle('show__profileActions');
 
   return (
-    
     <header className='header' ref={headerRef}>
-        <div className="containerNav">
-             <div className="message">Free shipping available on all orders!</div>
-        </div>
+      <div className='containerNav'>
+        <div className='message'>Free shipping available on all orders!</div>
+      </div>
       <Container>
         <Row>
           <div className='nav__wrapper'>
-          <div className='logo' onClick={handleLogoClick}>
+            <div className='logo' onClick={handleLogoClick}>
               <img src={logo} alt='logo' />
-                <div>
-                   <h1 onClick={handleLogoClick}>VogueVie</h1>
-                </div>
-          </div>
+              <div>
+                <h1 onClick={handleLogoClick}>VogueVie</h1>
+              </div>
+            </div>
             <div className='navigation' ref={menuRef} onClick={menuToggle}>
-            <ul className='menu'>
+              <ul className='menu'>
                 {navLinks.map((item, index) => (
                   <li className='nav__item' key={index}>
                     <NavLink
                       to={item.path}
-                      className={(navClass)=>navClass.isActive?'nav__active' :''}// To highlight active links
-                      >{item.display}
+                      className={(navClass) => (navClass.isActive ? 'nav__active' : '')} // To highlight active links
+                    >
+                      {item.display}
                     </NavLink>
                   </li>
                 ))}
@@ -105,24 +114,30 @@ const {currentUser}=useAuth()
               </span>
               <div className='profile'>
                 <motion.img
-                whileTap={{ scale: 1.2 }}
-                initial={{ marginTop: 0 }}
-                animate={{ marginTop: -20 }} src={ currentUser? currentUser.photoURL:userIcon} alt='' />
-                
-                <div className="profile__actions">
-                  {
-                    currentUser? <span>Logout</span>:<div>
+                  whileTap={{ scale: 1.2 }}
+                  initial={{ marginTop: 0 }}
+                  animate={{ marginTop: -20 }}
+                  src={currentUser ? currentUser.photoURL : userIcon}
+                  alt=''
+                  onClick={toggleProfileActions}
+                />
+
+                <div className='profile__actions' ref={profileActionRef} onClick={toggleProfileActions}>
+                  {currentUser ? (
+                    <span>Logout</span>
+                  ) : (
+                    <div>
                       <Link to='/signup'>Signup</Link>
                       <Link to='/login'>Login</Link>
                     </div>
-                  }
+                  )}
                 </div>
               </div>
               <div className='bags_menu'>
-              <span onClick={menuToggle}>
-                <i className='ri-menu-line'></i>
-              </span>
-            </div>
+                <span onClick={menuToggle}>
+                  <i className='ri-menu-line'></i>
+                </span>
+              </div>
             </div>
           </div>
         </Row>
