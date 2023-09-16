@@ -21,6 +21,7 @@ const Story = () => {
             }
         }
     }, []);
+
     return <Helmet title='News'>
         <Container>
             <Row>

@@ -75,7 +75,6 @@
     }
   }
 
-/* Paylaşım düğmesi stilini ayarlayın */
 .share-button button {
     background-color: #007bff;
     color: #fff;
@@ -94,7 +93,7 @@
     background-color: #0056b3;
   }
   
-  /* Paylaşım seçenekleri stilini ayarlayın */
+
   .share-options {
     display: flex;
     flex-direction: column;
@@ -102,20 +101,27 @@
     margin-top: 10px;
   }
   
-  .share h2,
-  .insta {
+  .share h2
+ {
     color: #333;
     font-weight: 600;
     font-size: 16px;
     margin-top: 5px;
   }
-  
-  .share a {
-    text-decoration: none;
-    color: #007bff;
+  .insta{
+    color: #000000;
+    font-weight: 600;
+    font-size: 16px;
+    margin-top: -3px;
+    margin-left: 40px;
   }
   
   .share a:hover {
     text-decoration: underline;
   }
-  
+
+  .share h2 {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+}
+

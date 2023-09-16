@@ -52,13 +52,13 @@ const IntroMirror = () => {
                                 {isOpen && (
                                     <div className="share-options">
                                         <FacebookShareButton url={shareUrl} quote={title} className='share'>
-                                            <h2>Shared Faceebook</h2>
+                                        <h2><i className="ri-arrow-right-line"></i>Share in Facebook</h2>
                                         </FacebookShareButton>
                                         <TwitterShareButton url={shareUrl} title={title} className='share'>
-                                        <h2>Shared Twitter</h2>
+                                        <h2><i className="ri-arrow-right-line"></i>Share in Twitter</h2>
                                         </TwitterShareButton>
                                         <a href={instagramShareUrl} target="_blank" rel="noopener noreferrer">
-                                        <p className='insta'>Shared Instagram</p>
+                                        <p className='insta'><i className="ri-arrow-right-line"></i>Share in Instagram</p>
                                         </a>
                                     </div>
                                 )}
