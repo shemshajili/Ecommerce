@@ -175,13 +175,13 @@ const Home = () => {
           </Row>
           <div className="main__img-container" style={{ display: 'flex', justifyContent: 'space-between' }}>
             <div className="main__img" style={{ marginRight: '20px' }}>
-              <Link to='/shop' className='custom-link'>
+              <Link to='/bags' className='custom-link'>
                 <img src={mainImg} alt="" />
                 <h4 className="img__text">Bags</h4>
               </Link>
             </div>
             <div className="main__img">
-              <Link to='/shop' className='custom-link'>
+              <Link to='/shoes' className='custom-link'>
                 <img src={mainImg2} alt="" />
                 <h4 className="img__text">Shoes</h4>
               </Link>

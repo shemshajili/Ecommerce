@@ -45,6 +45,14 @@ const About = () => {
                         <div className="about__desc">Express your style, accentuate your beauty, and join the VogueVie family!</div>
                     </section>
                 </Row>
+                <Row>
+                    <section className='our__promisse'>
+                         <h2>Our quality promise</h2>
+                         <div className="promise__desc">
+                         Quality is never an accident. It is always the result of intelligent effort. We spend most of our time and energy for good design and to achieve high quality. Every single detail from material to technique is thought through with obsessive attention. If our product doesn't satisfy you, we'll take it back.
+                         </div>
+                    </section>
+                </Row>
             </Container>
         </div>
     );

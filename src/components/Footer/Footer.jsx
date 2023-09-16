@@ -33,10 +33,16 @@ const Footer = () => {
                     <h4 className="quick__links-title">Quick Links</h4>
                     <ListGroup className='mb-3'>
                     <ListGroupItem className='ps-0 border-0'>
-                                    <Link to='/shop'>Shop</Link>
+                                <Link to='/shop'>Shop</Link>
                     </ListGroupItem>
                     <ListGroupItem className='ps-0 border-0'>
-                                    <Link to='/lookbook'>Look Book</Link>
+                                <Link to='/lookbook'>Look Book</Link>
+                    </ListGroupItem>
+                    <ListGroupItem className='ps-0 border-0'>
+                                <Link to='/bags'>Bags</Link>
+                    </ListGroupItem>
+                    <ListGroupItem className='ps-0 border-0'>
+                                <Link to='/shoes'>Shoes</Link>
                     </ListGroupItem>
                     </ListGroup>
                     </div>

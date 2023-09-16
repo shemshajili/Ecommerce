@@ -108,6 +108,41 @@
     transform: scale(1.01);
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
   }
+
+.Row {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0; 
+}
+
+.our__promisse {
+    text-align: center;
+    padding: 50px;
+    background-color: #fff; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); 
+    transition: background-color 0.3s ease; 
+    margin-top: 160px;
+}
+
+.our__promisse h2{
+    color: #3f3f3f;
+    font-size: 25px;
+    font-weight: 500;
+}
+
+.promise__desc{
+    font-size: 13px;
+    font-weight: 500;
+    color: #747474;
+    margin-top: 30px;
+}
+
+.our__promisse:hover {
+    background-color: #e0e0e0;
+}
+
   
   @media (max-width: 768px) {
     .about__img {
