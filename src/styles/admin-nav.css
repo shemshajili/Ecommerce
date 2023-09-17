@@ -1,0 +1,61 @@
+/* admin-nav.css */
+
+.admin__header {
+    background-color: #333; /* Arka plan rengi */
+    color: #fff; /* Metin rengi */
+    padding: 20px 0; /* İç içe geçme */
+  }
+  
+  .admin__nav-wrapper-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .log h2 {
+    font-size: 24px; /* Başlık font boyutu */
+    margin: 0;
+  }
+  
+  .search__box {
+    display: flex;
+    align-items: center;
+    background-color: #444; /* Arama kutusu arka plan rengi */
+    padding: 5px 10px; /* İç içe geçme */
+    border-radius: 5px; /* Kenar yuvarlama */
+  }
+  
+  .search__box input[type="text"] {
+    border: none;
+    background: none;
+    color: #fff;
+    outline: none;
+    width: 100%;
+    padding: 5px;
+  }
+  
+  .search__box span i {
+    color: #fff;
+    font-size: 18px; /* Arama simgesi boyutu */
+    margin-left: 10px;
+    cursor: pointer;
+  }
+  
+  .admin__nav-top-right {
+    display: flex;
+    align-items: center;
+  }
+  
+  .admin__nav-top-right span i {
+    font-size: 24px; /* İkon boyutu */
+    margin-right: 20px; /* İkonlar arası boşluk */
+    cursor: pointer;
+  }
+  
+  .admin__nav-top-right img {
+    width: 40px; /* Kullanıcı resmi boyutu */
+    height: 40px;
+    border-radius: 50%; /* Yuvarlatılmış köşeler */
+    margin-left: 20px; /* İkon ile resim arası boşluk */
+  }
+  
