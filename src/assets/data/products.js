@@ -98,7 +98,7 @@ const products = [
     shortDesc:
       "“Stormi is Objet d'art with its unique and sculptural design inspired by nature’s favorite form - swirl.",
     description:
-      "“Stormi is Objet d'art with its unique and sculptural design inspired by nature’s favorite form - swirl. It is the form of constant movement and transmitting energy from galactic scales to the double helix structure of DNA. To make this project happen, we went through a challenging development and used new techniques never used in the industry previously.” says Meb Rure, Creative Director at Mlouye.",
+      "“Stormi is Objet d'art with its unique and sculptural design inspired by nature’s favorite form - swirl. It is the form of constant movement and transmitting energy from galactic scales to the double helix structure of DNA. To make this project happen, we went through a challenging development and used new techniques never used in the industry previously.” says Meb Rure, Creative Director at VogueVie.",
     reviews: [
       {
         
