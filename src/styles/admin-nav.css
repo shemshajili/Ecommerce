@@ -1,9 +1,7 @@
-/* admin-nav.css */
-
 .admin__header {
-    background-color: #333; /* Arka plan rengi */
-    color: #fff; /* Metin rengi */
-    padding: 20px 0; /* İç içe geçme */
+    background-color: #333; 
+    color: #fff; 
+    padding: 20px 0;
   }
   
   .admin__nav-wrapper-top {
@@ -13,16 +11,16 @@
   }
   
   .log h2 {
-    font-size: 24px; /* Başlık font boyutu */
+    font-size: 24px; 
     margin: 0;
   }
   
   .search__box {
     display: flex;
     align-items: center;
-    background-color: #444; /* Arama kutusu arka plan rengi */
-    padding: 5px 10px; /* İç içe geçme */
-    border-radius: 5px; /* Kenar yuvarlama */
+    background-color: #444; 
+    padding: 5px 10px;
+    border-radius: 5px; 
   }
   
   .search__box input[type="text"] {
@@ -36,7 +34,7 @@
   
   .search__box span i {
     color: #fff;
-    font-size: 18px; /* Arama simgesi boyutu */
+    font-size: 18px; 
     margin-left: 10px;
     cursor: pointer;
   }
@@ -47,15 +45,45 @@
   }
   
   .admin__nav-top-right span i {
-    font-size: 24px; /* İkon boyutu */
-    margin-right: 20px; /* İkonlar arası boşluk */
+    font-size: 24px;
+    margin-right: 20px; 
     cursor: pointer;
   }
   
   .admin__nav-top-right img {
-    width: 40px; /* Kullanıcı resmi boyutu */
+    width: 40px;
     height: 40px;
-    border-radius: 50%; /* Yuvarlatılmış köşeler */
-    margin-left: 20px; /* İkon ile resim arası boşluk */
+    border-radius: 50%; 
+    margin-left: 20px;
   }
   
+  .admin__menu {
+    width: 100%;
+    height: 70%;
+    line-height: 70px;
+    background-color: #444;
+
+}
+
+.admin__navigation{
+  text-align: center;
+}
+
+.admin__menu-list {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    column-gap: 2.7rem;
+    justify-content: center;
+}
+
+
+.admin__menu-item a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+.active__admin-menu{
+  background:#232323;
+}
