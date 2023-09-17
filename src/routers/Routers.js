@@ -17,6 +17,10 @@ import Story from '../pages/Story'
 import Gummy from '../pages/Intro-Gummy'
 import Mirror from '../pages/Intro-Mirror'
 
+import AddProducts from '../admin/AddProducts'
+import AllProducts from '../admin/AllProducts'
+import Dashboard from '../admin/Dashboard'
+
 
 const Routers = () => {
     return <Routes>
@@ -24,9 +28,13 @@ const Routers = () => {
         <Route path='home' element={<Home/>}/>
         <Route path='shop' element={<Shop/>}/>
         <Route path='cart' element={<Cart/>}/>
-        <Route path='checkout' element={<ProtectedRoute>
-            <CheckOut/>
-        </ProtectedRoute>}/>
+
+        <Route path='/*' element={<ProtectedRoute/>}>
+            <Route path='checkout' element={<CheckOut/>}/>
+            <Route path='dashboard' element={<Dashboard/>}/>
+            <Route path='dashboard/all-products' element={<AllProducts/>}/>
+            <Route path='dashboard/add-product' element={<AddProducts/>}/>
+        </Route>
         <Route path='login' element={<Login/>}/>
         <Route path='signup' element={<SignUp/>}/>
         <Route path='shop/:id' element={<ProductDetails/>}/>
@@ -38,6 +46,7 @@ const Routers = () => {
         <Route path='story' element={<Story/>}></Route>
         <Route path='mirror' element={<Mirror/>}></Route>
         <Route path='gummy' element={<Gummy/>}></Route>
+
     </Routes>
 };
 
