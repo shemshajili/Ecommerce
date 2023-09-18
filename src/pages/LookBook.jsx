@@ -13,6 +13,7 @@ import look6 from '../assets/images/LookBook6.webp'
 import look7 from '../assets/images/LookBook9.webp'
 import look8 from '../assets/images/LookBook2.webp'
 
+
 const LookBook = () => {
     useEffect(() => {
         
@@ -62,9 +63,6 @@ const LookBook = () => {
                         <img className='look8'src={look8} alt="" />
                     </section>
                 </Row>
-                <video width="320" height="240" controls>
-                <source src="/videos.mp4" type="videos/mp4" />
-                </video>
                 <Row>
                     <section className='fetured__product'>
                         <h2>Featured</h2>
