@@ -1,10 +1,18 @@
 import React from 'react';
 import {Container,Row,Col} from 'reactstrap'
 import useGetData from '../custom-hooks/useGetData'
+import { deleteDoc,doc } from 'firebase/firestore';
+import { db } from '../firebase.config';
+import { toast } from 'react-toastify';
 
 const Users = () => {
 
     const {data:usersData,loading}=useGetData('users')
+
+    const deleteUser=async(id)=>{
+        await deleteDoc(doc(db,'users',id))
+        toast.success('User deleted!')
+    }
 
     return (
         <section>
@@ -31,7 +39,9 @@ const Users = () => {
                                     <td><img src={user.photoURL}></img></td>
                                     <td>{user.displayName}</td>
                                     <td>{user.email}</td>
-                                    <td><button className='btn btn-danger'>Delete</button></td>
+                                    <td><button className='btn btn-danger' onClick={()=>{
+                                        deleteUser(user.uid)
+                                    }}>Delete</button></td>
                                 </tr>
                             ))
                         }
