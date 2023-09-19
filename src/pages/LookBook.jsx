@@ -34,7 +34,7 @@ const LookBook = () => {
     useEffect(() => {
         setData(products);
 
-        const featured = products.filter(product => product.category === 'featured');
+        const featured = products.filter(product => product.category === 'bag');
         setFeaturedProducts(featured);
     }, []);
 

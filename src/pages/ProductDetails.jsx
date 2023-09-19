@@ -1,7 +1,6 @@
 import React, { useState,useRef,useEffect } from 'react';
 import { Container, Row, Col } from 'reactstrap';
 import { useParams } from 'react-router-dom';
-// import products from '../assets/data/products';
 import Helmet from '../components/Helmet/Helmet';
 import '../styles/productDetails.css';
 import ProductsList from '../components/UI/ProductsList';
@@ -40,7 +39,6 @@ const ProductDetails = () => {
   const reviewMsg=useRef('')
   const dispstch=useDispatch()
 
-  // // const product = products.find((item) => item.id === id);
 
   const docRef=doc(db,'products', id)
 
@@ -172,7 +170,7 @@ const ProductDetails = () => {
                   className={`${tab === 'rev' ? 'active__tab' : ''}`}
                   onClick={() => setTab('rev')}
                 >
-                  {/* Reviews ({reviews.length}) */}
+                  Reviews
                 </h6>
               </div>
 

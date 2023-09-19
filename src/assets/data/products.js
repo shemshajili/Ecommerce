@@ -554,7 +554,7 @@ const products = [
     id: "29",
     productName: "Brick",
     imgUrl: productImg29,
-    category: "featured",
+    category: "bag",
     price:"$385",
     shortDesc:
       "A thong silhouette blending our signature pleated heels and chic toe straps.",
@@ -571,7 +571,7 @@ const products = [
     id: "30",
     productName: "Sera Tote",
     imgUrl: productImg30,
-    category: "featured",
+    category: "bag",
     price:"$556",
     shortDesc:
       "Mix of symmetry and fluid, clean lines, The Sera Tote is designed to complement any modern ensemble.",
@@ -588,7 +588,7 @@ const products = [
     id: "31",
     productName: "Mini Naomi Bag",
     imgUrl: productImg31,
-    category: "featured",
+    category: "bag",
     price:"$556",
     shortDesc:
       "Mini Naomi Bag is perfectly proportioned for your essentials like a big-screen phone, cardholder, and lipstick.",
@@ -605,7 +605,7 @@ const products = [
     id: "32",
     productName: "Hobo Medium",
     imgUrl: productImg32,
-    category: "featured",
+    category: "bag",
     price:"$446",
     shortDesc:
       "Versatile and minimally designed in a curved silhouette. Hobo is made from smooth Italian leather detailed with contrasting black leather trim.",
