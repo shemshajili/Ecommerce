@@ -46,9 +46,10 @@ const AddProducts = () => {
                 getDownloadURL(uploadTask.snapshot.ref).then(async (downloadURL)=>{
                     await addDoc(docRef,{
                         title:enterTitle,
-                        shorDesc:enterShortDesc,
+                        shortDesc:enterShortDesc,
                         description:enterDescription,
                         category:enterCategory,
+                        price:enterPrice,
                         imgUrl:downloadURL,
                     })
                 })
@@ -107,6 +108,7 @@ const AddProducts = () => {
                                 <select
                                 value={enterCategory}
                                 onChange={(e)=>setEnterCategory(e.target.value)}>
+                                <option>Select category</option>
                                 <option value="bag">Bag</option>
                                 <option value="shoes">Shoes</option>
                                 </select>

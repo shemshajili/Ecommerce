@@ -18,9 +18,11 @@ import '../styles/home.css';
 import logoImg from '../assets/images/RefinerLogo.webp'
 import cutImg from '../assets/images/TheCutLogo.webp'
 import victryIMg from '../assets/images/victoryimg.jpg'
+import useGetData from '../custom-hooks/useGetData';
 
 const Home = () => {
 
+  const {data:product,loading}=useGetData('products')
 
 
   useEffect(() => {
@@ -61,7 +63,7 @@ const Home = () => {
 
       const bagHome = products.filter(product => product.category === 'bagHome');
       setBagProducts(bagHome);
-  }, []);
+  }, [products]);
 
   return (
     <div>
@@ -151,26 +153,26 @@ const Home = () => {
             </Link>
           </div>
         </section>
-        <div class="animation-container">
-      <div class="text-container">
-        <span class="moving-text">VogueVie</span>
-        <span class="moving-text">VogueVie</span>
-        <span class="moving-text">VogueVie</span>
-        <span class="moving-text">VogueVie</span>
-        <span class="moving-text">VogueVie</span>
-        <span class="moving-text">VogueVie</span>
-        <span class="moving-text">VogueVie</span>
-        <span class="moving-text">VogueVie</span>
-        <span class="moving-text">VogueVie</span>
-        <span class="moving-text">VogueVie</span>
-        <span class="moving-text">VogueVie</span>
-        <span class="moving-text">VogueVie</span>
-        <span class="moving-text">VogueVie</span>
-        <span class="moving-text">VogueVie</span>
-        <span class="moving-text">VogueVie</span>
-        <span class="moving-text">VogueVie</span>
-        <span class="moving-text">VogueVie</span>
-        <span class="moving-text">VogueVie</span>
+        <div className="animation-container">
+      <div className="text-container">
+        <span className="moving-text">VogueVie</span>
+        <span className="moving-text">VogueVie</span>
+        <span className="moving-text">VogueVie</span>
+        <span className="moving-text">VogueVie</span>
+        <span className="moving-text">VogueVie</span>
+        <span className="moving-text">VogueVie</span>
+        <span className="moving-text">VogueVie</span>
+        <span className="moving-text">VogueVie</span>
+        <span className="moving-text">VogueVie</span>
+        <span className="moving-text">VogueVie</span>
+        <span className="moving-text">VogueVie</span>
+        <span className="moving-text">VogueVie</span>
+        <span className="moving-text">VogueVie</span>
+        <span className="moving-text">VogueVie</span>
+        <span className="moving-text">VogueVie</span>
+        <span className="moving-text">VogueVie</span>
+        <span className="moving-text">VogueVie</span>
+        <span className="moving-text">VogueVie</span>
       </div>
       </div>
       </Row>
@@ -181,12 +183,17 @@ const Home = () => {
               <h2 className='section__title'>Obsessive Attention. Intelligent Effort.</h2>
               <p className="custom-paragraph"></p>
             </Col>
+
+         
           </Row>
           <Row>
-            {/* <ProductsList data={data} />      productlar getirmek */}
+          <ProductsList data={bagsHomeProducts} />
             <ProductsList data={shoesHomeProducts} />
-            <ProductsList data={bagsHomeProducts} />
           </Row>
+            {
+              loading? <h5 className='fw-bold'>Loading....</h5>:
+                <ProductsList data={product}/>
+            }
         </Container>
       </section>
       <section className='back_stock'>
