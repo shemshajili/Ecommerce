@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import Services from '../services/Services';
 import ProductsList from '../components/UI/ProductsList';
-import products from '../assets/data/products';
+// import products from '../assets/data/products';
 import mainImg from '../assets/images/LookBook12.webp';
 import mainImg2 from '../assets/images/LookBook11.webp';
 import home1 from '../assets/images/home1.jpeg';
@@ -22,7 +22,7 @@ import useGetData from '../custom-hooks/useGetData';
 
 const Home = () => {
 
-  const {data:product,loading}=useGetData('products')
+  const { data: products, loading } = useGetData('products');
 
 
   useEffect(() => {
@@ -39,33 +39,33 @@ const Home = () => {
     }
 }, []);
 
-  // const [data, setData] = useState([]);
+  // const [data, setData] = useState([]); ==================FOR USED FRONT END=================
 
   // useEffect(() => {        productlari getirme
   //   setData(products);
   // }, []);
 
-  const [data1,setData] = useState([]);
-  const [shoesHomeProducts, setShoesProducts] = useState([]);
+  // const [data1,setData] = useState([]);
+  // const [shoesHomeProducts, setShoesProducts] = useState([]);
 
-  useEffect(() => {
-      setData(products);
+  // useEffect(() => {
+  //     setData(products);
 
-      const shoesHome = products.filter(product => product.category === 'shoesHome');
-      setShoesProducts(shoesHome);
-  }, []);
+  //     const shoesHome = products.filter(product => product.category === 'shoesHome');
+  //     setShoesProducts(shoesHome);
+  // }, []);
 
-  const [data,setData1] = useState([]);
-  const [bagsHomeProducts, setBagProducts] = useState([]);
+  // const [data,setData1] = useState([]);     
+  // const [bagsHomeProducts, setBagProducts] = useState([]);
 
-  useEffect(() => {
-      setData1(products);
+  // useEffect(() => {
+  //     setData1(products);
 
-      const bagHome = products.filter(product => product.category === 'bagHome');
-      setBagProducts(bagHome);
-  }, [products]);
+  //     const bagHome = products.filter(product => product.category === 'bagHome');
+  //     setBagProducts(bagHome);
+  // }, [products]);
 
-  return (
+  return ( 
     <div>
       {/* Page title */}
       <Helmet title={"Home"} />
@@ -187,12 +187,12 @@ const Home = () => {
          
           </Row>
           <Row>
-          <ProductsList data={bagsHomeProducts} />
-            <ProductsList data={shoesHomeProducts} />
+          {/* <ProductsList data={bagsHomeProducts} />
+          // <ProductsList data={shoesHomeProducts} />        FOR USE FRONT */}       
           </Row>
             {
               loading? <h5 className='fw-bold'>Loading....</h5>:
-                <ProductsList data={product}/>
+              <ProductsList data={products}/>
             }
         </Container>
       </section>

@@ -1,7 +1,7 @@
 import React, { useState,useRef,useEffect } from 'react';
 import { Container, Row, Col } from 'reactstrap';
 import { useParams } from 'react-router-dom';
-import products from '../assets/data/products';
+// import products from '../assets/data/products';
 import Helmet from '../components/Helmet/Helmet';
 import '../styles/productDetails.css';
 import ProductsList from '../components/UI/ProductsList';
@@ -12,9 +12,14 @@ import { toast } from 'react-toastify';
 import { motion } from 'framer-motion';
 import kind from '../assets/images/kind.webp'
 import kind2 from '../assets/images/Brand..jpeg'
-
+import { db } from '../firebase.config';
+import {doc,getDoc} from 'firebase/firestore'
+import useGetData from '../custom-hooks/useGetData';
 
 const ProductDetails = () => {
+
+  const [product,setProduct]=useState({})
+
     useEffect(() => {
         
         window.scroll(0, 0);
@@ -30,11 +35,29 @@ const ProductDetails = () => {
     }, []);
 
   const { id } = useParams();
+  const {data:products}=useGetData('products')
   const reviewUser=useRef('')
   const reviewMsg=useRef('')
   const dispstch=useDispatch()
 
-  const product = products.find((item) => item.id === id);
+  // // const product = products.find((item) => item.id === id);
+
+  const docRef=doc(db,'products', id)
+
+  useEffect(()=>{
+    const getProduct=async ()=>{
+      const docSnap=await getDoc(docRef)
+
+      if(docSnap.exists()){
+        setProduct(docSnap.data())
+      }else{
+        console.log('no product!')
+      }
+    }
+
+
+    getProduct()
+  },[])
 
   useEffect(()=>{
     window.scrollTo(0,0)
@@ -45,8 +68,8 @@ const ProductDetails = () => {
     imgUrl,
     productName,
     price,
-    avgRating,
-    reviews,
+    // avgRating,
+    // reviews,
     description,
     shortDesc,
     category
@@ -120,7 +143,7 @@ const ProductDetails = () => {
                       <i className="ri-star-half-s-line"></i>
                     </span>
                   </div>
-                  <p>({avgRating} ratings)</p>
+                  {/* <p>({avgRating} ratings)</p> */}
                 </div>
                 <div className='d-flex align-items-center gap-5'>
                 <span className='price'>{price}</span>
@@ -149,7 +172,7 @@ const ProductDetails = () => {
                   className={`${tab === 'rev' ? 'active__tab' : ''}`}
                   onClick={() => setTab('rev')}
                 >
-                  Reviews ({reviews.length})
+                  {/* Reviews ({reviews.length}) */}
                 </h6>
               </div>
 
@@ -160,7 +183,7 @@ const ProductDetails = () => {
               ) : (
                 <div className="product__review mt-5">
                   <div className="review__wrapper">
-                    <ul>
+                    {/* <ul>
                       {reviews?.map((item, index) => (
                         <li key={index} className="mb-4">
                           <h6>Jhon Doe</h6>
@@ -168,7 +191,7 @@ const ProductDetails = () => {
                           <p>{item.text}</p>
                         </li>
                       ))}
-                    </ul>
+                    </ul> */}
                     <div className="review__form">
                       <h4>Live your experience</h4>
                       <form action="" onSubmit={submitHandler}>
