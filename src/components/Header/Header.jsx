@@ -42,6 +42,8 @@ const handleLogoClick = () => {
 const Header = () => {
   const headerRef = useRef(null);
   const totalQuantity = useSelector((state) => state.cart.totalQuantity);
+  const totalFavoriteItems = useSelector((state) => state.cart.totalFavoriteItems);
+
   const profileActionRef = useRef(null);
 
   const menuRef = useRef(null);
@@ -110,10 +112,10 @@ const Header = () => {
               </ul>
             </div>
             <div className='nav__icons'>
-              <span className='fav__icon'>
-                <i className='ri-heart-3-line'></i>
-                <span className='badge'>1</span>
-              </span>
+            <span className='fav__icon'>
+            <i className='ri-heart-3-line'></i>
+          <span className='badge'>{totalFavoriteItems}</span>
+        </span>
               <span className='cart__icon ' onClick={navigateToCart}>
                 <i className='ri-shopping-bag-line'></i>
                 <span className='badge'>{totalQuantity}</span>

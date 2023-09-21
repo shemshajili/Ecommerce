@@ -77,7 +77,7 @@ const products = [
     productName: "Convertible Teddy Bag - Gummy ",
     imgUrl: productImg01,
     category: "bagHome",
-    price:"$889.00",
+    price:"889.00",
     shortDesc:
       "Reminiscent of a teddy bear, the convertible style has a flap magnetic closure, comes with a detachable strap that allows multiple carrying options; backpack, crossbody or as a top handle bag.",
     description:
@@ -94,7 +94,7 @@ const products = [
     productName: "Stormi - Cognac ",
     imgUrl: productImg02,
     category: "bagHome",
-    price:"$941.00",
+    price:"941.00",
     shortDesc:
       "“Stormi is Objet d'art with its unique and sculptural design inspired by nature’s favorite form - swirl.",
     description:
@@ -112,7 +112,7 @@ const products = [
     productName: "Atlas - Jade ",
     imgUrl: productImg03,
     category: "bagHome",
-    price:"$906.00",
+    price:"906.00",
     shortDesc:
       "Our new Atlas is the representation of kaleidoscope patterns put into a symmetrical geometry to create a mesmerizing mirrored effect on the bag.",
     description:
@@ -129,7 +129,7 @@ const products = [
     productName: "Mini Flex Bag - Gummy",
     imgUrl: productImg04,
     category: "bagHome",
-    price:"$682.00",
+    price:"682.00",
     shortDesc:
       "Our architectural, origami-inspired Flex Bag is now available in mini size.",
     description:
@@ -146,7 +146,7 @@ const products = [
     productName: "Helix - Multicolor",
     imgUrl: productImg05,
     category: "bag",
-    price:"$682.00",
+    price:"682.00",
     shortDesc:
       "Featuring a unique combination of modern art and minimalist perspective, our Helix Bag is perfectly sized to fit just the essentials - think small wallet, keys, sunglasses and large phone.",
     description:
@@ -163,7 +163,7 @@ const products = [
     productName: "Micro Pandora - Gummy",
     imgUrl: productImg06,
     category: "bag",
-    price:"$751.00",
+    price:"751.00",
     shortDesc:
       "Our beloved Pandora is now available in micro size.",
     description:
@@ -180,7 +180,7 @@ const products = [
     productName: "Mini Lantern Bag Pleated - Olive Leaf",
     imgUrl: productImg07,
     category: "bag",
-    price:"$794.00",
+    price:"794.00",
     shortDesc:
       "Our coveted design gets a dramatic look and textured surface quality by folding leather in an elegant zig-zag pattern.",
     description:
@@ -197,7 +197,7 @@ const products = [
     productName: "Mini Sera Tote - Mirror",
     imgUrl: productImg08,
     category: "bag",
-    price:"$751.00",
+    price:"751.00",
     shortDesc:
       "Mix of symmetry and fluid, clean lines, Mini Sera Tote is designed to carry your daily essentials, a large phone(like iPhone Pro Max), mini wallet or cardholder, and lipstick, etc.",
     description:
@@ -214,7 +214,7 @@ const products = [
     productName: "Studio - Oyster",
     imgUrl: productImg09,
     category: "bag",
-    price:"$803.00",
+    price:"803.00",
     shortDesc:
       "Both pragmatically perfect in design and a unique style statement, The Studio is made for avid fans of 90’s fashion, modern and geometric shapes, and versatile handbags for every occasion.",
     description:
@@ -231,7 +231,7 @@ const products = [
     productName: "Mini Eddy - Cappuccino",
     imgUrl: productImg10,
     category: "bag",
-    price:"$682.00",
+    price:"682.00",
     shortDesc:
       "We wanted to evoke nostalgia this time and recreate a classic school satchel with an elaborate approach of the 2000s.",
     description:
@@ -248,7 +248,7 @@ const products = [
     productName: "Mini Eddy - Milky",
     imgUrl: productImg11,
     category: "bag",
-    price:"$682.00",
+    price:"682.00",
     shortDesc:
       "We wanted to evoke nostalgia this time and recreate a classic school satchel with an elaborate approach of the 2000s.",
     description:
@@ -265,7 +265,7 @@ const products = [
     productName: "Naomi Mini Wallet - Gummy",
     imgUrl: productImg12,
     category: "bag",
-    price:"$337.00",
+    price:"337.00",
     shortDesc:
       "The new member of our Naomi family.",
     description:
@@ -282,7 +282,7 @@ const products = [
     productName: "Naomi AirPods Case - Black & Gray",
     imgUrl: productImg13,
     category: "bag",
-    price:"$154.00",
+    price:"154.00",
     shortDesc:
       "Attached to a belt loop or a bag, our Naomi Airpods Case provides a decorative way to conceal your tech as an accessory.",
     description:
@@ -299,7 +299,7 @@ const products = [
     productName: "Art Deco Camera Bag - Pink",
     imgUrl: productImg14,
     category: "bag",
-    price:"$718.00",
+    price:"718.00",
     shortDesc:
       "The new Art Deco Camera Bag is updated with a refined shoulder strap and complementary colors.",
     description:
@@ -316,7 +316,7 @@ const products = [
     productName: "Wave Wallet - Milky",
     imgUrl: productImg15,
     category: "bag",
-    price:"$389.00",
+    price:"389.00",
     shortDesc:
       "A wallet-turned-shoulder-bag, the Wave Wallet features two conjoined leather flaps that open to reveal space for all your financial essentials.",
     description:
@@ -334,7 +334,7 @@ const products = [
     productName: "Pleated Heel Boot",
     imgUrl: productImg16,
     category: "shoes",
-    price:"$585.00",
+    price:"585.00",
     shortDesc:
       "The Pleated Heel Boots take a cue from our iconic Pleated Lantern Bag, but this time, reimagining pleats using solid oak. Features a square toe and a padded insole for extra comfort.",
     description:
@@ -351,7 +351,7 @@ const products = [
     productName: "Louise Slide Sandal - Buttermilk",
     imgUrl: productImg17,
     category: "shoes",
-    price:"$717.00",
+    price:"717.00",
     shortDesc:
       "Our experimentation with texture continues. Elevated sense of design and craftsmanship manifests in our Italian-made Louise sandals",
     description:
@@ -368,7 +368,7 @@ const products = [
     productName: "Thelma Sandal - Black",
     imgUrl: productImg18,
     category: "shoes",
-    price:"$682.00",
+    price:"682.00",
     shortDesc:
       "Italian-made Thelma sandals. ",
     description:
@@ -385,7 +385,7 @@ const products = [
     productName: "Otti Summer Boot",
     imgUrl: productImg19,
     category: "shoes",
-    price:"$479.00",
+    price:"479.00",
     shortDesc:
       "The Summer Boots feature a lace up front, high neck with mesh throat, and a leather toe..",
     description:
@@ -402,7 +402,7 @@ const products = [
     productName: "Pleated Heel Mule",
     imgUrl: productImg20,
     category: "shoes",
-    price:"$495.00",
+    price:"495.00",
     shortDesc:
       "The Pleated Heel Mules take a cue from our iconic Pleated Lantern Bag",
     description:
@@ -419,7 +419,7 @@ const products = [
     productName: "Otti Combat Boot",
     imgUrl: productImg21,
     category: "shoes",
-    price:"$595.00",
+    price:"595.00",
     shortDesc:
       "Derby-style high neck ankle boots features a 6cm chunky sole, and a rebellious style that perfectly suits a 90s dress or combat jean and tee combination.",
     description:
@@ -436,7 +436,7 @@ const products = [
     productName: "Puffy Sandal - Pink Cloud",
     imgUrl: productImg22,
     category: "shoesHome",
-    price:"$751.00",
+    price:"751.00",
     shortDesc:
       "Made from super soft nappa like our Puff clutches, they're set on our signature pleated heels.",
     description:
@@ -453,7 +453,7 @@ const products = [
     productName: "Thong Sandal - White",
     imgUrl: productImg23,
     category: "shoesHome",
-    price:"$596.00",
+    price:"596.00",
     shortDesc:
       "A thong silhouette blending our signature pleated heels and chic toe straps.",
     description:
@@ -470,7 +470,7 @@ const products = [
     productName: "Pleated Heel Mule - Multicolor",
     imgUrl: productImg24,
     category: "shoesHome",
-    price:"$855.00",
+    price:"855.00",
     shortDesc:
       "The Pleated Heel Mules take a cue from our iconic Pleated Lantern Bag, but this time, reimagining pleats using solid oak. Features a square toe and a padded insole for extra comfort.",
     description:
@@ -487,7 +487,7 @@ const products = [
     productName: "Louise Heeled Slide - Multicolor",
     imgUrl: productImg25,
     category: "shoesHome",
-    price:"$751.00",
+    price:"751.00",
     shortDesc:
       "Our experimentation with texture continues. Elevated sense of design and craftsmanship manifests in our Italian-made Louise sandals.",
     description:
@@ -504,7 +504,7 @@ const products = [
     productName: "Louise Slide Sandal - Denim",
     imgUrl: productImg26,
     category: "shoes",
-    price:"$59.00",
+    price:"59.00",
     shortDesc:
       "Our experimentation with texture continues.",
     description:
@@ -521,7 +521,7 @@ const products = [
     productName: "Louise Slide Sandal - Denim",
     imgUrl: productImg27,
     category: "shoes",
-    price:"$717.00",
+    price:"717.00",
     shortDesc:
       "Our experimentation with texture continues.",
     description:
@@ -538,7 +538,7 @@ const products = [
     productName: "Thong Sandal - Black",
     imgUrl: productImg28,
     category: "shoes",
-    price:"$556",
+    price:"556",
     shortDesc:
       "A thong silhouette blending our signature pleated heels and chic toe straps.",
     description:
@@ -555,7 +555,7 @@ const products = [
     productName: "Brick",
     imgUrl: productImg29,
     category: "bag",
-    price:"$385",
+    price:"385",
     shortDesc:
       "A thong silhouette blending our signature pleated heels and chic toe straps.",
     description:
@@ -572,7 +572,7 @@ const products = [
     productName: "Sera Tote",
     imgUrl: productImg30,
     category: "bag",
-    price:"$556",
+    price:"556",
     shortDesc:
       "Mix of symmetry and fluid, clean lines, The Sera Tote is designed to complement any modern ensemble.",
     description:
@@ -589,7 +589,7 @@ const products = [
     productName: "Mini Naomi Bag",
     imgUrl: productImg31,
     category: "bag",
-    price:"$556",
+    price:"556",
     shortDesc:
       "Mini Naomi Bag is perfectly proportioned for your essentials like a big-screen phone, cardholder, and lipstick.",
     description:
@@ -606,7 +606,7 @@ const products = [
     productName: "Hobo Medium",
     imgUrl: productImg32,
     category: "bag",
-    price:"$446",
+    price:"446",
     shortDesc:
       "Versatile and minimally designed in a curved silhouette. Hobo is made from smooth Italian leather detailed with contrasting black leather trim.",
     description:

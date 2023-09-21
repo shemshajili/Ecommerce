@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import '../styles/lookbook.css'
 import { Container, Row } from 'reactstrap'
 import ProductsList from '../components/UI/ProductsList';
-import products from '../assets/data/products';
+import useGetData from '../custom-hooks/useGetData';
 import Helmet from '../components/Helmet/Helmet';
 import look1 from '../assets/images/LookBook1.webp'
 import look2 from '../assets/images/LookBook3.webp'
@@ -28,15 +28,10 @@ const LookBook = () => {
             }
         }
     }, []);
-    const [data, setData] = useState([]);
-    const [featuredProducts, setFeaturedProducts] = useState([]);
 
-    useEffect(() => {
-        setData(products);
+    const { data: products } = useGetData('products');
 
-        const featured = products.filter(product => product.category === 'bag');
-        setFeaturedProducts(featured);
-    }, []);
+
 
     return (
         <div className="look__book">
@@ -67,7 +62,7 @@ const LookBook = () => {
                     <section className='fetured__product'>
                         <h2>Featured</h2>
                     </section>
-                    <ProductsList data={featuredProducts} />
+                    <ProductsList data={products}/>
                 </Row>
             </Container>
         </div>

@@ -1,165 +1,148 @@
-import React, { useState,useRef,useEffect } from 'react';
+import React, { useState, useEffect,useRef } from 'react';
 import { Container, Row, Col } from 'reactstrap';
 import { useParams } from 'react-router-dom';
 import Helmet from '../components/Helmet/Helmet';
 import '../styles/productDetails.css';
 import ProductsList from '../components/UI/ProductsList';
-import CommonSection from '../components/UI/CommonSection'
+import CommonSection from '../components/UI/CommonSection';
 import { useDispatch } from 'react-redux';
 import { cartActions } from '../redux/slices/cartSlice';
 import { toast } from 'react-toastify';
 import { motion } from 'framer-motion';
-import kind from '../assets/images/kind.webp'
-import kind2 from '../assets/images/Brand..jpeg'
+import kind from '../assets/images/kind.webp';
+import kind2 from '../assets/images/Brand..jpeg';
 import { db } from '../firebase.config';
-import {doc,getDoc} from 'firebase/firestore'
+import { doc, getDoc } from 'firebase/firestore';
 import useGetData from '../custom-hooks/useGetData';
 
 const ProductDetails = () => {
+  const [product, setProduct] = useState({});
 
-  const [product,setProduct]=useState({})
+  useEffect(() => {
+    window.scroll(0, 0);
 
-    useEffect(() => {
-        
-        window.scroll(0, 0);
-        
-        // sehifenin basa getmesi ucun kod
-        const hash = window.location.hash;
-        if (hash) {
-            const targetElement = document.querySelector(hash);
-            if (targetElement) {
-                targetElement.scrollIntoView({ behavior: 'smooth' });
-            }
-        }
-    }, []);
-
-  const { id } = useParams();
-  const {data:products}=useGetData('products')
-  const reviewUser=useRef('')
-  const reviewMsg=useRef('')
-  const dispstch=useDispatch()
-
-
-  const docRef=doc(db,'products', id)
-
-  useEffect(()=>{
-    const getProduct=async ()=>{
-      const docSnap=await getDoc(docRef)
-
-      if(docSnap.exists()){
-        setProduct(docSnap.data())
-      }else{
-        console.log('no product!')
+    const hash = window.location.hash;
+    if (hash) {
+      const targetElement = document.querySelector(hash);
+      if (targetElement) {
+        targetElement.scrollIntoView({ behavior: 'smooth' });
       }
     }
+  }, []);
 
+  const { id } = useParams();
+  const { data: products } = useGetData('products');
+  const reviewUser = useRef('');
+  const reviewMsg = useRef('');
+  const dispatch = useDispatch();
 
-    getProduct()
-  },[])
+  const docRef = doc(db, 'products', id);
 
-  useEffect(()=>{
-    window.scrollTo(0,0)
-  },[product])
+  useEffect(() => {
+    const getProduct = async () => {
+      const docSnap = await getDoc(docRef);
 
+      if (docSnap.exists()) {
+        setProduct(docSnap.data());
+        setProductsData(docSnap.data());
+      } else {
+        console.log('no product!');
+      }
+    };
+
+    getProduct();
+  }, []);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [product]);
 
   const {
     imgUrl,
     productName,
     price,
-    // avgRating,
-    // reviews,
     description,
     shortDesc,
-    category
+    category,
   } = product;
 
-  const relatedProducts=products.filter(item=> item.category===category)
+  const relatedProducts = products.filter((item) => item.category === category);
 
-  const submitHandler=(e)=>{
-    e.preventDefault()
+  const submitHandler = (e) => {
+    e.preventDefault();
 
-    const reviewUserName=reviewUser.current.value
-    const reviewUserMsg=reviewMsg.current.value
+    const reviewUserName = reviewUser.current.value;
+    const reviewUserMsg = reviewMsg.current.value;
 
-    const reviewObj ={
-      userName:reviewUserName,
-      text:reviewUserMsg,
-      rating,
-    };
 
-    // console.log(reviewObj)
+    toast.success('Review submitted');
+  };
 
-    // console.log(reviewUserName,reviewMsg,rating) CHECK
-
-    toast.success('Review submitted')
-  }
-
-  const addToCart=()=>{
-    dispstch(cartActions.addItem({
+  const addToCart = () => {
+    dispatch(
+      cartActions.addItem({
         id,
-        image:imgUrl,
+        image: imgUrl,
         productName,
-        price
-    }))
-    toast.success('Product added successfully!')
-  }
-
-  useEffect(()=>{
-    window.scrollTo(0,0)
-  },[product])
+        price,
+      })
+    );
+    toast.success('Product added successfully!');
+  };
 
   const [tab, setTab] = useState('desc');
-  const [rating,setRating]=useState()
+  const [rating, setRating] = useState();
 
   return (
     <Helmet title={productName}>
-        <CommonSection tittle={productName}/>
-      <section className="pt-0">
+      <CommonSection tittle={productName} />
+      <section className='pt-0'>
         <Container>
           <Row>
-            <Col lg="6">
-            <img className="img" src={imgUrl} alt="" />
+            <Col lg='6'>
+              <img className='img' src={imgUrl} alt='' />
             </Col>
-            <Col lg="6">
-              <div className="product__details">
+            <Col lg='6'>
+              <div className='product__details'>
                 <h2>{productName}</h2>
-                <div className="product__rating d-flex align-items-center gap-5 mb-3">
+                <div className='product__rating d-flex align-items-center gap-5 mb-3'>
                   <div>
                     <span>
-                      <i className="ri-star-s-fill"></i>
-                    </span>
-                    <span >
-                      <i className="ri-star-s-fill"></i>
+                      <i className='ri-star-s-fill'></i>
                     </span>
                     <span>
-                      <i className="ri-star-s-fill"></i>
+                      <i className='ri-star-s-fill'></i>
                     </span>
                     <span>
-                      <i className="ri-star-s-fill"></i>
+                      <i className='ri-star-s-fill'></i>
                     </span>
                     <span>
-                      <i className="ri-star-half-s-line"></i>
+                      <i className='ri-star-s-fill'></i>
+                    </span>
+                    <span>
+                      <i className='ri-star-half-s-line'></i>
                     </span>
                   </div>
-                  {/* <p>({avgRating} ratings)</p> */}
                 </div>
                 <div className='d-flex align-items-center gap-5'>
-                <span className='price'>{price}</span>
-                    <span className='categry__name'>Category:{category}</span>
+                  <span className='price'>{price}</span>
+                  <span className='categry__name'>Category: {category}</span>
                 </div>
-                <p className="short__desc">{shortDesc}</p>
-                <button className="buy__btn" onClick={addToCart}>Add to Cart</button>
+                <p className='short__desc'>{shortDesc}</p>
+                <button className='buy__btn' onClick={addToCart}>
+                  Add to Cart
+                </button>
               </div>
             </Col>
           </Row>
         </Container>
       </section>
-
+  
       <section>
         <Container>
           <Row>
-            <Col lg="12">
-              <div className="tab__wrapper d-flex align-items-center gap-5">
+            <Col lg='12'>
+              <div className='tab__wrapper d-flex align-items-center gap-5'>
                 <h6
                   className={`${tab === 'desc' ? 'active__tab' : ''}`}
                   onClick={() => setTab('desc')}
@@ -173,52 +156,74 @@ const ProductDetails = () => {
                   Reviews
                 </h6>
               </div>
-
+  
               {tab === 'desc' ? (
-                <div className="tab__content mt-5">
+                <div className='tab__content mt-5'>
                   <p>{description}</p>
                 </div>
               ) : (
-                <div className="product__review mt-5">
-                  <div className="review__wrapper">
-                    {/* <ul>
-                      {reviews?.map((item, index) => (
-                        <li key={index} className="mb-4">
-                          <h6>Jhon Doe</h6>
-                          <span>{item.rating} (rating)</span>
-                          <p>{item.text}</p>
-                        </li>
-                      ))}
-                    </ul> */}
-                    <div className="review__form">
+                <div className='product__review mt-5'>
+                  <div className='review__wrapper'>
+                    <div className='review__form'>
                       <h4>Live your experience</h4>
-                      <form action="" onSubmit={submitHandler}>
-                        <div className="form__group">
-                          <input type="text" placeholder="Enter name" ref={reviewUser} required/>
+                      <form action='' onSubmit={submitHandler}>
+                        <div className='form__group'>
+                          <input
+                            type='text'
+                            placeholder='Enter name'
+                            ref={reviewUser}
+                            required
+                          />
                         </div>
-                        <div className="form__group d-flex star-group">
-                          <motion.span whileTap={{ scale: 1.2 }} onClick={() => setRating(1)}>
-                            1<i className="ri-star-fill"></i>
+                        <div className='form__group d-flex star-group'>
+                          <motion.span
+                            whileTap={{ scale: 1.2 }}
+                            onClick={() => setRating(1)}
+                          >
+                            1<i className='ri-star-fill'></i>
                           </motion.span>
-                          <motion.span whileTap={{ scale: 1.2 }} onClick={() => setRating(2)}>
-                            2<i className="ri-star-fill"></i>
+                          <motion.span
+                            whileTap={{ scale: 1.2 }}
+                            onClick={() => setRating(2)}
+                          >
+                            2<i className='ri-star-fill'></i>
                           </motion.span>
-                          <motion.span whileTap={{ scale: 1.2 }} onClick={() => setRating(3)}>
-                            3<i className="ri-star-fill"></i>
+                          <motion.span
+                            whileTap={{ scale: 1.2 }}
+                            onClick={() => setRating(3)}
+                          >
+                            3<i className='ri-star-fill'></i>
                           </motion.span>
-                          <motion.span whileTap={{ scale: 1.2 }} onClick={() => setRating(4)}>
-                            4<i className="ri-star-fill"></i>
+                          <motion.span
+                            whileTap={{ scale: 1.2 }}
+                            onClick={() => setRating(4)}
+                          >
+                            4<i className='ri-star-fill'></i>
                           </motion.span>
-                          <motion.span whileTap={{ scale: 1.2 }} onClick={() => setRating(5)}>
-                            5<i className="ri-star-fill"></i>
+                          <motion.span
+                            whileTap={{ scale: 1.2 }}
+                            onClick={() => setRating(5)}
+                          >
+                            5<i className='ri-star-fill'></i>
                           </motion.span>
                         </div>
-
-                        <div className="form__group">
-                          <textarea ref={reviewMsg} rows={4} type="text" placeholder="Review Message.." 
-                          required/>
+  
+                        <div className='form__group'>
+                          <textarea
+                            ref={reviewMsg}
+                            rows={4}
+                            type='text'
+                            placeholder='Review Message..'
+                            required
+                          />
                         </div>
-                        <motion.button whileTap={{ scale: 1.2 }} type='submit' className="buy__btn">Submit</motion.button>
+                        <motion.button
+                          whileTap={{ scale: 1.2 }}
+                          type='submit'
+                          className='buy__btn'
+                        >
+                          Submit
+                        </motion.button>
                       </form>
                     </div>
                   </div>
@@ -226,20 +231,26 @@ const ProductDetails = () => {
               )}
             </Col>
             <Col lg='12'>
-                <h2 className="related__title">You might also like</h2>
+              <h2 className='related__title'>You might also like</h2>
             </Col>
-            <ProductsList data={relatedProducts}/>
+            <ProductsList data={relatedProducts} />
             <Col className='d-flex'>
-            <div className="kindof">
-              <img src={kind} alt="" />
-              <h2>A new kind of bag.</h2>
-              <h4>Unexpected shapes with smart details, functionality, a new luxury feel with a contemporary price point.</h4>
-            </div>
-            <div className="kindof2">
-              <img src={kind2} alt="" />
-              <h2>A new kind of shoes</h2>
-              <h4>Unexpected shapes with smart details, functionality, a new luxury feel with a contemporary price point.</h4>
-            </div>
+              <div className='kindof'>
+                <img src={kind} alt='' />
+                <h2>A new kind of bag.</h2>
+                <h4>
+                  Unexpected shapes with smart details, functionality, a new
+                  luxury feel with a contemporary price point.
+                </h4>
+              </div>
+              <div className='kindof2'>
+                <img src={kind2} alt='' />
+                <h2>A new kind of shoes</h2>
+                <h4>
+                  Unexpected shapes with smart details, functionality, a new
+                  luxury feel with a contemporary price point.
+                </h4>
+              </div>
             </Col>
           </Row>
         </Container>
