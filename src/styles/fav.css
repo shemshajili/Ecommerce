@@ -1,48 +1,40 @@
-/* fav.css */
-.favorite-products {
-    text-align: center;
-    margin-top: 20px;
-  }
-  
-  .favorite-products h2 {
-    font-size: 24px;
-    margin-bottom: 10px;
-  }
-  
-  .favorite-list {
-    list-style: none;
-    padding: 0;
-  }
-  
-  .favorite-item {
+fav.css
+.fav-list {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .fav-card {
     border: 1px solid #ccc;
-    padding: 10px;
-    margin-bottom: 10px;
+    padding: 20px;
+    text-align: center;
+    max-width: 250px;
   }
   
-  .favorite-item a {
-    text-decoration: none;
-    color: #333;
+  .fav-card img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .fav-card h3 {
+    margin: 10px 0;
+  }
+  
+  .price {
     font-weight: bold;
+    font-size: 18px;
   }
   
-  .favorite-item .price {
-    font-weight: bold;
-  }
-  
-  .favorite-item button {
-    background-color: #ff4500;
-    color: #fff;
+  button {
+    background-color: #ff5733;
+    color: white;
     border: none;
-    padding: 5px 10px;
+    padding: 10px 20px;
     cursor: pointer;
-    font-weight: bold;
   }
   
-  .favorite-item button:hover {
-    background-color: #ff6b36;
+  button:hover {
+    background-color: #e64c2d;
   }
   
