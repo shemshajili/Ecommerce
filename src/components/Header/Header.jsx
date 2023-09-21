@@ -76,6 +76,9 @@ const Header = () => {
   }, []);
 
   const menuToggle = () => menuRef.current.classList.toggle('nav__active');
+  const navigateToFav=()=>{
+    navigate('/fav')
+  }
   const navigateToCart = () => {
     navigate('/cart');
   };
@@ -112,7 +115,7 @@ const Header = () => {
               </ul>
             </div>
             <div className='nav__icons'>
-            <span className='fav__icon'>
+            <span className='fav__icon' onClick={navigateToFav}>
             <i className='ri-heart-3-line'></i>
           <span className='badge'>{totalFavoriteItems}</span>
         </span>

@@ -13,6 +13,7 @@ import ProtectedRoute from './protectedRoute'
 import Shoes from '../pages/Shoes'
 import Bags from '../pages/Bags'
 import Blog from '../pages/Blog'
+import Fav from '../pages/Fav'
 import Story from '../pages/Story'
 import Gummy from '../pages/Intro-Gummy'
 import Mirror from '../pages/Intro-Mirror'
@@ -29,6 +30,7 @@ const Routers = () => {
         <Route path='home' element={<Home/>}/>
         <Route path='shop' element={<Shop/>}/>
         <Route path='cart' element={<Cart/>}/>
+        <Route path='fav' element={<Fav/>}/>
 
         <Route path='/*' element={<ProtectedRoute/>}>
             <Route path='checkout' element={<CheckOut/>}/>
