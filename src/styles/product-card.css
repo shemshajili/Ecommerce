@@ -22,3 +22,28 @@
     border-radius: 50px;
   }
   
+  .favorite-icon {
+    cursor: pointer;
+    color: #000;
+   }
+   
+   .favorite-icon.red {
+    color: red;
+   }
+   
+   .heart-container {
+    display: inline-block;
+    position: relative;
+    width: 24px;
+    height: 24px;
+   }
+   
+   .heart-container i {
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: inherit;
+   }
+  .ri-add-line{
+    margin-left: 130px;
+  }

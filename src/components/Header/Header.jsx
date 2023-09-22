@@ -116,7 +116,7 @@ const Header = () => {
             </div>
             <div className='nav__icons'>
             <span className='fav__icon' onClick={navigateToFav}>
-            <i className='ri-heart-3-line'></i>
+            <i className='ri-heart-line'></i>
           <span className='badge'>{totalFavoriteItems}</span>
         </span>
               <span className='cart__icon ' onClick={navigateToCart}>

@@ -31,7 +31,7 @@ const ProductCard = ({ item }) => {
       price: item.price,
       imgUrl: item.imgUrl,
     }));
-    toast.success('Product fav successfully');
+    toast.success('Product added to favorites');
   };
 
   const isFavorite = favorites.some((favorite) => favorite.id === item.id);
@@ -47,8 +47,15 @@ const ProductCard = ({ item }) => {
       <div className="product__card-bottom d-flex align-items-center justify-content-between p-2">
         <span className="price">${item.price}</span>
         <motion.span whileTap={{ scale: 1.2 }} onClick={addToCart}><i className="ri-add-line"></i></motion.span>
-        <motion.span whileTap={{ scale: 1.2 }} onClick={toggleFavorite}><i className='ri-heart-3-line'></i>
-        </motion.span>
+        <motion.span
+          whileTap={{ scale: 1.2 }}
+          onClick={toggleFavorite}
+          className={`favorite-icon ${isFavorite ? 'red' : ''}`}
+        >
+        <div className={`heart-container ${isFavorite ? 'red' : ''}`}>
+        <i className="ri-heart-3-line"></i>
+        </div>
+      </motion.span>
       </div>
     </Col>
   );

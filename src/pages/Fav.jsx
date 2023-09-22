@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import '../styles/fav.css'; // CSS dosyanızın yolu
+import '../styles/fav.css'; 
 import Helmet from '../components/Helmet/Helmet';
 import CommonSection from '../components/UI/CommonSection';
 import { Container, Row, Col } from 'reactstrap';
@@ -25,18 +25,18 @@ const Fav = () => {
   const dispatch = useDispatch();
 
   const removeFromFav = (id) => {
-    dispatch(cartActions.removeFromFav(id));
+    dispatch(cartActions.deleteFav(id));
   };
 
   return (
-    <Helmet title="Favori Ürünler">
-      <CommonSection tittle={'Favori Ürünler'} />
+    <Helmet title="Favori Products">
+      <CommonSection tittle={'Favorite Products'} />
       <section>
         <Container>
           <Row>
             <Col lg="9">
               {cartItems.length === 0 ? (
-                <h2 className="noitems">Favori</h2>
+                <h2 className="noitems">No items favorited</h2>
               ) : (
                 <div className="fav-list">
                   {cartItems.map((item, index) => (
@@ -58,7 +58,7 @@ const Card = ({ item, removeFromFav }) => {
       <img src={item.imgUrl} alt={item.productName} />
       <h3>{item.productName}</h3>
       <p className="price">${item.price}</p>
-      <button onClick={() => removeFromFav(item.id)} className="ri-delete-bin-line"></button>
+      <motion.button whileHover={{scale:1.2}} onClick={() => removeFromFav(item.id)} className="ri-delete-bin-line"></motion.button>
     </div>
   );
 };

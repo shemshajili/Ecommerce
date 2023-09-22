@@ -1,8 +1,8 @@
-fav.css
 .fav-list {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
+    display: flex;
   }
   
   .fav-card {
@@ -19,22 +19,24 @@ fav.css
   
   .fav-card h3 {
     margin: 10px 0;
+    font-size: 13px;
+    font-weight: 600;
   }
   
   .price {
     font-weight: bold;
-    font-size: 18px;
+    font-size: 15px;
   }
   
   button {
-    background-color: #ff5733;
-    color: white;
+    color: rgb(207, 52, 52);
     border: none;
     padding: 10px 20px;
     cursor: pointer;
   }
   
   button:hover {
-    background-color: #e64c2d;
+    color: red;
+    
   }
-  
+ 

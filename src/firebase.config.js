@@ -6,6 +6,7 @@ import {getFirestore} from 'firebase/firestore'
 import {getStorage} from 'firebase/storage'
 
 const firebaseConfig = {
+
   apiKey: "AIzaSyAeWxmIQaTwpbIK7HjCaanMoWtp1T6hhLg",
   authDomain: "voguevie-99e04.firebaseapp.com",
   projectId: "voguevie-99e04",

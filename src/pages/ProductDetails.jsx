@@ -17,6 +17,7 @@ import useGetData from '../custom-hooks/useGetData';
 
 const ProductDetails = () => {
   const [product, setProduct] = useState({});
+  const [productsData, setProductsData] = useState();
 
   useEffect(() => {
     window.scroll(0, 0);
