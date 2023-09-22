@@ -90,8 +90,16 @@
     background-color: #0056b3;
   }
   
-  .googlebtn{
-    margin-top: 15px;
-    margin-left: 60px;
+  .password-toggle-icon {
+    position: absolute;
+    right: 455px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    margin-top: -22px;
   }
+  
+  .password-toggle-icon.visible {
+    color: #007bff; /* veya istediğiniz bir renk */
+  }
+  
   

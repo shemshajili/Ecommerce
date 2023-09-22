@@ -20,18 +20,18 @@ const Shop = () => {
     }
   }, []);
 
-  const [productsData, setProductsData] = useState(products);
+  const [productData, setProductData] = useState(products);
 
   const handleFilter = (e) => {
     const filterValue = e.target.value;
     if (filterValue === 'bag') {
       const filteredProducts = products.filter((item) => item.category === 'bag');
-      setProductsData(filteredProducts);
+      setProductData(filteredProducts);
     }
 
     if (filterValue === 'shoes') {
       const filteredProducts = products.filter((item) => item.category === 'shoes');
-      setProductsData(filteredProducts);
+      setProductData(filteredProducts);
     }
   };
 
@@ -39,36 +39,36 @@ const Shop = () => {
     const sortValue = e.target.value;
 
     if (sortValue === 'ascending') {
-      // Qiymete gore artan sırayla sıralyla siralayir 
-      const sortedProducts = [...productsData].sort((a, b) => a.price - b.price);
-      setProductsData(sortedProducts);
+      // Fiyata göre artan sırayla sırala
+      const sortedProducts = [...productData].sort((a, b) => a.price - b.price);
+      setProductData(sortedProducts);
     }
 
     if (sortValue === 'descending') {
-      //  Qiymete gore azalan sırayla sıralayir
-      const sortedProducts = [...productsData].sort((a, b) => b.price - a.price);
-      setProductsData(sortedProducts);
+      // Fiyata göre azalan sırayla sırala
+      const sortedProducts = [...productData].sort((a, b) => b.price - a.price);
+      setProductData(sortedProducts);
     }
   };
 
   const handleSearch = (e) => {
-    const searchTerm = e.target.value;
+    const searchTerm = e.target.value.toLowerCase();
     const searchedProducts = products.filter(
-      (item) => item.productName.toLowerCase().includes(searchTerm.toLowerCase())
+      (item) => item.productName.toLowerCase().includes(searchTerm)
     );
-    setProductsData(searchedProducts);
+    setProductData(searchedProducts);
   };
 
   return (
     <Helmet title='Shop'>
-      <CommonSection tittle='Products' />
+      <CommonSection title='Products' />
       <section className='section__shop'>
         <Container className='container__shop'>
           <Row className='row__shop'>
             <Col lg='3' md='4'>
               <div className='filter__widget'>
                 <select onChange={handleFilter}>
-                  <option>Filter By Category</option>
+                  <option value='all'>All Products</option>
                   <option value='bag'>Bags</option>
                   <option value='shoes'>Shoes</option>
                 </select>
@@ -77,15 +77,15 @@ const Shop = () => {
             <Col lg='3' md='3'>
               <div className='filter__widget'>
                 <select onChange={handleSort}>
-                  <option>Sort By Price</option>
-                  <option value='ascending'>Ascending</option>
-                  <option value='descending'>Descending</option>
+                  <option value='default'>Sort By</option>
+                  <option value='ascending'>Price: Low to High</option>
+                  <option value='descending'>Price: High to Low</option>
                 </select>
               </div>
             </Col>
             <Col lg='6' md='6'>
               <div className='search__box'>
-                <input type='text' placeholder='Search......' onChange={handleSearch} />
+                <input type='text' placeholder='Search...' onChange={handleSearch} />
                 <span>
                   <i className='ri-search-line'></i>
                 </span>
@@ -97,10 +97,10 @@ const Shop = () => {
       <section>
         <Container>
           <Row>
-            {productsData.length === 0 ? (
-              <h1 className='text-center fs-4'>No products are found!</h1>
+            {productData.length === 0 ? (
+              <h1 className='text-center fs-4'>No products found!</h1>
             ) : (
-              <ProductList data={productsData} />
+              <ProductList data={productData} />
             )}
           </Row>
         </Container>
@@ -108,10 +108,13 @@ const Shop = () => {
       <section>
         <Container>
           <Row>
-            {productsData.map((product) => (
+            {productData.map((product) => (
               <Col lg='3' md='4' key={product.id}>
                 <Link to={`/product-details/${product.id}`}>
                   <div className='product-card'>
+                    <img src={product.imgUrl} alt={product.productName} />
+                    <h3>{product.productName}</h3>
+                    <p>${product.price}</p>
                   </div>
                 </Link>
               </Col>

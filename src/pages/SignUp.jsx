@@ -10,8 +10,6 @@ import { auth } from '../firebase.config';
 import { storage } from '../firebase.config';
 import { db } from '../firebase.config';
 import { toast } from 'react-toastify';
-// import {GoogleButton} from 'react-google-button'
-
 
 const SignUp = () => {
   const [username, setUsername] = useState('');
@@ -39,8 +37,10 @@ const SignUp = () => {
         (error) => {
           toast.error(error.message);
         },
-        () => {
-          getDownloadURL(uploadTask.snapshot.ref).then(async (downloadURL) => {
+        async () => {
+          try {
+            const downloadURL = await getDownloadURL(uploadTask.snapshot.ref);
+
             await updateProfile(user, {
               displayName: username,
               photoURL: downloadURL,
@@ -52,11 +52,14 @@ const SignUp = () => {
               email,
               photoURL: downloadURL,
             });
-          });
 
-          setLoading(false);
-          toast.success('Account created');
-          navigate('/login');
+            setLoading(false);
+            toast.success('Account created');
+            navigate('/login');
+          } catch (error) {
+            setLoading(false);
+            toast.error('Something went wrong');
+          }
         }
       );
     } catch (error) {
@@ -64,7 +67,6 @@ const SignUp = () => {
       toast.error('Something went wrong');
     }
   };
-
 
   return (
     <Helmet title='SignUp'>
@@ -111,9 +113,6 @@ const SignUp = () => {
                   <button type='submit' className='buy__btn auth__btn'>
                     Create an Account
                   </button>
-                    {/* <GoogleButton type="light" className="googlebtn" >
-                     Sign Up with Google
-                    </GoogleButton> */}
                   <p>
                     Already have an account? <Link to='/login'>Login</Link>
                   </p>

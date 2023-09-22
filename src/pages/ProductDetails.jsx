@@ -1,4 +1,4 @@
-import React, { useState, useEffect,useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Container, Row, Col } from 'reactstrap';
 import { useParams } from 'react-router-dom';
 import Helmet from '../components/Helmet/Helmet';
@@ -17,7 +17,7 @@ import useGetData from '../custom-hooks/useGetData';
 
 const ProductDetails = () => {
   const [product, setProduct] = useState({});
-  const [productsData, setProductsData] = useState();
+  const [productData, setProductData] = useState({});
 
   useEffect(() => {
     window.scroll(0, 0);
@@ -45,18 +45,14 @@ const ProductDetails = () => {
 
       if (docSnap.exists()) {
         setProduct(docSnap.data());
-        setProductsData(docSnap.data());
+        setProductData(docSnap.data());
       } else {
         console.log('no product!');
       }
     };
 
     getProduct();
-  }, []);
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [product]);
+  }, [id, docRef]);
 
   const {
     imgUrl,
@@ -68,13 +64,13 @@ const ProductDetails = () => {
   } = product;
 
   const relatedProducts = products.filter((item) => item.category === category);
+  const shopProducts = products.filter((item) => item.category === category && item.id !== id); 
 
   const submitHandler = (e) => {
     e.preventDefault();
 
     const reviewUserName = reviewUser.current.value;
     const reviewUserMsg = reviewMsg.current.value;
-
 
     toast.success('Review submitted');
   };
@@ -96,7 +92,7 @@ const ProductDetails = () => {
 
   return (
     <Helmet title={productName}>
-      <CommonSection tittle={productName} />
+      <CommonSection title={productName} />
       <section className='pt-0'>
         <Container>
           <Row>
@@ -127,7 +123,7 @@ const ProductDetails = () => {
                 </div>
                 <div className='d-flex align-items-center gap-5'>
                   <span className='price'>{price}</span>
-                  <span className='categry__name'>Category: {category}</span>
+                  <span className='category__name'>Category: {category}</span>
                 </div>
                 <p className='short__desc'>{shortDesc}</p>
                 <button className='buy__btn' onClick={addToCart}>
@@ -138,7 +134,7 @@ const ProductDetails = () => {
           </Row>
         </Container>
       </section>
-  
+
       <section>
         <Container>
           <Row>
@@ -157,7 +153,7 @@ const ProductDetails = () => {
                   Reviews
                 </h6>
               </div>
-  
+
               {tab === 'desc' ? (
                 <div className='tab__content mt-5'>
                   <p>{description}</p>
@@ -208,7 +204,7 @@ const ProductDetails = () => {
                             5<i className='ri-star-fill'></i>
                           </motion.span>
                         </div>
-  
+
                         <div className='form__group'>
                           <textarea
                             ref={reviewMsg}
@@ -235,6 +231,7 @@ const ProductDetails = () => {
               <h2 className='related__title'>You might also like</h2>
             </Col>
             <ProductsList data={relatedProducts} />
+            <ProductsList data={shopProducts} />
             <Col className='d-flex'>
               <div className='kindof'>
                 <img src={kind} alt='' />

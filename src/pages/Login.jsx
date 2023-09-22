@@ -23,6 +23,7 @@ const Login = () => {
     }
 }, []);
 
+  const [passwordVisible, setPasswordVisible] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
@@ -68,14 +69,19 @@ const Login = () => {
                     />
                   </FormGroup>
                   <FormGroup className='form__group'>
-                    <input
-                      type="password"
-                      placeholder='Enter your password'
-                      value={password}
-                      onChange={e => setPassword(e.target.value)}
-                    />
-                  </FormGroup>
-
+                  <input
+                  type={passwordVisible ? 'text' : 'password'}
+                  placeholder='Enter your password'
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  />
+                <span
+                   className={`password-toggle-icon ${passwordVisible ? 'visible' : ''}`}
+                   onClick={() => setPasswordVisible(!passwordVisible)}
+                >
+                {passwordVisible ? '👁️' : '👁️‍🗨️'}
+                </span>
+                </FormGroup>
                   <button type='submit' className='buy__btn auth__btn'>
                     Login
                   </button>
