@@ -9,6 +9,8 @@ const initialState = {
   totalFavoriteItems:0,
 };
 
+
+
 const cartSlice = createSlice({
   name: 'cart',
   initialState,
@@ -94,6 +96,22 @@ const cartSlice = createSlice({
           (total, item) => total + Number(item.quantity),
           0
         );
+      },
+      decreaseItem: (state, action) => {
+        const itemId = action.payload;
+        const existingItem = state.cartItems.find((item) => item.id === itemId);
+  
+        if (existingItem) {
+          if (existingItem.quantity > 1) {
+            existingItem.quantity--;
+            existingItem.totalPrice -= existingItem.price;
+          } else {
+            state.cartItems = state.cartItems.filter((item) => item.id !== itemId);
+          }
+  
+          state.totalQuantity--;
+          state.totalAmount -= existingItem.price;
+        }
       },
   },
 });

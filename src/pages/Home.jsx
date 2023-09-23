@@ -21,9 +21,10 @@ import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import img1 from '../assets/images/Alexander Wang Pre-Fall 2018 Fashion Show (1).jpeg'
 import img2 from '../assets/images/Alexander Wang Pre-Fall 2018 Fashion Show (2).jpeg'
 import img3 from '../assets/images/Alexander Wang Pre-Fall 2018 Fashion Show.jpeg'
-import img4 from '../assets/images/Memet Erol for Elele Turkey with Anastasiia Apukhtina.jpeg'
+import img4 from '../assets/images/Simon Miller - Jessie Cundiff.jpeg'
 import img5 from '../assets/images/Lara Angelil Flashes Hi-Style Accessories in ELLE UK March 2022 — Anne of Carversville.jpeg'
 import img6 from '../assets/images/Bolso Lula de charol con hebilla - Negro _ CHARLES & KEITH.jpeg'
+import img7 from '../assets/images/Memet Erol for Elele Turkey with Anastasiia Apukhtina.jpeg'
 
 const Home = () => {
   useEffect(() => {
@@ -132,6 +133,14 @@ const Home = () => {
         </ParallaxLayer>
       </Parallax>
       <Services />
+      <section>
+      <Row>
+        <div className="image-container">
+          <img src={victryIMg} alt="" />
+          <div className="overlay-text"><Link className='pink' to={'/shop'}>VogueVia</Link></div>
+        </div>
+      </Row>
+    </section>
       <Row>
         <section className='home__img'>
           <div className='image-container'>
@@ -279,14 +288,7 @@ const Home = () => {
     </div>
       </div>
     </section>
-    <section>
-      <Row>
-        <div className="image-container">
-          <img src={victryIMg} alt="" />
-          <div className="overlay-text"><Link className='pink' to={'/shop'}>VogueVia</Link></div>
-        </div>
-      </Row>
-    </section>
+
     </div>
   );
 }
