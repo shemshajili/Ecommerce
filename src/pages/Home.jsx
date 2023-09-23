@@ -7,8 +7,6 @@ import '../styles/home.css';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import Services from '../services/Services';
-import ProductsList from '../components/UI/ProductsList';
-// import products from '../assets/data/products';
 import mainImg from '../assets/images/LookBook12.webp';
 import mainImg2 from '../assets/images/LookBook11.webp';
 import home1 from '../assets/images/home1.jpeg';
@@ -18,13 +16,16 @@ import '../styles/home.css';
 import logoImg from '../assets/images/RefinerLogo.webp'
 import cutImg from '../assets/images/TheCutLogo.webp'
 import victryIMg from '../assets/images/victoryimg.jpg'
-import useGetData from '../custom-hooks/useGetData';
+import { Carousel } from 'react-responsive-carousel';
+import 'react-responsive-carousel/lib/styles/carousel.min.css'; 
+import img1 from '../assets/images/Alexander Wang Pre-Fall 2018 Fashion Show (1).jpeg'
+import img2 from '../assets/images/Alexander Wang Pre-Fall 2018 Fashion Show (2).jpeg'
+import img3 from '../assets/images/Alexander Wang Pre-Fall 2018 Fashion Show.jpeg'
+import img4 from '../assets/images/The Frankie Shop — High End Fashion Clothes for Women (1).jpeg'
+import img5 from '../assets/images/Lara Angelil Flashes Hi-Style Accessories in ELLE UK March 2022 — Anne of Carversville.jpeg'
+import img6 from '../assets/images/Bolso Lula de charol con hebilla - Negro _ CHARLES & KEITH.jpeg'
 
 const Home = () => {
-
-  const { data: products, loading } = useGetData('products');
-
-
   useEffect(() => {
         
     window.scroll(0, 0);
@@ -131,7 +132,6 @@ const Home = () => {
         </ParallaxLayer>
       </Parallax>
       <Services />
-   
       <Row>
         <section className='home__img'>
           <div className='image-container'>
@@ -181,20 +181,37 @@ const Home = () => {
   <Row>
     <Col lg='12' className='text-center'>
       <h2 className='section__title'>Obsessive Attention. Intelligent Effort.</h2>
+      <Carousel showArrows={true} infiniteLoop={true} autoPlay={true} interval={3000}  className="hide-indicators">
+  <div>
+    <img
+      src={img1}
+      alt="Image 1"
+      style={{ maxWidth: '900px', maxHeight: '800px' }}
+    />
+    <p className="legend"></p>
+  </div>
+  <div>
+    <img
+      src={img2}
+      alt="Image 2"
+      style={{ maxWidth: '900px', maxHeight: '800px' }}
+    />
+    <p className="legend"></p>
+  </div>
+  <div>
+    <img
+      src={img3}
+      alt="Image 3"
+      style={{ maxWidth: '900px', maxHeight: '800px' }}
+    />
+    <p className="legend"></p>
+  </div>
+</Carousel>
+
       <p className="custom-paragraph"></p>
     </Col>
   </Row>
-  <Row>
-    <Col lg='12'>
-      <div style={{ display: 'flex', flexWrap: 'wrap',gap:'10px' }}>
-        {loading ? (
-          <h5 className='fw-bold'>Loading....</h5>
-        ) : (
-          <ProductsList data={products} />
-        )}
-      </div>
-    </Col>
-  </Row>
+
 </Container>
       </section>
       <section className='back_stock'>
@@ -219,6 +236,32 @@ const Home = () => {
             </div>
           </div>
         </Container>
+      </section>
+      <section>
+      <div class="card">
+    <img src={img4} alt="Women's Shoes and Bags!" />
+    <div class="card-content">
+      <h2 class="card-title">Women's Shoes!</h2>
+      <p class="card-description">Discover the New Collection!</p>
+      <a href="link-to-category" class="card-button">View Products.</a>
+    </div>
+    </div>
+    <div class="card">
+    <img src={img5} alt="Women's Bags!" />
+    <div class="card-content">
+      <h2 class="card-title">Women's Bag!</h2>
+      <p class="card-description">Discover the New Collection!</p>
+      <a href="link-to-category" class="card-button">View Products.</a>
+    </div>
+    </div>
+    <div class="card">
+    <img src={img6} alt="Women's Shoes and Bags!" />
+    <div class="card-content">
+      <h2 class="card-title">Women's Bags and  Shoes!</h2>
+      <p class="card-description">Discover the New Collection!</p>
+      <a href="link-to-category" class="card-button">View Products.</a>
+    </div>
+    </div>
       </section>
     <section>
      <div className="marka__logo">

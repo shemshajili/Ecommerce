@@ -4,11 +4,14 @@ import CommonSection from '../components/UI/CommonSection';
 import Helmet from '../components/Helmet/Helmet';
 import { Container, Row, Col } from 'reactstrap';
 import '../styles/shop.css';
-import products from '../assets/data/products';
-import ProductList from '../components/UI/ProductsList';
+import ProductsList from '../components/UI/ProductsList';
+import useGetData from '../custom-hooks/useGetData';
 
 
 const Shop = () => {
+
+  const { data: products, loading } = useGetData('products');
+
   useEffect(() => {
     window.scroll(0, 0);
 
@@ -21,18 +24,18 @@ const Shop = () => {
     }
   }, []);
 
-  const [productData, setProductData] = useState(products);
+  const [productShop, setProductShop] = useState(products);
 
   const handleFilter = (e) => {
     const filterValue = e.target.value;
     if (filterValue === 'bag') {
       const filteredProducts = products.filter((item) => item.category === 'bag');
-      setProductData(filteredProducts);
+      setProductShop(filteredProducts);
     }
 
     if (filterValue === 'shoes') {
       const filteredProducts = products.filter((item) => item.category === 'shoes');
-      setProductData(filteredProducts);
+      setProductShop(filteredProducts);
     }
   };
 
@@ -40,15 +43,15 @@ const Shop = () => {
     const sortValue = e.target.value;
 
     if (sortValue === 'ascending') {
-      // Fiyata göre artan sırayla sırala
-      const sortedProducts = [...productData].sort((a, b) => a.price - b.price);
-      setProductData(sortedProducts);
+      // Price göre artan sırayla sırala
+      const sortedProducts = [...productShop].sort((a, b) => a.price - b.price);
+      setProductShop(sortedProducts);
     }
 
     if (sortValue === 'descending') {
-      // Fiyata göre azalan sırayla sırala
-      const sortedProducts = [...productData].sort((a, b) => b.price - a.price);
-      setProductData(sortedProducts);
+      // Price göre azalan sırayla sırala
+      const sortedProducts = [...productShop].sort((a, b) => b.price - a.price);
+      setProductShop(sortedProducts);
     }
   };
 
@@ -57,7 +60,7 @@ const Shop = () => {
     const searchedProducts = products.filter(
       (item) => item.productName.toLowerCase().includes(searchTerm)
     );
-    setProductData(searchedProducts);
+    setProductShop(searchedProducts);
   };
 
   return (
@@ -97,19 +100,23 @@ const Shop = () => {
       </section>
       <section>
         <Container>
-          <Row>
-            {productData.length === 0 ? (
-              <h1 className='text-center fs-4'>No products found!</h1>
-            ) : (
-              <ProductList data={productData} />
-            )}
-          </Row>
+        <Row>
+    <Col lg='12'>
+      <div style={{ display: 'flex', flexWrap: 'wrap',gap:'10px' }}>
+        {loading ? (
+          <h5 className='fw-bold'>Loading....</h5>
+        ) : (
+          <ProductsList data={products} />
+        )}
+      </div>
+    </Col>
+  </Row>
         </Container>
       </section>
       <section>
         <Container>
           <Row>
-            {productData.map((product) => (
+            {productShop.map((product) => (
               <Col lg='3' md='4' key={product.id}>
                 <Link to={`/product-details/${product.id}`}>
                   <div className='product-card'>

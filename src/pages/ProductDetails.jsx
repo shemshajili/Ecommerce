@@ -3,21 +3,17 @@ import { Container, Row, Col } from 'reactstrap';
 import { useParams } from 'react-router-dom';
 import Helmet from '../components/Helmet/Helmet';
 import '../styles/productDetails.css';
-import ProductsList from '../components/UI/ProductsList';
 import CommonSection from '../components/UI/CommonSection';
 import { useDispatch } from 'react-redux';
 import { cartActions } from '../redux/slices/cartSlice';
 import { toast } from 'react-toastify';
 import { motion } from 'framer-motion';
-import kind from '../assets/images/kind.webp';
-import kind2 from '../assets/images/Brand..jpeg';
 import { db } from '../firebase.config';
 import { doc, getDoc } from 'firebase/firestore';
 import useGetData from '../custom-hooks/useGetData';
 
 const ProductDetails = () => {
   const [product, setProduct] = useState({});
-  const [productData, setProductData] = useState({});
 
   useEffect(() => {
     window.scroll(0, 0);
@@ -32,7 +28,7 @@ const ProductDetails = () => {
   }, []);
 
   const { id } = useParams();
-  const { data: products } = useGetData('products');
+  const { data: products } = useGetData('products'); 
   const reviewUser = useRef('');
   const reviewMsg = useRef('');
   const dispatch = useDispatch();
@@ -45,7 +41,6 @@ const ProductDetails = () => {
 
       if (docSnap.exists()) {
         setProduct(docSnap.data());
-        setProductData(docSnap.data());
       } else {
         console.log('no product!');
       }
@@ -62,9 +57,6 @@ const ProductDetails = () => {
     shortDesc,
     category,
   } = product;
-
-  const relatedProducts = products.filter((item) => item.category === category);
-  const shopProducts = products.filter((item) => item.category === category && item.id !== id); 
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -229,26 +221,6 @@ const ProductDetails = () => {
             </Col>
             <Col lg='12'>
               <h2 className='related__title'>You might also like</h2>
-            </Col>
-            <ProductsList data={relatedProducts} />
-            <ProductsList data={shopProducts} />
-            <Col className='d-flex'>
-              <div className='kindof'>
-                <img src={kind} alt='' />
-                <h2>A new kind of bag.</h2>
-                <h4>
-                  Unexpected shapes with smart details, functionality, a new
-                  luxury feel with a contemporary price point.
-                </h4>
-              </div>
-              <div className='kindof2'>
-                <img src={kind2} alt='' />
-                <h2>A new kind of shoes</h2>
-                <h4>
-                  Unexpected shapes with smart details, functionality, a new
-                  luxury feel with a contemporary price point.
-                </h4>
-              </div>
             </Col>
           </Row>
         </Container>

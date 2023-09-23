@@ -435,7 +435,7 @@ const products = [
     id: "22",
     productName: "Puffy Sandal - Pink Cloud",
     imgUrl: productImg22,
-    category: "shoesHome",
+    category: "shoes",
     price:"751.00",
     shortDesc:
       "Made from super soft nappa like our Puff clutches, they're set on our signature pleated heels.",
@@ -452,7 +452,7 @@ const products = [
     id: "23",
     productName: "Thong Sandal - White",
     imgUrl: productImg23,
-    category: "shoesHome",
+    category: "shoes",
     price:"596.00",
     shortDesc:
       "A thong silhouette blending our signature pleated heels and chic toe straps.",
@@ -469,7 +469,7 @@ const products = [
     id: "24",
     productName: "Pleated Heel Mule - Multicolor",
     imgUrl: productImg24,
-    category: "shoesHome",
+    category: "shoes",
     price:"855.00",
     shortDesc:
       "The Pleated Heel Mules take a cue from our iconic Pleated Lantern Bag, but this time, reimagining pleats using solid oak. Features a square toe and a padded insole for extra comfort.",
@@ -486,7 +486,7 @@ const products = [
     id: "25",
     productName: "Louise Heeled Slide - Multicolor",
     imgUrl: productImg25,
-    category: "shoesHome",
+    category: "shoes",
     price:"751.00",
     shortDesc:
       "Our experimentation with texture continues. Elevated sense of design and craftsmanship manifests in our Italian-made Louise sandals.",

@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import '../styles/lookbook.css'
-import { Container, Row } from 'reactstrap'
+import { Container, Row,Col } from 'reactstrap'
 import ProductsList from '../components/UI/ProductsList';
 import useGetData from '../custom-hooks/useGetData';
 import Helmet from '../components/Helmet/Helmet';
@@ -12,6 +12,8 @@ import look5 from '../assets/images/Mlouye (1).jpeg'
 import look6 from '../assets/images/LookBook6.webp'
 import look7 from '../assets/images/LookBook9.webp'
 import look8 from '../assets/images/LookBook2.webp'
+import kind from '../assets/images/kind.webp';
+import kind2 from '../assets/images/Brand..jpeg';
 
 
 const LookBook = () => {
@@ -59,10 +61,24 @@ const LookBook = () => {
                     </section>
                 </Row>
                 <Row>
-                    <section className='fetured__product'>
-                        <h2>Featured</h2>
-                    </section>
-                    <ProductsList data={products}/>
+                { <Col className='d-flex'>
+              <div className='kindof'>
+                <img src={kind} alt='' />
+                <h2>A new kind of bag.</h2>
+                <h4>
+                  Unexpected shapes with smart details, functionality, a new
+                  luxury feel with a contemporary price point.
+                </h4>
+              </div>
+              <div className='kindof2'>
+                <img src={kind2} alt='' />
+                <h2>A new kind of shoes</h2>
+                <h4>
+                  Unexpected shapes with smart details, functionality, a new
+                  luxury feel with a contemporary price point.
+                </h4>
+              </div>
+            </Col> }
                 </Row>
             </Container>
         </div>
