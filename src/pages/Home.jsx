@@ -177,24 +177,25 @@ const Home = () => {
       </div>
       </Row>
       <section className="trending__products">
-        <Container>
-          <Row>
-            <Col lg='12' className='text-center'>
-              <h2 className='section__title'>Obsessive Attention. Intelligent Effort.</h2>
-              <p className="custom-paragraph"></p>
-            </Col>
-
-         
-          </Row>
-          <Row>
-          {/* <ProductsList data={bagsHomeProducts} />
-          // <ProductsList data={shoesHomeProducts} />        FOR USE FRONT */}       
-          </Row>
-            {
-              loading? <h5 className='fw-bold'>Loading....</h5>:
-              <ProductsList data={products}/>
-            }
-        </Container>
+      <Container>
+  <Row>
+    <Col lg='12' className='text-center'>
+      <h2 className='section__title'>Obsessive Attention. Intelligent Effort.</h2>
+      <p className="custom-paragraph"></p>
+    </Col>
+  </Row>
+  <Row>
+    <Col lg='12'>
+      <div style={{ display: 'flex', flexWrap: 'wrap',gap:'10px' }}>
+        {loading ? (
+          <h5 className='fw-bold'>Loading....</h5>
+        ) : (
+          <ProductsList data={products} />
+        )}
+      </div>
+    </Col>
+  </Row>
+</Container>
       </section>
       <section className='back_stock'>
         <Container>
@@ -239,7 +240,7 @@ const Home = () => {
       <Row>
         <div className="image-container">
           <img src={victryIMg} alt="" />
-          <div className="overlay-text">VogueVia</div>
+          <div className="overlay-text"><Link className='pink' to={'/shop'}>VogueVia</Link></div>
         </div>
       </Row>
     </section>

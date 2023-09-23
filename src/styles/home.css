@@ -344,6 +344,10 @@
   transition: opacity 0.3s ease, font-size 0.3s ease; 
 }
 
+.pink:hover{
+  color: pink;
+}
+
 .image-container:hover .overlay-text {
   opacity: 1; 
   font-size: 30px;

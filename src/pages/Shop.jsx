@@ -7,6 +7,7 @@ import '../styles/shop.css';
 import products from '../assets/data/products';
 import ProductList from '../components/UI/ProductsList';
 
+
 const Shop = () => {
   useEffect(() => {
     window.scroll(0, 0);
@@ -61,7 +62,7 @@ const Shop = () => {
 
   return (
     <Helmet title='Shop'>
-      <CommonSection title='Products' />
+      <CommonSection tittle={"Shopping Products"}/>
       <section className='section__shop'>
         <Container className='container__shop'>
           <Row className='row__shop'>
