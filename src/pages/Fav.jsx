@@ -16,13 +16,7 @@ const Fav = () => {
 
   useEffect(() => {
     window.scroll(0, 0);
-
-    const hash = window.location.hash;
-    if (hash) {
-      const targetElement = document.querySelector(hash);
-      if (targetElement) {
-        targetElement.scrollIntoView({ behavior: 'smooth' });
-      }
+   const Fav = () => {
     }
   }, []);
 
@@ -58,7 +52,7 @@ const Fav = () => {
               ) : (
                 <div className="fav-list">
                   {cartItems.map((item, index) => (
-                    <Card item={item} key={index} removeFromFav={removeFromFav} addToCart={addToCart} brokenHeart={brokenHeart} />
+                    <Card item={item} key={index} removeFromFav={removeFromFav} addToCart={addToCart} />
                   ))}
                 </div>
               )}
@@ -87,15 +81,11 @@ const Card = ({ item, removeFromFav, addToCart, brokenHeart }) => {
       <h3>{item.productName}</h3>
       <p className="price">${item.price}</p>
       <motion.button
-        whileHover={{ scale: 1.2 }}
         onClick={() => removeFromFav(item.id)}
-        className={`ri-heart-${brokenHeart ? 'broken' : 'fill'}`}
-        animate={controls} 
+        className={`ri-delete-bin-line`}
       ></motion.button>
-      <Link to={`/product/${item.id}`}>Ürün Detaylarına Git</Link>
       <button onClick={() => addToCart(item.id)}>Add to cart</button>
     </div>
   );
 };
-
 export default Fav;
