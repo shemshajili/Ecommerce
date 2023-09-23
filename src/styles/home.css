@@ -386,7 +386,16 @@
   max-width: 300px;
   width: 100%;
   text-align: center;
+}
+
+.card .shoesImg{
+  height: 410px !important;
+}
+.cardHome{
   display: flex;
+  justify-content: space-between;
+  padding: 70px;
+
 }
 
 .card img {
@@ -406,8 +415,9 @@
 }
 
 .card-description {
-  font-size: 16px;
+  font-size: 15px;
   margin-top: 10px;
+  font-weight: 600;
 }
 
 .card-button {
@@ -419,10 +429,11 @@
   border-radius: 5px;
   font-weight: bold;
   transition: background-color 0.3s;
+  margin-top: 20px;
 }
 
 .card-button:hover {
-  background-color: #0056b3;
+  background-color: #ffffff;
 }
 
 @keyframes moveText {

@@ -21,7 +21,7 @@ import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import img1 from '../assets/images/Alexander Wang Pre-Fall 2018 Fashion Show (1).jpeg'
 import img2 from '../assets/images/Alexander Wang Pre-Fall 2018 Fashion Show (2).jpeg'
 import img3 from '../assets/images/Alexander Wang Pre-Fall 2018 Fashion Show.jpeg'
-import img4 from '../assets/images/The Frankie Shop — High End Fashion Clothes for Women (1).jpeg'
+import img4 from '../assets/images/Memet Erol for Elele Turkey with Anastasiia Apukhtina.jpeg'
 import img5 from '../assets/images/Lara Angelil Flashes Hi-Style Accessories in ELLE UK March 2022 — Anne of Carversville.jpeg'
 import img6 from '../assets/images/Bolso Lula de charol con hebilla - Negro _ CHARLES & KEITH.jpeg'
 
@@ -237,13 +237,13 @@ const Home = () => {
           </div>
         </Container>
       </section>
-      <section>
+      <section className='cardHome'>
       <div class="card">
-    <img src={img4} alt="Women's Shoes and Bags!" />
+    <img className='shoesImg' src={img4} alt="Women's Shoes and Bags!" />
     <div class="card-content">
       <h2 class="card-title">Women's Shoes!</h2>
       <p class="card-description">Discover the New Collection!</p>
-      <a href="link-to-category" class="card-button">View Products.</a>
+      <a href="link-to-category" class="card-button"><Link to={'/shoes'}>View Products.</Link></a>
     </div>
     </div>
     <div class="card">
@@ -251,15 +251,15 @@ const Home = () => {
     <div class="card-content">
       <h2 class="card-title">Women's Bag!</h2>
       <p class="card-description">Discover the New Collection!</p>
-      <a href="link-to-category" class="card-button">View Products.</a>
+      <a href="link-to-category" class="card-button"><Link to={'/bags'}>View Products.</Link></a>
     </div>
     </div>
     <div class="card">
     <img src={img6} alt="Women's Shoes and Bags!" />
     <div class="card-content">
-      <h2 class="card-title">Women's Bags and  Shoes!</h2>
+      <h2 class="card-title">Women's Bags&Shoes!</h2>
       <p class="card-description">Discover the New Collection!</p>
-      <a href="link-to-category" class="card-button">View Products.</a>
+      <a href="link-to-category" class="card-button"><Link to={'/shop'}>View Products.</Link></a>
     </div>
     </div>
       </section>
