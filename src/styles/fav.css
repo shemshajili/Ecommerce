@@ -38,9 +38,10 @@
   }
   
   button:hover {
-    color: red;
+    color:#007bff;
     
   }
 .ri-delete-bin-line{
   background-color: white;
+  margin-top: 10px !important;
 }

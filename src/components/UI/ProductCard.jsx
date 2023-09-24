@@ -58,6 +58,7 @@ const ProductCard = ({ item }) => {
       </motion.span>
       </div>
     </Col>
+    
   );
 }
 

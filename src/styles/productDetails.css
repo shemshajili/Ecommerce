@@ -44,6 +44,11 @@
     color: #f66714;
     font-weight: bold;
 }
+.category__name{
+  font-size: 12px !important;
+  color: #333 !important;
+  font-weight: bold;
+}
 
 .product__details p {
     font-size: 16px;
@@ -63,7 +68,8 @@
 }
 
 .buy__btn:hover {
-    background-color: #2980b9;
+    background-color: #ffffff !important;
+    color: #3498db !important;
 }
 .img {
     width: 350px;
@@ -124,7 +130,9 @@
     font-weight: bold;
     color: #007bff;
     cursor: pointer;
+    font-size: 15px !important;
   }
+  
   
   .tab__content {
     margin-top: 20px;

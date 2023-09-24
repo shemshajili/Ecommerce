@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import '../styles/fav.css'; 
 import Helmet from '../components/Helmet/Helmet';
 import CommonSection from '../components/UI/CommonSection';
@@ -8,16 +7,19 @@ import { motion, useAnimation } from 'framer-motion';
 import { cartActions } from '../redux/slices/cartSlice';
 import { useSelector, useDispatch } from 'react-redux';
 import { toast } from 'react-toastify';
+import useGetData from '../custom-hooks/useGetData';
+import { Link } from 'react-router-dom'; 
 
 const Fav = () => {
   const cartItems = useSelector((state) => state.cart.cartItems);
   const dispatch = useDispatch();
   const [brokenHeart, setBrokenHeart] = useState(false);
 
+  const { data: products} = useGetData('products');
+  const [productFav] = useState(products);
+
   useEffect(() => {
     window.scroll(0, 0);
-   const Fav = () => {
-    }
   }, []);
 
   const removeFromFav = (id) => {
@@ -52,11 +54,28 @@ const Fav = () => {
               ) : (
                 <div className="fav-list">
                   {cartItems.map((item, index) => (
-                    <Card item={item} key={index} removeFromFav={removeFromFav} addToCart={addToCart} />
+                    <Card item={item} key={index} removeFromFav={removeFromFav} className='addbtn' addToCart={addToCart} />
                   ))}
                 </div>
               )}
             </Col>
+          </Row>
+        </Container>
+      </section>
+      <section>
+        <Container>
+        <Row>
+        {productFav.map((product) => (
+              <Col lg='3' md='4' key={product.id}>
+                <Link to={`/product-details/${product.id}`}>
+                  <div className='product-card'>
+                    <img src={product.imgUrl} alt={product.productName} />
+                    <h3>{product.productName}</h3>
+                    <p>${product.price}</p>
+                  </div>
+                </Link>
+              </Col>
+            ))}
           </Row>
         </Container>
       </section>

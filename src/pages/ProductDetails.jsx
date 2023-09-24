@@ -219,9 +219,6 @@ const ProductDetails = () => {
                 </div>
               )}
             </Col>
-            <Col lg='12'>
-              <h2 className='related__title'>You might also like</h2>
-            </Col>
           </Row>
         </Container>
       </section>
