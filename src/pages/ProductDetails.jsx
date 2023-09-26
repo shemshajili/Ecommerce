@@ -9,11 +9,12 @@ import { cartActions } from '../redux/slices/cartSlice';
 import { toast } from 'react-toastify';
 import { motion } from 'framer-motion';
 import { db } from '../firebase.config';
-import { doc, getDoc } from 'firebase/firestore';
+import { doc, getDoc, collection, addDoc, query, where, getDocs } from 'firebase/firestore'; 
 import useGetData from '../custom-hooks/useGetData';
 
 const ProductDetails = () => {
   const [product, setProduct] = useState({});
+  const [comments, setComments] = useState([]); // Commentleri saxlayir
 
   useEffect(() => {
     window.scroll(0, 0);
@@ -28,7 +29,7 @@ const ProductDetails = () => {
   }, []);
 
   const { id } = useParams();
-  const { data: products } = useGetData('products'); 
+  const { data: products } = useGetData('products');
   const reviewUser = useRef('');
   const reviewMsg = useRef('');
   const dispatch = useDispatch();
@@ -47,6 +48,7 @@ const ProductDetails = () => {
     };
 
     getProduct();
+    loadComments(); //Sehife yuklenende yorumlari yeniden yukleyir
   }, [id, docRef]);
 
   const {
@@ -58,13 +60,37 @@ const ProductDetails = () => {
     category,
   } = product;
 
-  const submitHandler = (e) => {
+  const addComment = async (productId, userName, message) => {
+    try {
+      const commentsCollection = collection(db, 'comments');
+      await addDoc(commentsCollection, {
+        productId,
+        userName,
+        message,
+      });
+    } catch (error) {
+      console.error('Error adding comment:', error);
+      throw error;
+    }
+  };
+  const submitHandler = async (e) => {
     e.preventDefault();
 
     const reviewUserName = reviewUser.current.value;
     const reviewUserMsg = reviewMsg.current.value;
 
-    toast.success('Review submitted');
+    //Commenti firestoe gondermek ucun add edirem 
+    try {
+      await addComment(id, reviewUserName, reviewUserMsg);
+      toast.success('Review submitted');
+      // Comment yuklenenden sonra yeniden cagirir
+      loadComments();
+      // Formu sifirlayiriq
+      reviewUser.current.value = '';
+      reviewMsg.current.value = '';
+    } catch (error) {
+      console.error('Error adding comment:', error);
+    }
   };
 
   const addToCart = () => {
@@ -82,11 +108,25 @@ const ProductDetails = () => {
   const [tab, setTab] = useState('desc');
   const [rating, setRating] = useState();
 
+  // Firestore'dan commentleri yuklemek ucun
+  const loadComments = async () => {
+    const commentsCollection = collection(db, 'comments'); // Comment collectiondan datalari aliri
+    const q = query(commentsCollection, where('productId', '==', id)); // Product id gore yorum sifirlayiriq
+    const querySnapshot = await getDocs(q);
+
+    const commentsArray = [];
+    querySnapshot.forEach((doc) => {
+      commentsArray.push({ id: doc.id, ...doc.data() });
+    });
+
+    setComments(commentsArray);
+  };
+
   return (
     <Helmet title={productName}>
       <CommonSection title={productName} />
       <section className='pt-0'>
-        <Container>
+      <Container>
           <Row>
             <Col lg='6'>
               <img className='img' src={imgUrl} alt='' />
@@ -126,7 +166,6 @@ const ProductDetails = () => {
           </Row>
         </Container>
       </section>
-
       <section>
         <Container>
           <Row>
@@ -216,6 +255,17 @@ const ProductDetails = () => {
                       </form>
                     </div>
                   </div>
+                  {comments.map((comment) => (
+  <div key={comment.id} className='comment'>
+    <div className='comment__user'>{comment.userName}</div>
+    <div className='comment__rating'>
+      {Array.from({ length: comment.rating }, (_, index) => (
+        <i key={index} className='ri-star-fill'></i>
+      ))}
+    </div>
+    <div className='comment__message'>{comment.message}</div>
+  </div>
+))}
                 </div>
               )}
             </Col>

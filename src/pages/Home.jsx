@@ -107,14 +107,7 @@ const Home = () => {
         </ParallaxLayer>
       </Parallax>
       <Services />
-      <section>
-      <Row>
-        <div className="image-container">
-          <img src={victryIMg} alt="" />
-          <div className="overlay-text"><Link className='pink' to={'/shop'}>VogueVia</Link></div>
-        </div>
-      </Row>
-    </section>
+   
       <Row>
         <section className='home__img'>
           <div className='image-container'>
@@ -262,7 +255,14 @@ const Home = () => {
     </div>
       </div>
     </section>
-
+    <section>
+      <Row>
+        <div className="image-container">
+          <img src={victryIMg} alt="" />
+          <div className="overlay-text"><Link className='pink' to={'/shop'}>VogueVia</Link></div>
+        </div>
+      </Row>
+    </section>
     </div>
   );
 }
