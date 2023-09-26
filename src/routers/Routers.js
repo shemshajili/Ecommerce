@@ -22,6 +22,7 @@ import AddProducts from '../admin/AddProducts'
 import AllProducts from '../admin/AllProducts'
 import Dashboard from '../admin/Dashboard'
 import Users from '../admin/Users'
+import ForgotPassword from '../pages/ForgotPassword'
 
 
 const Routers = () => {
@@ -50,6 +51,7 @@ const Routers = () => {
         <Route path='story' element={<Story/>}></Route>
         <Route path='mirror' element={<Mirror/>}></Route>
         <Route path='gummy' element={<Gummy/>}></Route>
+        <Route path='/reset' element={<ForgotPassword/>}></Route>
 
     </Routes>
 };

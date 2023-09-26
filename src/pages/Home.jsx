@@ -24,9 +24,10 @@ import img3 from '../assets/images/Alexander Wang Pre-Fall 2018 Fashion Show.jpe
 import img4 from '../assets/images/Simon Miller - Jessie Cundiff.jpeg'
 import img5 from '../assets/images/Lara Angelil Flashes Hi-Style Accessories in ELLE UK March 2022 — Anne of Carversville.jpeg'
 import img6 from '../assets/images/Bolso Lula de charol con hebilla - Negro _ CHARLES & KEITH.jpeg'
-import img7 from '../assets/images/Memet Erol for Elele Turkey with Anastasiia Apukhtina.jpeg'
+
 
 const Home = () => {
+
   useEffect(() => {
         
     window.scroll(0, 0);
@@ -40,33 +41,6 @@ const Home = () => {
         }
     }
 }, []);
-
-  // const [data, setData] = useState([]); ==================FOR USED FRONT END=================
-
-  // useEffect(() => {        productlari getirme
-  //   setData(products);
-  // }, []);
-
-  // const [data1,setData] = useState([]);
-  // const [shoesHomeProducts, setShoesProducts] = useState([]);
-
-  // useEffect(() => {
-  //     setData(products);
-
-  //     const shoesHome = products.filter(product => product.category === 'shoesHome');
-  //     setShoesProducts(shoesHome);
-  // }, []);
-
-  // const [data,setData1] = useState([]);     
-  // const [bagsHomeProducts, setBagProducts] = useState([]);
-
-  // useEffect(() => {
-  //     setData1(products);
-
-  //     const bagHome = products.filter(product => product.category === 'bagHome');
-  //     setBagProducts(bagHome);
-  // }, [products]);
-
   return ( 
     <div>
       {/* Page title */}

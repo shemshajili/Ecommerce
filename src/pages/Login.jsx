@@ -1,4 +1,3 @@
-import React, { useState,useEffect } from 'react';
 import Helmet from '../components/Helmet/Helmet';
 import { Container, Row, Col, Form, FormGroup } from 'reactstrap';
 import { Link, useNavigate } from 'react-router-dom';
@@ -6,6 +5,7 @@ import '../styles/login.css';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../firebase.config';
 import { toast } from 'react-toastify';
+import React, { useState, useEffect } from 'react';
 
 const Login = () => {
 
@@ -46,6 +46,10 @@ const Login = () => {
     }
   };
 
+   const handleReset=()=>{
+    navigate('/reset')
+   }
+
   return (
     <Helmet title='Login'>
       <section>
@@ -81,6 +85,7 @@ const Login = () => {
                 >
                 {passwordVisible ? '👁️' : '👁️‍🗨️'}
                 </span>
+              <p onClick={handleReset}>Forgot Password?</p>
                 </FormGroup>
                   <button type='submit' className='buy__btn auth__btn'>
                     Login

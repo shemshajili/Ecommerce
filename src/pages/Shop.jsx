@@ -32,7 +32,7 @@ const Shop = () => {
       const filteredProducts = products.filter((item) => item.category === 'bag');
       setProductShop(filteredProducts);
     }
-
+  
     if (filterValue === 'shoes') {
       const filteredProducts = products.filter((item) => item.category === 'shoes');
       setProductShop(filteredProducts);
@@ -72,7 +72,7 @@ const Shop = () => {
             <Col lg='3' md='4'>
               <div className='filter__widget'>
                 <select onChange={handleFilter}>
-                  <option value='all'>All Products</option>
+                  <option value='all'>Sort By Category</option>
                   <option value='bag'>Bags</option>
                   <option value='shoes'>Shoes</option>
                 </select>
@@ -81,7 +81,7 @@ const Shop = () => {
             <Col lg='3' md='3'>
               <div className='filter__widget'>
                 <select onChange={handleSort}>
-                  <option value='default'>Sort By</option>
+                  <option value='default'>Sort By Price</option>
                   <option value='ascending'>Price: Low to High</option>
                   <option value='descending'>Price: High to Low</option>
                 </select>

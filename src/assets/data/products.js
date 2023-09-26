@@ -57,7 +57,6 @@ import productImg27 from "../images/Sandal5.webp"
 
 import productImg28 from "../images/SandalBlack.webp"
 
-//Featured
 
 import productImg29 from "../images/featuredimg1.webp"
 
