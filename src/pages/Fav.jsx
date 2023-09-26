@@ -103,7 +103,7 @@ const Card = ({ item, removeFromFav, addToCart, brokenHeart }) => {
         onClick={() => removeFromFav(item.id)}
         className={`ri-delete-bin-line`}
       ></motion.button>
-      <button onClick={() => addToCart(item.id)}>Add to cart</button>
+      <button className='favButton' onClick={() => addToCart(item.id)}>Add to cart</button>
     </div>
   );
 };

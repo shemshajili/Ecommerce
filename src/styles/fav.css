@@ -28,20 +28,31 @@
     font-size: 15px;
   }
   
-  button {
-    color: rgb(0, 0, 0);
+  .ri-delete-bin-line {
+    color: #ff0000;
+    font-size: 20px;
+    cursor: pointer;
+    margin-top: 20px;
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+    transition: background-color 0.2s, color 0.2s;
+    border-radius: 5px;
+  }
+  .ri-delete-bin-line{
+    background-color: white;
+    color: #ff0000;
+  }
+  
+  .favButton {
+    color: #007bff;
     border: none;
     padding: 10px 20px;
     cursor: pointer;
-    background-color: white;
+    background-color: transparent;
     font-weight: 500;
+    transition: background-color 0.2s, color 0.2s;
+    border-radius: 5px;
+    margin-left: 20px; 
+    margin-top: -10px !important;
   }
-  
-  button:hover {
-    color:#007bff;
-    
-  }
-.ri-delete-bin-line{
-  background-color: white;
-  margin-top: 10px !important;
-}
