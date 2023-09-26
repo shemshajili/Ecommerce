@@ -263,5 +263,20 @@
 .comment__message {
   color: #555;
 }
+.delete__comment__btn {
+  background-color: #ff5c5c;
+  color: #fff;
+  border: none;
+  padding: 1px 3px;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+  font-size: 10px;
+}
 
+.delete__comment__btn:hover {
+  background-color: #d43434;
+  transform: scale(1.05);
+  color: white;
+}
 

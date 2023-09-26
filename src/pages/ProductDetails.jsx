@@ -9,7 +9,7 @@ import { cartActions } from '../redux/slices/cartSlice';
 import { toast } from 'react-toastify';
 import { motion } from 'framer-motion';
 import { db } from '../firebase.config';
-import { doc, getDoc, collection, addDoc, query, where, getDocs } from 'firebase/firestore'; 
+import { doc, getDoc, collection, addDoc, query, where, getDocs,deleteDoc } from 'firebase/firestore'; 
 import useGetData from '../custom-hooks/useGetData';
 
 const ProductDetails = () => {
@@ -122,6 +122,40 @@ const ProductDetails = () => {
     setComments(commentsArray);
   };
 
+  const deleteComment = async (commentId) => {
+    try {
+      // Firestore'dan yorumu sil
+      const commentDocRef = doc(db, 'comments', commentId);
+      await deleteDoc(commentDocRef);
+  
+      // Yorumlar listesini güncelle
+      const updatedComments = comments.filter((comment) => comment.id !== commentId);
+      setComments(updatedComments);
+  
+      toast.success('Comment deleted successfully');
+    } catch (error) {
+      console.error('Error deleting comment:', error);
+      toast.error('An error occurred while deleting the comment');
+    }
+  };
+  
+  {comments.map((comment) => (
+    <div key={comment.id} className='comment'>
+      <div className='comment__user'>{comment.userName}</div>
+      <div className='comment__rating'>
+        {Array.from({ length: comment.rating }, (_, index) => (
+          <i key={index} className='ri-star-fill'></i>
+        ))}
+      </div>
+      <div className='comment__message'>{comment.message}</div>
+      <button
+        className='delete__comment__btn'
+        onClick={() => deleteComment(comment.id)}
+      >
+        Delete
+      </button>
+    </div>
+  ))}
   return (
     <Helmet title={productName}>
       <CommonSection title={productName} />
@@ -256,16 +290,20 @@ const ProductDetails = () => {
                     </div>
                   </div>
                   {comments.map((comment) => (
-  <div key={comment.id} className='comment'>
-    <div className='comment__user'>{comment.userName}</div>
-    <div className='comment__rating'>
-      {Array.from({ length: comment.rating }, (_, index) => (
-        <i key={index} className='ri-star-fill'></i>
-      ))}
-    </div>
-    <div className='comment__message'>{comment.message}</div>
-  </div>
-))}
+                    <div key={comment.id} className='comment'>
+                        <div className='comment__user'>{comment.userName}</div>
+                            <div className='comment__rating'>
+                             {Array.from({ length: comment.rating }, (_, index) => (
+                              <i key={index} className='ri-star-fill'></i>))}</div>
+                    <div className='comment__message'>{comment.message}</div>
+                    <button
+                    className='delete__comment__btn'
+                    onClick={() => deleteComment(comment.id)}
+                    >
+                    Delete
+                    </button>
+                    </div>
+                  ))}
                 </div>
               )}
             </Col>
