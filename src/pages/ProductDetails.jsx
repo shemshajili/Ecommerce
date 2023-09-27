@@ -295,12 +295,17 @@ const ProductDetails = () => {
                           />
                         </div>
                         <div className='form__group'>
-                          <input
-                            type='file'
-                            accept='image/*'
-                            onChange={handleImageUpload}
-                            required
-                          />
+                          <label htmlFor='imageInput' className='camera-icon'>
+                              <i className='ri-camera-line'></i> Add Image
+                          </label>
+                            <input
+                              className='camera'
+                              id='imageInput'
+                              type='file'
+                              accept='image/*'
+                              onChange={handleImageUpload}
+                              style={{ display: 'none' }}
+                            />
                         </div>
                         <motion.button
                           whileTap={{ scale: 1.2 }}

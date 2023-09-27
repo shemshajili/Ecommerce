@@ -280,4 +280,21 @@
   color: white;
 }
 
+.camera-icon {
+  cursor: pointer;
+  color: #000000; 
+  margin-right: 10px;
+  font-size: 15px;
+  font-weight: bold;
+}
 
+.camera-icon:hover {
+  color:#007bff;
+}
+
+.comment img {
+  width: 100px;
+  height: 100px;
+  border-radius: 8px;
+  margin-left: 30px;
+}
