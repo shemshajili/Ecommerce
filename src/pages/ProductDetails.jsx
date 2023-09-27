@@ -9,12 +9,17 @@ import { cartActions } from '../redux/slices/cartSlice';
 import { toast } from 'react-toastify';
 import { motion } from 'framer-motion';
 import { db } from '../firebase.config';
-import { doc, getDoc, collection, addDoc, query, where, getDocs,deleteDoc } from 'firebase/firestore'; 
+import { doc, getDoc, collection, addDoc, query, where, getDocs, deleteDoc } from 'firebase/firestore';
+import { storage } from '../firebase.config';
+import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
 import useGetData from '../custom-hooks/useGetData';
+
+
 
 const ProductDetails = () => {
   const [product, setProduct] = useState({});
-  const [comments, setComments] = useState([]); // Commentleri saxlayir
+  const [comments, setComments] = useState([]); // Commentleri saklar
+  const [imageURL, setImageURL] = useState(''); // Yorum resmi URL'si
 
   useEffect(() => {
     window.scroll(0, 0);
@@ -48,7 +53,7 @@ const ProductDetails = () => {
     };
 
     getProduct();
-    loadComments(); //Sehife yuklenende yorumlari yeniden yukleyir
+    loadComments(); // Sayfa yüklendiğinde yorumları yeniden yükler
   }, [id, docRef]);
 
   const {
@@ -60,34 +65,37 @@ const ProductDetails = () => {
     category,
   } = product;
 
-  const addComment = async (productId, userName, message) => {
+  const addComment = async (productId, userName, message, imageUrl) => {
     try {
       const commentsCollection = collection(db, 'comments');
       await addDoc(commentsCollection, {
         productId,
         userName,
         message,
+        imageUrl, // Yorum belgesine resim URL'sini ekler
       });
     } catch (error) {
       console.error('Error adding comment:', error);
       throw error;
     }
   };
+
   const submitHandler = async (e) => {
     e.preventDefault();
 
     const reviewUserName = reviewUser.current.value;
     const reviewUserMsg = reviewMsg.current.value;
 
-    //Commenti firestoe gondermek ucun add edirem 
+    // Yorumu Firestore'a göndermek için ekler
     try {
-      await addComment(id, reviewUserName, reviewUserMsg);
+      await addComment(id, reviewUserName, reviewUserMsg, imageURL);
       toast.success('Review submitted');
-      // Comment yuklenenden sonra yeniden cagirir
+      // Yorum ekledikten sonra yeniden yorumları yükler
       loadComments();
-      // Formu sifirlayiriq
+      // Formu sıfırlar
       reviewUser.current.value = '';
       reviewMsg.current.value = '';
+      setImageURL(''); // Resim URL'sini sıfırlar
     } catch (error) {
       console.error('Error adding comment:', error);
     }
@@ -108,10 +116,10 @@ const ProductDetails = () => {
   const [tab, setTab] = useState('desc');
   const [rating, setRating] = useState();
 
-  // Firestore'dan commentleri yuklemek ucun
+  // Firestore'dan yorumları yüklemek için
   const loadComments = async () => {
-    const commentsCollection = collection(db, 'comments'); // Comment collectiondan datalari aliri
-    const q = query(commentsCollection, where('productId', '==', id)); // Product id gore yorum sifirlayiriq
+    const commentsCollection = collection(db, 'comments'); // Comment koleksiyonundan verileri alır
+    const q = query(commentsCollection, where('productId', '==', id)); 
     const querySnapshot = await getDocs(q);
 
     const commentsArray = [];
@@ -124,43 +132,50 @@ const ProductDetails = () => {
 
   const deleteComment = async (commentId) => {
     try {
-      // Firestore'dan yorumu sil
+      // Firestore'dan yorumu siler
       const commentDocRef = doc(db, 'comments', commentId);
       await deleteDoc(commentDocRef);
-  
-      // Yorumlar listesini güncelle
+
+      // Yorumlar listesini günceller
       const updatedComments = comments.filter((comment) => comment.id !== commentId);
       setComments(updatedComments);
-  
+
       toast.success('Comment deleted successfully');
     } catch (error) {
       console.error('Error deleting comment:', error);
       toast.error('An error occurred while deleting the comment');
     }
   };
+
+  const handleImageUpload = async (e) => {
+    const imageFile = e.target.files[0];
+    const storageRef = ref(storage, `comment_images/${id}/${imageFile.name}`);
   
-  {comments.map((comment) => (
-    <div key={comment.id} className='comment'>
-      <div className='comment__user'>{comment.userName}</div>
-      <div className='comment__rating'>
-        {Array.from({ length: comment.rating }, (_, index) => (
-          <i key={index} className='ri-star-fill'></i>
-        ))}
-      </div>
-      <div className='comment__message'>{comment.message}</div>
-      <button
-        className='delete__comment__btn'
-        onClick={() => deleteComment(comment.id)}
-      >
-        Delete
-      </button>
-    </div>
-  ))}
+    try {
+      // Resmi yükle
+      const uploadTask = uploadBytesResumable(storageRef, imageFile);
+      await uploadTask;
+  
+      // Resmin URL'sini al
+      const imageURL = await getDownloadURL(storageRef);
+  
+      // imageURL'yi ayarla
+      setImageURL(imageURL);
+  
+      // Bildirim göster
+      toast.success('Image uploaded successfully');
+    } catch (error) {
+      console.error('Error uploading image:', error);
+      toast.error('An error occurred while uploading the image');
+    }
+  };
+  
+
   return (
     <Helmet title={productName}>
       <CommonSection title={productName} />
       <section className='pt-0'>
-      <Container>
+        <Container>
           <Row>
             <Col lg='6'>
               <img className='img' src={imgUrl} alt='' />
@@ -279,6 +294,14 @@ const ProductDetails = () => {
                             required
                           />
                         </div>
+                        <div className='form__group'>
+                          <input
+                            type='file'
+                            accept='image/*'
+                            onChange={handleImageUpload}
+                            required
+                          />
+                        </div>
                         <motion.button
                           whileTap={{ scale: 1.2 }}
                           type='submit'
@@ -289,21 +312,22 @@ const ProductDetails = () => {
                       </form>
                     </div>
                   </div>
-                  {comments.map((comment) => (
-                    <div key={comment.id} className='comment'>
-                        <div className='comment__user'>{comment.userName}</div>
-                            <div className='comment__rating'>
-                             {Array.from({ length: comment.rating }, (_, index) => (
-                              <i key={index} className='ri-star-fill'></i>))}</div>
-                    <div className='comment__message'>{comment.message}</div>
-                    <button
-                    className='delete__comment__btn'
-                    onClick={() => deleteComment(comment.id)}
-                    >
-                    Delete
-                    </button>
-                    </div>
-                  ))}
+                {comments.map((comment) => (
+                  <div key={comment.id} className='comment'>
+                    <div className='comment__user'>{comment.userName}</div>
+                      <div className='comment__rating'>
+                    {Array.from({ length: comment.rating }, (_, index) => (
+                    <i key={index} className='ri-star-fill'></i>))}</div>
+                      <div className='comment__message'>{comment.message}</div>
+                      <button
+                        className='delete__comment__btn'
+                        onClick={() => deleteComment(comment.id)}
+                      >
+                            Delete
+                      </button>
+                    <img src={comment.imageUrl} alt='Comment Image' />
+                  </div>
+                ))}
                 </div>
               )}
             </Col>
