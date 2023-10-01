@@ -25,27 +25,23 @@ const Shoes = () => {
   const { data: allProducts, loading } = useGetData('products');
 
   const productList = allProducts.filter((product) => product.category === 'shoes');
-  const [filteredProducts, setFilteredProducts] = useState(allProducts);
+  const [filteredProducts, setFilteredProducts] = useState(productList); 
 
-  useEffect(() => {
-    window.scroll(0, 0);
-
-    const hash = window.location.hash;
-    if (hash) {
-      const targetElement = document.querySelector(hash);
-      if (targetElement) {
-        targetElement.scrollIntoView({ behavior: 'smooth' });
-      }
-    }
-  }, []);
+  const [searchError, setSearchError] = useState(''); 
 
   // Ada göre filtreleme fonksiyonu
   const handleSearch = (e) => {
     const searchTerm = e.target.value.toLowerCase();
-    const searchedProducts = allProducts.filter(
+    const searchedProducts = productList.filter(
       (item) => item.productName.toLowerCase().includes(searchTerm)
     );
     setFilteredProducts(searchedProducts);
+
+    if (searchedProducts.length === 0) {
+      setSearchError( "No matching products found!" ); 
+    } else {
+      setSearchError(''); 
+    }
   };
 
   // Fiyata göre filtreleme fonksiyonu
@@ -68,10 +64,10 @@ const Shoes = () => {
     const filterValue = e.target.value;
 
     if (filterValue === 'winter') {
-      const winterProducts = allProducts.filter((item) => item.season === 'winter');
+      const winterProducts = productList.filter((item) => item.season === 'winter');
       setFilteredProducts(winterProducts);
     } else if (filterValue === 'summer') {
-      const summerProducts = allProducts.filter((item) => item.season === 'summer');
+      const summerProducts = productList.filter((item) => item.season === 'summer');
       setFilteredProducts(summerProducts);
     } else {
       // Tüm ürünleri göstermek için filtreleme yapma
@@ -110,6 +106,7 @@ const Shoes = () => {
                   <i className='ri-search-line'></i>
                 </span>
               </div>
+              {searchError && <p className="text-danger" style={{ fontSize: '13px', fontWeight:'bold'}}>{searchError}</p>}
             </Col>
           </Row>
         </Container>
