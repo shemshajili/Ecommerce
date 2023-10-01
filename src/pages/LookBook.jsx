@@ -80,6 +80,14 @@ const LookBook = () => {
               </div>
             </Col> }
                 </Row>
+                {/* <section>
+                <video controls poster="your-poster-image.jpg"
+       id="video"
+       className='homeVideo'>
+      <source src="/videos/videos3.mp4" type="video/mp4" />
+      Video not supported
+      </video>
+                </section> */}
             </Container>
         </div>
     );

@@ -94,12 +94,9 @@ const Header = () => {
       <Container>
         <Row>
           <div className='nav__wrapper'>
-            <div className='logo' onClick={handleLogoClick}>
-              <img src={logo} alt='logo' />
               <div>
-                <h1 onClick={handleLogoClick}>VogueVie</h1>
+                <h1 style={{fontWeight:"bold",marginRight:"80px"}} onClick={handleLogoClick}>VogueVie</h1>
               </div>
-            </div>
             <div className='navigation' ref={menuRef} onClick={menuToggle}>
               <ul className='menu'>
                 {navLinks.map((item, index) => (

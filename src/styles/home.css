@@ -53,6 +53,14 @@
     pointer-events: none;
   }
 
+  .homeVideo{
+    width: 400px;
+    height: 400px;
+    margin-top: 250px;
+    margin-left: 150px;
+    border-radius: 15px;
+  }
+
   .home1{
     height: 800px;
   }
@@ -434,6 +442,18 @@
 
 .card-button:hover {
   background-color: #ffffff;
+}
+@media (max-width: 767px) {
+  .card {
+    max-width: 100%;
+  }
+  .cardHome {
+    flex-direction: column;
+    padding: 20px;
+  }
+  .card-button {
+    margin-top: 10px;
+  }
 }
 
 @keyframes moveText {
