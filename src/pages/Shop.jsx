@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom'; 
 import CommonSection from '../components/UI/CommonSection';
 import Helmet from '../components/Helmet/Helmet';
 import { Container, Row, Col } from 'reactstrap';
@@ -23,6 +22,7 @@ const Shop = () => {
     }
   }, []);
 
+  //Kategoriye gore filtreleme funksiyasi
   const handleFilter = (e) => {
     const filterValue = e.target.value;
     if (filterValue === 'bag') {
@@ -35,7 +35,7 @@ const Shop = () => {
       setFilteredProducts(products);
     }
   };
-
+  //Qiymete gore filtreleme funksiyasi
   const handleSort = (e) => {
     const sortValue = e.target.value;
 
@@ -51,7 +51,7 @@ const Shop = () => {
       setFilteredProducts(products);
     }
   };
-
+  //Ada gire filtreleme funksiyasi
   const handleSearch = (e) => {
     const searchTerm = e.target.value.toLowerCase();
     const searchedProducts = products.filter(

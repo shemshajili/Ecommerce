@@ -333,6 +333,7 @@ const products = [
     productName: "Pleated Heel Boot",
     imgUrl: productImg16,
     category: "shoes",
+    season:"winter",
     price:"585.00",
     shortDesc:
       "The Pleated Heel Boots take a cue from our iconic Pleated Lantern Bag, but this time, reimagining pleats using solid oak. Features a square toe and a padded insole for extra comfort.",
@@ -350,6 +351,7 @@ const products = [
     productName: "Louise Slide Sandal - Buttermilk",
     imgUrl: productImg17,
     category: "shoes",
+    season:"summer",
     price:"717.00",
     shortDesc:
       "Our experimentation with texture continues. Elevated sense of design and craftsmanship manifests in our Italian-made Louise sandals",
@@ -367,6 +369,7 @@ const products = [
     productName: "Thelma Sandal - Black",
     imgUrl: productImg18,
     category: "shoes",
+    season:"summer",
     price:"682.00",
     shortDesc:
       "Italian-made Thelma sandals. ",
@@ -384,6 +387,7 @@ const products = [
     productName: "Otti Summer Boot",
     imgUrl: productImg19,
     category: "shoes",
+    season:"winter",
     price:"479.00",
     shortDesc:
       "The Summer Boots feature a lace up front, high neck with mesh throat, and a leather toe..",
@@ -401,6 +405,7 @@ const products = [
     productName: "Pleated Heel Mule",
     imgUrl: productImg20,
     category: "shoes",
+    season:"summer",
     price:"495.00",
     shortDesc:
       "The Pleated Heel Mules take a cue from our iconic Pleated Lantern Bag",
@@ -418,6 +423,7 @@ const products = [
     productName: "Otti Combat Boot",
     imgUrl: productImg21,
     category: "shoes",
+    season:"winter",
     price:"595.00",
     shortDesc:
       "Derby-style high neck ankle boots features a 6cm chunky sole, and a rebellious style that perfectly suits a 90s dress or combat jean and tee combination.",
@@ -435,6 +441,7 @@ const products = [
     productName: "Puffy Sandal - Pink Cloud",
     imgUrl: productImg22,
     category: "shoes",
+    season:"summer",
     price:"751.00",
     shortDesc:
       "Made from super soft nappa like our Puff clutches, they're set on our signature pleated heels.",
@@ -452,6 +459,7 @@ const products = [
     productName: "Thong Sandal - White",
     imgUrl: productImg23,
     category: "shoes",
+    season:"summer",
     price:"596.00",
     shortDesc:
       "A thong silhouette blending our signature pleated heels and chic toe straps.",
@@ -469,6 +477,7 @@ const products = [
     productName: "Pleated Heel Mule - Multicolor",
     imgUrl: productImg24,
     category: "shoes",
+    season:"summer",
     price:"855.00",
     shortDesc:
       "The Pleated Heel Mules take a cue from our iconic Pleated Lantern Bag, but this time, reimagining pleats using solid oak. Features a square toe and a padded insole for extra comfort.",
@@ -486,6 +495,7 @@ const products = [
     productName: "Louise Heeled Slide - Multicolor",
     imgUrl: productImg25,
     category: "shoes",
+    season:"summer",
     price:"751.00",
     shortDesc:
       "Our experimentation with texture continues. Elevated sense of design and craftsmanship manifests in our Italian-made Louise sandals.",
@@ -503,6 +513,7 @@ const products = [
     productName: "Louise Slide Sandal - Denim",
     imgUrl: productImg26,
     category: "shoes",
+    season:"summer",
     price:"59.00",
     shortDesc:
       "Our experimentation with texture continues.",
@@ -520,6 +531,7 @@ const products = [
     productName: "Louise Slide Sandal - Denim",
     imgUrl: productImg27,
     category: "shoes",
+    season:"summer",
     price:"717.00",
     shortDesc:
       "Our experimentation with texture continues.",
@@ -537,6 +549,7 @@ const products = [
     productName: "Thong Sandal - Black",
     imgUrl: productImg28,
     category: "shoes",
+    season:"summer",
     price:"556",
     shortDesc:
       "A thong silhouette blending our signature pleated heels and chic toe straps.",
