@@ -20,15 +20,39 @@ const Bags = () => {
     }
   }, []);
 
+  const [searchError, setSearchError] = useState('');
   const { category } = useParams(); 
-
   const { data: allProducts, loading } = useGetData('products');
-
   const productList = allProducts.filter((product) => product.category === 'bag');
+  const [filteredProducts, setFilteredProducts] = useState(productList); // Başlangıçta productList'i göster
+
+  // Ada göre filtreleme fonksiyonu
+  const handleSearch = (e) => {
+    const searchTerm = e.target.value.toLowerCase();
+    const searchedProducts = productList.filter(
+      (item) => item.productName.toLowerCase().includes(searchTerm)
+    );
+    setFilteredProducts(searchedProducts);
+
+    if (searchedProducts.length === 0) {
+      setSearchError('No matching products found!'); 
+    } else {
+      setSearchError(''); 
+    }
+  };
 
   return (
     <Helmet title='Bags'>
       <CommonSection tittle={"Bags"}/>
+      <Col lg='6' md='6' >
+        <div className='search__box'>
+          <input type='text' placeholder='Search...' onChange={handleSearch} />
+          <span>
+            <i className='ri-search-line'></i>
+          </span>
+        </div>
+        {searchError && <p className="text-danger" style={{ fontSize: '13px', fontWeight:'bold'}}>{searchError}</p>}
+      </Col>
       <section>
         <Container>
           <Row>
