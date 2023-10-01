@@ -125,50 +125,55 @@ const Home = () => {
         </div>
       </div>
       <div className="animation-container">
-          <div className="text-container">
-            <span className="moving-text">VogueVie</span>
-            <span className="moving-text">VogueVie</span>
-            <span className="moving-text">VogueVie</span>
-            <span className="moving-text">VogueVie</span>
-            <span className="moving-text">VogueVie</span>
-            <span className="moving-text">VogueVie</span>
-            <span className="moving-text">VogueVie</span>
-            <span className="moving-text">VogueVie</span>
-            <span className="moving-text">VogueVie</span>
-            <span className="moving-text">VogueVie</span>
-            <span className="moving-text">VogueVie</span>
-            <span className="moving-text">VogueVie</span>
-            <span className="moving-text">VogueVie</span>
-            <span className="moving-text">VogueVie</span>
-            <span className="moving-text">VogueVie</span>
-            <span className="moving-text">VogueVie</span>
-            <span className="moving-text">VogueVie</span>
-            <span className="moving-text">VogueVie</span>
+        <div className="text-container">
+          <span className="moving-text">VogueVie</span>
+          <span className="moving-text">VogueVie</span>
+          <span className="moving-text">VogueVie</span>
+          <span className="moving-text">VogueVie</span>
+          <span className="moving-text">VogueVie</span>
+          <span className="moving-text">VogueVie</span>
+          <span className="moving-text">VogueVie</span>
+          <span className="moving-text">VogueVie</span>
+          <span className="moving-text">VogueVie</span>
+          <span className="moving-text">VogueVie</span>
+          <span className="moving-text">VogueVie</span>
+          <span className="moving-text">VogueVie</span>
+          <span className="moving-text">VogueVie</span>
+          <span className="moving-text">VogueVie</span>
+          <span className="moving-text">VogueVie</span>
+          <span className="moving-text">VogueVie</span>
+          <span className="moving-text">VogueVie</span>
+          <span className="moving-text">VogueVie</span>
+        </div>
+      </div>
+      <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+        <div style={{ flex: '1', marginRight: '20px' }}>
+          <div style={{ position: 'relative' }}>
+            <video controls autoPlay poster="your-poster-image.jpg" ref={videoRef2} style={{ height: 'auto', width: "600px", borderRadius: "10px", marginLeft: "20px", marginTop: "20px" }}>
+              <source src="/videos/cq4.mp4" type="video/mp4" />
+              Video not supported
+            </video>
+            <div style={{ position: 'absolute', top: '20px', left: '50px', color: 'white', fontSize: '24px', fontWeight: 'bold' }}>
+              <Link to="/bags">
+                <div>Women's Bags</div>
+              </Link>
+            </div>
           </div>
         </div>
-      <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-  <div style={{ flex: '1', marginRight: '20px' }}>
-    <div style={{ position: 'relative' }}>
-      <video controls autoPlay poster="your-poster-image.jpg" ref={videoRef2} style={{ height: 'auto',width:"600px", borderRadius: "10px",marginLeft:"20px",marginTop:"20px" }}>
-        <source src="/videos/cq4.mp4" type="video/mp4" />
-        Video not supported
-      </video>
-      <div style={{ position: 'absolute', top: '20px', left: '50px', color: 'white', fontSize: '24px', fontWeight: 'bold' }}>
-        Women's Bags
+        <div style={{ flex: '1', marginRight: '20px' }}>
+          <div style={{ position: 'relative' }}>
+            <video controls autoPlay poster="your-poster-image.jpg" ref={videoRef3} style={{ height: 'auto', width: "600px", borderRadius: "10px", marginLeft: "20px", marginTop: "20px" }}>
+              <source src="/videos/cq5dam.video.mp4" type="video/mp4" />
+              Video not supported
+            </video>
+            <div style={{ position: 'absolute', top: '20px', left: '50px', color: 'white', fontSize: '24px', fontWeight: 'bold' }}>
+              <Link to="/shoes">
+                <div> Women's Shoes</div>
+              </Link>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-  <div style={{ flex: '1', marginRight: '20px' }}>
-    <div style={{ position: 'relative' }}>
-      <video controls autoPlay poster="your-poster-image.jpg" ref={videoRef3} style={{ height: 'auto',width:"600px", borderRadius: "10px",marginLeft:"20px",marginTop:"20px" }}>
-        <source src="/videos/cq5dam.video.mp4" type="video/mp4" />
-        Video not supported
-      </video>
-      <div style={{ position: 'absolute', top: '20px', left: '50px', color: 'white', fontSize: '24px', fontWeight: 'bold' }}>
-        Women's Shoes
-      </div>
-    </div>
-  </div>
       <section className='back_stock'>
         <Container>
           <Row>
