@@ -32,6 +32,8 @@ const Routers = () => {
         <Route path='shop' element={<Shop/>}/>
         <Route path='cart' element={<Cart/>}/>
         <Route path='fav' element={<Fav/>}/>
+        <Route path='bags' element={<Bags/>}/>
+        <Route path='shoes' element={<Shoes/>}/>
 
         <Route path='/*' element={<ProtectedRoute/>}>
             <Route path='checkout' element={<CheckOut/>}/>
@@ -45,8 +47,8 @@ const Routers = () => {
         <Route path='shop/:id' element={<ProductDetails/>}/>
         <Route path='lookbook' element={<LookBook/>}/>
         <Route path='about' element={<About/>}/>
-        <Route path='shoes' element={<Shoes/>}></Route>
-        <Route path='bags' element={<Bags/>}></Route>
+        <Route path='shoes/:id' element={<ProductDetails/>}></Route>
+        <Route path='bags/:id' element={<ProductDetails/>}></Route>
         <Route path='blog' element={<Blog/>}></Route>
         <Route path='story' element={<Story/>}></Route>
         <Route path='mirror' element={<Mirror/>}></Route>

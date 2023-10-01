@@ -282,14 +282,14 @@
 
 .camera-icon {
   cursor: pointer;
-  color: #000000; 
+  color: #ff5c5c; 
   margin-right: 10px;
   font-size: 15px;
   font-weight: bold;
 }
 
 .camera-icon:hover {
-  color:#007bff;
+  color:#d43434;
 }
 
 .comment img {

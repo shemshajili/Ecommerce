@@ -4,7 +4,7 @@ import Helmet from '../components/Helmet/Helmet';
 import { Container, Row, Col } from 'reactstrap';
 import CommonSection from '../components/UI/CommonSection';
 import ProductsList from '../components/UI/ProductsList';
-import products from '../assets/data/products';
+import useGetData from '../custom-hooks/useGetData';
 import '../styles/bags.css';
 
 const Bags = () => {
@@ -22,37 +22,23 @@ const Bags = () => {
 
   const { category } = useParams(); 
 
-  const [data1, setData] = useState([]);
-  const [bagProducts, setBagsProducts] = useState([]);
+  const { data: allProducts, loading } = useGetData('products');
 
-  useEffect(() => {
-    setData(products);
-
-    const bags = products.filter((product) => product.category === 'bag');
-    setBagsProducts(bags);
-  }, []);
-
-  const [data, setData1] = useState([]);
-  const [bagsHomeProducts, setBagsHomeProducts] = useState([]);
-
-  useEffect(() => {
-    setData1(products);
-
-    const bagsHome = products.filter((product) => product.category === 'bagHomme');
-    setBagsHomeProducts(bagsHome);
-  }, []);
-
-  const productList = category === 'bagHomme' ? bagsHomeProducts : bagProducts;
+  const productList = allProducts.filter((product) => product.category === 'bag');
 
   return (
     <Helmet title='Bags'>
-      <CommonSection tittle={'Bags'} />
+      <CommonSection tittle={"Bags"}/>
       <section>
         <Container>
           <Row>
-            <Col>
-              <div className='product-list-container'>
-                <ProductsList data={productList} />
+            <Col lg='12'>
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
+                {loading ? (
+                  <h5 className='fw-bold'>Loading....</h5>
+                ) : (
+                  <ProductsList data={productList} />
+                )}
               </div>
             </Col>
           </Row>

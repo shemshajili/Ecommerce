@@ -7,10 +7,9 @@ import '../styles/shop.css';
 import ProductsList from '../components/UI/ProductsList';
 import useGetData from '../custom-hooks/useGetData';
 
-
 const Shop = () => {
-
   const { data: products, loading } = useGetData('products');
+  const [filteredProducts, setFilteredProducts] = useState(products);
 
   useEffect(() => {
     window.scroll(0, 0);
@@ -24,18 +23,16 @@ const Shop = () => {
     }
   }, []);
 
-  const [productShop, setProductShop] = useState(products);
-
   const handleFilter = (e) => {
     const filterValue = e.target.value;
     if (filterValue === 'bag') {
       const filteredProducts = products.filter((item) => item.category === 'bag');
-      setProductShop(filteredProducts);
-    }
-  
-    if (filterValue === 'shoes') {
+      setFilteredProducts(filteredProducts);
+    } else if (filterValue === 'shoes') {
       const filteredProducts = products.filter((item) => item.category === 'shoes');
-      setProductShop(filteredProducts);
+      setFilteredProducts(filteredProducts);
+    } else {
+      setFilteredProducts(products);
     }
   };
 
@@ -44,14 +41,14 @@ const Shop = () => {
 
     if (sortValue === 'ascending') {
       // Price göre artan sırayla sırala
-      const sortedProducts = [...productShop].sort((a, b) => a.price - b.price);
-      setProductShop(sortedProducts);
-    }
-
-    if (sortValue === 'descending') {
+      const sortedProducts = [...filteredProducts].sort((a, b) => a.price - b.price);
+      setFilteredProducts(sortedProducts);
+    } else if (sortValue === 'descending') {
       // Price göre azalan sırayla sırala
-      const sortedProducts = [...productShop].sort((a, b) => b.price - a.price);
-      setProductShop(sortedProducts);
+      const sortedProducts = [...filteredProducts].sort((a, b) => b.price - a.price);
+      setFilteredProducts(sortedProducts);
+    } else {
+      setFilteredProducts(products);
     }
   };
 
@@ -60,7 +57,7 @@ const Shop = () => {
     const searchedProducts = products.filter(
       (item) => item.productName.toLowerCase().includes(searchTerm)
     );
-    setProductShop(searchedProducts);
+    setFilteredProducts(searchedProducts);
   };
 
   return (
@@ -100,33 +97,16 @@ const Shop = () => {
       </section>
       <section>
         <Container>
-        <Row>
-    <Col lg='12'>
-      <div style={{ display: 'flex', flexWrap: 'wrap',gap:'10px' }}>
-        {loading ? (
-          <h5 className='fw-bold'>Loading....</h5>
-        ) : (
-          <ProductsList data={products} />
-        )}
-      </div>
-    </Col>
-  </Row>
-        </Container>
-      </section>
-      <section>
-        <Container>
           <Row>
-            {productShop.map((product) => (
-              <Col lg='3' md='4' key={product.id}>
-                <Link to={`/product-details/${product.id}`}>
-                  <div className='product-card'>
-                    <img src={product.imgUrl} alt={product.productName} />
-                    <h3>{product.productName}</h3>
-                    <p>${product.price}</p>
-                  </div>
-                </Link>
-              </Col>
-            ))}
+            <Col lg='12'>
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
+                {loading ? (
+                  <h5 className='fw-bold'>Loading....</h5>
+                ) : (
+                  <ProductsList data={filteredProducts} />
+                )}
+              </div>
+            </Col>
           </Row>
         </Container>
       </section>

@@ -43,18 +43,23 @@ const ProductDetails = () => {
 
   useEffect(() => {
     const getProduct = async () => {
-      const docSnap = await getDoc(docRef);
-
-      if (docSnap.exists()) {
-        setProduct(docSnap.data());
-      } else {
-        console.log('no product!');
+      try {
+        const docSnap = await getDoc(docRef);
+  
+        if (docSnap.exists()) {
+          setProduct(docSnap.data());
+        } else {
+          console.log('no product!');
+        }
+      } catch (error) {
+        console.error('Error fetching product:', error);
       }
     };
-
+  
     getProduct();
-    loadComments(); // Sayfa yüklendiğinde yorumları yeniden yükler
+    loadComments();
   }, [id, docRef]);
+  
 
   const {
     imgUrl,
@@ -72,7 +77,7 @@ const ProductDetails = () => {
         productId,
         userName,
         message,
-        imageUrl, // Yorum belgesine resim URL'sini ekler
+        imageUrl,
       });
     } catch (error) {
       console.error('Error adding comment:', error);
@@ -82,25 +87,23 @@ const ProductDetails = () => {
 
   const submitHandler = async (e) => {
     e.preventDefault();
-
+  
     const reviewUserName = reviewUser.current.value;
     const reviewUserMsg = reviewMsg.current.value;
-
-    // Yorumu Firestore'a göndermek için ekler
+  
     try {
-      await addComment(id, reviewUserName, reviewUserMsg, imageURL);
+      await addComment(id, reviewUserName, reviewUserMsg, imageURL, rating);
       toast.success('Review submitted');
-      // Yorum ekledikten sonra yeniden yorumları yükler
       loadComments();
-      // Formu sıfırlar
       reviewUser.current.value = '';
       reviewMsg.current.value = '';
-      setImageURL(''); // Resim URL'sini sıfırlar
+      setImageURL('');
+      setRating(null); 
     } catch (error) {
       console.error('Error adding comment:', error);
     }
   };
-
+  
   const addToCart = () => {
     dispatch(
       cartActions.addItem({
@@ -242,7 +245,7 @@ const ProductDetails = () => {
                 <div className='product__review mt-5'>
                   <div className='review__wrapper'>
                     <div className='review__form'>
-                      <h4>Live your experience</h4>
+                      <h4>Live your experience</h4><br></br>
                       <form action='' onSubmit={submitHandler}>
                         <div className='form__group'>
                           <input
@@ -252,39 +255,6 @@ const ProductDetails = () => {
                             required
                           />
                         </div>
-                        <div className='form__group d-flex star-group'>
-                          <motion.span
-                            whileTap={{ scale: 1.2 }}
-                            onClick={() => setRating(1)}
-                          >
-                            1<i className='ri-star-fill'></i>
-                          </motion.span>
-                          <motion.span
-                            whileTap={{ scale: 1.2 }}
-                            onClick={() => setRating(2)}
-                          >
-                            2<i className='ri-star-fill'></i>
-                          </motion.span>
-                          <motion.span
-                            whileTap={{ scale: 1.2 }}
-                            onClick={() => setRating(3)}
-                          >
-                            3<i className='ri-star-fill'></i>
-                          </motion.span>
-                          <motion.span
-                            whileTap={{ scale: 1.2 }}
-                            onClick={() => setRating(4)}
-                          >
-                            4<i className='ri-star-fill'></i>
-                          </motion.span>
-                          <motion.span
-                            whileTap={{ scale: 1.2 }}
-                            onClick={() => setRating(5)}
-                          >
-                            5<i className='ri-star-fill'></i>
-                          </motion.span>
-                        </div>
-
                         <div className='form__group'>
                           <textarea
                             ref={reviewMsg}
@@ -317,22 +287,24 @@ const ProductDetails = () => {
                       </form>
                     </div>
                   </div>
-                {comments.map((comment) => (
-                  <div key={comment.id} className='comment'>
-                    <div className='comment__user'>{comment.userName}</div>
+                  {comments.map((comment) => (
+                    <div key={comment.id} className='comment'>
+                      <div className='comment__user'>{comment.userName}</div>
                       <div className='comment__rating'>
-                    {Array.from({ length: comment.rating }, (_, index) => (
-                    <i key={index} className='ri-star-fill'></i>))}</div>
+                        {Array.from({ length: comment.rating }, (_, index) => (
+                          <i key={index} className='ri-star-fill'></i>
+                        ))}
+                      </div>
                       <div className='comment__message'>{comment.message}</div>
                       <button
                         className='delete__comment__btn'
                         onClick={() => deleteComment(comment.id)}
                       >
-                            Delete
+                        Delete
                       </button>
-                    <img src={comment.imageUrl} alt='Comment Image' />
-                  </div>
-                ))}
+                      <img src={comment.imageUrl} alt='Comment Image' />
+                    </div>
+                  ))}
                 </div>
               )}
             </Col>

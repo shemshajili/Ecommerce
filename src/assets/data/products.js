@@ -75,7 +75,7 @@ const products = [
     id: "01",
     productName: "Convertible Teddy Bag - Gummy ",
     imgUrl: productImg01,
-    category: "bagHome",
+    category: "bag",
     price:"889.00",
     shortDesc:
       "Reminiscent of a teddy bear, the convertible style has a flap magnetic closure, comes with a detachable strap that allows multiple carrying options; backpack, crossbody or as a top handle bag.",
@@ -92,7 +92,7 @@ const products = [
     id: "02",
     productName: "Stormi - Cognac ",
     imgUrl: productImg02,
-    category: "bagHome",
+    category: "bag",
     price:"941.00",
     shortDesc:
       "“Stormi is Objet d'art with its unique and sculptural design inspired by nature’s favorite form - swirl.",
@@ -110,7 +110,7 @@ const products = [
     id: "03",
     productName: "Atlas - Jade ",
     imgUrl: productImg03,
-    category: "bagHome",
+    category: "bag",
     price:"906.00",
     shortDesc:
       "Our new Atlas is the representation of kaleidoscope patterns put into a symmetrical geometry to create a mesmerizing mirrored effect on the bag.",
@@ -127,7 +127,7 @@ const products = [
     id: "04",
     productName: "Mini Flex Bag - Gummy",
     imgUrl: productImg04,
-    category: "bagHome",
+    category: "bag",
     price:"682.00",
     shortDesc:
       "Our architectural, origami-inspired Flex Bag is now available in mini size.",
