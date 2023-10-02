@@ -22,7 +22,7 @@ const Shop = () => {
     }
   }, []);
 
-  //Kategoriye gore filtreleme funksiyasi
+  // Kategoriye göre filtreleme fonksiyonu
   const handleFilter = (e) => {
     const filterValue = e.target.value;
     if (filterValue === 'bag') {
@@ -35,23 +35,25 @@ const Shop = () => {
       setFilteredProducts(products);
     }
   };
-  //Qiymete gore filtreleme funksiyasi
+
+  // Qiymete göre filtreleme fonksiyonu
   const handleSort = (e) => {
     const sortValue = e.target.value;
 
     if (sortValue === 'ascending') {
       // Price göre artan sırayla sırala
-      const sortedProducts = [...filteredProducts].sort((a, b) => a.price - b.price);
+      const sortedProducts = [...products].sort((a, b) => a.price - b.price);
       setFilteredProducts(sortedProducts);
     } else if (sortValue === 'descending') {
       // Price göre azalan sırayla sırala
-      const sortedProducts = [...filteredProducts].sort((a, b) => b.price - a.price);
+      const sortedProducts = [...products].sort((a, b) => b.price - a.price);
       setFilteredProducts(sortedProducts);
     } else {
       setFilteredProducts(products);
     }
   };
-  //Ada gire filtreleme funksiyasi
+
+  // Ada göre filtreleme fonksiyonu
   const handleSearch = (e) => {
     const searchTerm = e.target.value.toLowerCase();
     const searchedProducts = products.filter(
@@ -62,7 +64,7 @@ const Shop = () => {
 
   return (
     <Helmet title='Shop'>
-      <CommonSection tittle={"Shopping Products"}/>
+      <CommonSection tittle={"Shopping Products"} />
       <section className='section__shop'>
         <Container className='container__shop'>
           <Row className='row__shop'>
