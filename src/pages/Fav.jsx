@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom'; 
-import '../styles/fav.css'; 
+import { Link, useNavigate } from 'react-router-dom';
+import '../styles/fav.css';
 import Helmet from '../components/Helmet/Helmet';
 import CommonSection from '../components/UI/CommonSection';
 import { Container, Row, Col } from 'reactstrap';
@@ -13,30 +13,40 @@ import useGetData from '../custom-hooks/useGetData';
 const Fav = () => {
   const cartItems = useSelector((state) => state.cart.cartItems);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const { data: products } = useGetData('products');
   const [productFav] = useState(products);
 
+  // Kullanıcının oturum açık olup olmadığını takip eden state
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
   useEffect(() => {
     window.scroll(0, 0);
+    setIsLoggedIn(true); // Kullanıcıyı oturum açmış gibi simüle ediyoruz.
   }, []);
 
   const removeFromFav = (id) => {
     setTimeout(() => {
       dispatch(cartActions.deleteFav(id));
-    }, 1000); 
+    }, 1000);
   };
 
   const addToCart = (id) => {
     dispatch(
       cartActions.addItem({
         id,
-        image: cartItems.find(item => item.id === id).imgUrl,
-        productName: cartItems.find(item => item.id === id).productName,
-        price: cartItems.find(item => item.id === id).price,
+        image: cartItems.find((item) => item.id === id).imgUrl,
+        productName: cartItems.find((item) => item.id === id).productName,
+        price: cartItems.find((item) => item.id === id).price,
       })
     );
     toast.success('Product added successfully!');
+  };
+
+  const handleLoginAndRedirect = () => {
+    const favPageURL = '/favorite';
+    navigate(`/login?redirect=${favPageURL}`);
   };
 
   return (
@@ -59,6 +69,15 @@ const Fav = () => {
                     />
                   ))}
                 </div>
+              )}
+            </Col>
+          </Row>
+          <Row>
+            <Col lg="12">
+              {!isLoggedIn && (
+                <button onClick={handleLoginAndRedirect}>
+                  Login to view your favorites
+                </button>
               )}
             </Col>
           </Row>

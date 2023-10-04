@@ -11,18 +11,46 @@ import { storage } from '../firebase.config';
 import { db } from '../firebase.config';
 import { toast } from 'react-toastify';
 
+// E-posta adresi doğrulama işlevi
+function isEmailValid(email) {
+  const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+  return emailPattern.test(email);
+}
+
 const SignUp = () => {
+  const [name, setName] = useState('');
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [file, setFile] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
 
   const navigate = useNavigate();
 
   const signUp = async (e) => {
     e.preventDefault();
     setLoading(true);
+
+    if (!isEmailValid(email)) {
+      setError('Please enter a valid email address');
+      setLoading(false);
+      return;
+    }
+
+    // Parola uzunluğu kontrolü
+    if (password.length < 6) {
+      setError('Password should be at least 6 characters long');
+      setLoading(false);
+      return;
+    }
+
+    // Parola içinde en az bir rakam kontrolü
+    if (!/\d/.test(password)) {
+      setError('Password should contain at least one number');
+      setLoading(false);
+      return;
+    }
 
     try {
       const userCredential = await createUserWithEmailAndPassword(auth, email, password);
@@ -34,8 +62,9 @@ const SignUp = () => {
       uploadTask.on(
         'state_changed',
         (snapshot) => {},
-        (error) => {
-          toast.error(error.message);
+        (uploadError) => {
+          setError(uploadError.message);
+          setLoading(false);
         },
         async () => {
           try {
@@ -51,20 +80,21 @@ const SignUp = () => {
               displayName: username,
               email,
               photoURL: downloadURL,
+              name, // Eklenen kullanıcı adı
             });
 
             setLoading(false);
             toast.success('Account created');
             navigate('/login');
-          } catch (error) {
+          } catch (profileError) {
+            setError(profileError.message);
             setLoading(false);
-            toast.error('Something went wrong');
           }
         }
       );
-    } catch (error) {
+    } catch (authError) {
+      setError(authError.message);
       setLoading(false);
-      toast.error('Something went wrong');
     }
   };
 
@@ -82,6 +112,14 @@ const SignUp = () => {
                 <h3 className='fw-bold fs-4'>SignUp</h3>
 
                 <Form className='auth__form' onSubmit={signUp}>
+                  <FormGroup className='form__group'>
+                    <input
+                      type='text'
+                      placeholder='Name'
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
+                    />
+                  </FormGroup>
                   <FormGroup className='form__group'>
                     <input
                       type='text'
@@ -109,6 +147,8 @@ const SignUp = () => {
                   <FormGroup className='form__group'>
                     <input type='file' onChange={(e) => setFile(e.target.files[0])} />
                   </FormGroup>
+
+                  {error && <p className="text-danger">{error}</p>}
 
                   <button type='submit' className='buy__btn auth__btn'>
                     Create an Account

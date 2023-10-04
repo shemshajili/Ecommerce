@@ -48,13 +48,16 @@
   
   .section__tittle{
     font-size: 25px;
-    margin-top: -50px;
+    align-items: center;
+    text-align: center;
+    font-weight: bold;
   }
 
 
 .main__img-container {
   display: flex;
   justify-content: space-between;
+  margin-top: 50px;
 }
 
 .main__img {
