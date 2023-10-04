@@ -116,12 +116,12 @@ const Home = () => {
           Fall Winter 2023
         </div>
         <div style={{ position: 'absolute', top: '60px', left: '20px', color: 'white', fontSize: '18px', fontWeight: 'bold', display: 'flex', flexDirection: 'row', alignItems: 'center', marginLeft: '30px' }}>
-          <Link to="/bags" style={{ textDecoration: 'none', color: 'white', marginRight: '20px' }}>
-            <div>Bags</div>
-          </Link>
-          <Link to="/shoes" style={{ textDecoration: 'none', color: 'white' }}>
-            <div>Shoes</div>
-          </Link>
+        <Link to="/bags" className="video-links">
+          <div>Bags</div>
+        </Link>
+        <Link to="/shoes" className="video-links">
+          <div>Shoes</div>
+        </Link>
         </div>
       </div>
       <div className="animation-container">

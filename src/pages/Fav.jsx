@@ -1,21 +1,20 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom'; 
 import '../styles/fav.css'; 
 import Helmet from '../components/Helmet/Helmet';
 import CommonSection from '../components/UI/CommonSection';
 import { Container, Row, Col } from 'reactstrap';
-import { motion, useAnimation } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { cartActions } from '../redux/slices/cartSlice';
 import { useSelector, useDispatch } from 'react-redux';
 import { toast } from 'react-toastify';
 import useGetData from '../custom-hooks/useGetData';
-import { Link } from 'react-router-dom'; 
 
 const Fav = () => {
   const cartItems = useSelector((state) => state.cart.cartItems);
   const dispatch = useDispatch();
-  const [brokenHeart, setBrokenHeart] = useState(false);
 
-  const { data: products} = useGetData('products');
+  const { data: products } = useGetData('products');
   const [productFav] = useState(products);
 
   useEffect(() => {
@@ -23,9 +22,7 @@ const Fav = () => {
   }, []);
 
   const removeFromFav = (id) => {
-    setBrokenHeart(true); 
     setTimeout(() => {
-      setBrokenHeart(false);
       dispatch(cartActions.deleteFav(id));
     }, 1000); 
   };
@@ -54,7 +51,12 @@ const Fav = () => {
               ) : (
                 <div className="fav-list">
                   {cartItems.map((item, index) => (
-                    <Card item={item} key={index} removeFromFav={removeFromFav} className='addbtn' addToCart={addToCart} />
+                    <Card
+                      item={item}
+                      key={index}
+                      removeFromFav={removeFromFav}
+                      addToCart={addToCart}
+                    />
                   ))}
                 </div>
               )}
@@ -62,38 +64,11 @@ const Fav = () => {
           </Row>
         </Container>
       </section>
-      <section>
-        <Container>
-        <Row>
-        {productFav.map((product) => (
-              <Col lg='3' md='4' key={product.id}>
-                <Link to={`/product-details/${product.id}`}>
-                  <div className='product-card'>
-                    <img src={product.imgUrl} alt={product.productName} />
-                    <h3>{product.productName}</h3>
-                    <p>${product.price}</p>
-                  </div>
-                </Link>
-              </Col>
-            ))}
-          </Row>
-        </Container>
-      </section>
     </Helmet>
   );
 };
 
-const Card = ({ item, removeFromFav, addToCart, brokenHeart }) => {
-  const controls = useAnimation();
-
-  useEffect(() => {
-    if (brokenHeart) {
-      controls.start({ width: '0%', opacity: 0 }); 
-    } else {
-      controls.start({ width: '100%', opacity: 1 }); 
-    }
-  }, [brokenHeart, controls]);
-
+const Card = ({ item, removeFromFav, addToCart }) => {
   return (
     <div className="fav-card">
       <img src={item.imgUrl} alt={item.productName} />
@@ -107,4 +82,5 @@ const Card = ({ item, removeFromFav, addToCart, brokenHeart }) => {
     </div>
   );
 };
+
 export default Fav;

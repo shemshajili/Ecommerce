@@ -371,3 +371,26 @@
     transform: translateX(-100%);
   }
 }
+.video-links {
+  position: relative;
+  color: white;
+  text-decoration: none;
+  margin-right: 10px; 
+}
+
+.video-links::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: white;
+  bottom: -2px;
+  left: 0;
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+}
+
+.video-links:hover::before {
+  transform: translateY(0);
+  transition: transform 0.3s ease;
+}
