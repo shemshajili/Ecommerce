@@ -8,19 +8,8 @@ import useGetData from '../custom-hooks/useGetData';
 
 const Shop = () => {
   const { data: products, loading } = useGetData('products');
-  const [filteredProducts, setFilteredProducts] = useState(products);
-
-  useEffect(() => {
-    window.scroll(0, 0);
-
-    const hash = window.location.hash;
-    if (hash) {
-      const targetElement = document.querySelector(hash);
-      if (targetElement) {
-        targetElement.scrollIntoView({ behavior: 'smooth' });
-      }
-    }
-  }, []);
+  const [filteredProducts, setFilteredProducts] = useState([]);
+  const [error, setError] = useState('');
 
   // Kategoriye göre filtreleme fonksiyonu
   const handleFilter = (e) => {
@@ -42,11 +31,11 @@ const Shop = () => {
 
     if (sortValue === 'ascending') {
       // Price göre artan sırayla sırala
-      const sortedProducts = [...products].sort((a, b) => a.price - b.price);
+      const sortedProducts = [...filteredProducts].sort((a, b) => a.price - b.price);
       setFilteredProducts(sortedProducts);
     } else if (sortValue === 'descending') {
       // Price göre azalan sırayla sırala
-      const sortedProducts = [...products].sort((a, b) => b.price - a.price);
+      const sortedProducts = [...filteredProducts].sort((a, b) => b.price - a.price);
       setFilteredProducts(sortedProducts);
     } else {
       setFilteredProducts(products);
@@ -59,8 +48,28 @@ const Shop = () => {
     const searchedProducts = products.filter(
       (item) => item.productName.toLowerCase().includes(searchTerm)
     );
+    if (searchedProducts.length === 0) {
+      setError('No products found matching your search.');
+    } else {
+      setError('');
+    }
     setFilteredProducts(searchedProducts);
   };
+
+  useEffect(() => {
+    window.scroll(0, 0);
+    const hash = window.location.hash;
+    if (hash) {
+      const targetElement = document.querySelector(hash);
+      if (targetElement) {
+        targetElement.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+
+    if (!loading) {
+      setFilteredProducts(products);
+    }
+  }, [loading, products]);
 
   return (
     <Helmet title='Shop'>
@@ -92,6 +101,7 @@ const Shop = () => {
                 <span>
                   <i className='ri-search-line'></i>
                 </span>
+                {error && <p className='text-danger'>{error}</p>}
               </div>
             </Col>
           </Row>
@@ -105,7 +115,13 @@ const Shop = () => {
                 {loading ? (
                   <h5 className='fw-bold'>Loading....</h5>
                 ) : (
-                  <ProductsList data={filteredProducts} />
+                  <>
+                    {filteredProducts.length === 0 ? (
+                      <h5 className='fw-bold'>No products to display.</h5>
+                    ) : (
+                      <ProductsList data={filteredProducts} />
+                    )}
+                  </>
                 )}
               </div>
             </Col>
