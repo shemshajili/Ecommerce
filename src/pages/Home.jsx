@@ -109,16 +109,17 @@ const Home = () => {
     <div>
       <Helmet title={"Home"} />
     <div style={{ position: 'relative'}}>
-    <img src={prada} alt="" />
-    <div style={{ position: 'absolute', top: '20px', left: '50px', color: 'white', fontSize: '24px', fontWeight: 'bold' }}>
-         Fall Winter 2023
+    <img className='prada1' src={prada} alt="" />
+    <div  style={{ position: 'absolute', top: '20px', left: '50px', color: 'white', fontSize: '24px', fontWeight: 'bold' }}>
+     <h3 className='video__text'>Fall Winter 2023</h3>
       </div>
-      <div style={{ position: 'absolute', top: '60px', left: '20px', color: 'white', fontSize: '18px', fontWeight: 'bold', display: 'flex', flexDirection: 'row', alignItems: 'center', marginLeft: '30px' }}>
+      <div 
+      style={{ position: 'absolute', top: '60px', left: '20px', color: 'white', fontSize: '18px', fontWeight: 'bold', display: 'flex', flexDirection: 'row', alignItems: 'center', marginLeft: '30px' }}>
           <Link to="/bags" className="video-links">
-            <div>Bags</div>
+            <div className='video__text'>Bags</div>
           </Link>
           <Link to="/shoes" className="video-links">
-            <div>Shoes</div>
+            <div className='video__text'>Shoes</div>
           </Link>
         </div>
     </div>
@@ -147,19 +148,19 @@ const Home = () => {
       <div style={{ position: 'relative', display: 'flex', alignItems: 'center' }}>
         <div className="video-container">
           <video controls autoPlay poster="your-poster-image.jpg" ref={videoRef1}>
-            <source src="/videos/cq5dam.mp4" type="video/mp4" />
+            <source className='video1' src="/videos/cq5dam.mp4" type="video/mp4" />
             Video not supported
           </video>
         </div>
         <div style={{ position: 'absolute', top: '20px', left: '50px', color: 'white', fontSize: '24px', fontWeight: 'bold' }}>
-         VogueVie
+         <h3 className='video__text'>VogueVie</h3>
        </div>
         <div style={{ position: 'absolute', top: '60px', left: '20px', color: 'white', fontSize: '18px', fontWeight: 'bold', display: 'flex', flexDirection: 'row', alignItems: 'center', marginLeft: '30px' }}>
           <Link to="/bags" className="video-links">
-            <div>Bags</div>
+            <div className='video__text'>Bags</div>
           </Link>
           <Link to="/shoes" className="video-links">
-            <div>Shoes</div>
+            <div className='video__text'>Shoes</div>
           </Link>
         </div>
       </div>
@@ -167,24 +168,24 @@ const Home = () => {
         <div style={{ flex: '1', marginRight: '20px' }}>
           <div style={{ position: 'relative' }}>
             <div className="video-container">
-              <video controls autoPlay poster="your-poster-image.jpg" ref={videoRef2}>
+              <video className='video2' controls autoPlay poster="your-poster-image.jpg" ref={videoRef2}>
                 <source src="/videos/cq4.mp4" type="video/mp4" />
                 Video not supported
               </video>
             </div>
             <div style={{ position: 'absolute', top: '20px', left: '50px', color: 'white', fontSize: '24px', fontWeight: 'bold' }}>
               <Link to="/bags">
-                <div>Women's Bags</div>
+                <div className='video__text1'>Women's Bags</div>
               </Link>
             </div>
           </div>
         </div>
         <div style={{ flex: '1', marginRight: '20px' }}>
           <div style={{ position: 'relative' }}>
-            <img src={prad1} alt="" style={{height:'339px'}} />
+            <img className='prada2' src={prad1} alt="" style={{height:'339px'}} />
             <div style={{ position: 'absolute', top: '20px', left: '50px', color: 'white', fontSize: '24px', fontWeight: 'bold' }}>
               <Link to="/shoes">
-                <div> Women's Shoes</div>
+                <div className='video__text1'> Women's Shoes</div>
               </Link>
             </div>
           </div>
@@ -193,15 +194,12 @@ const Home = () => {
       <div style={{ flex: '1',marginTop:'10px' }}>
           <div style={{ position: 'relative' }}>
             <div className="video-container">
-              <video controls autoPlay poster="your-poster-image.jpg" ref={videoRef3}>
+              <video className='video3' controls autoPlay poster="your-poster-image.jpg" ref={videoRef3}>
                 <source src="/videos/cq5dam.video.mp4" type="video/mp4" />
                 Video not supported
               </video>
             </div>
             <div style={{ position: 'absolute', top: '20px', left: '50px', color: 'white', fontSize: '24px', fontWeight: 'bold' }}>
-              <Link to="/shoes">
-                <div> Women's Shoes</div>
-              </Link>
             </div>
           </div>
         </div>
