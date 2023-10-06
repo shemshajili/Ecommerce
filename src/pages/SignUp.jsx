@@ -27,6 +27,7 @@ const SignUp = () => {
   const [error, setError] = useState('');
 
   const navigate = useNavigate();
+  const [passwordVisible, setPasswordVisible] = useState(false);
 
   const signUp = async (e) => {
     e.preventDefault();
@@ -143,6 +144,12 @@ const SignUp = () => {
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
                     />
+                      <span
+                      className={`password-toggle-icon ${passwordVisible ? 'visible' : ''}`}
+                      onClick={() => setPasswordVisible(!passwordVisible)}
+                    >
+                      {passwordVisible ? '👁️' : '👁️‍🗨️'}
+                    </span>
                   </FormGroup>
                   <FormGroup className='form__group'>
                     <input type='file' onChange={(e) => setFile(e.target.files[0])} />

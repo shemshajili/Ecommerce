@@ -5,13 +5,14 @@ import '../styles/home.css';
 import { Link } from 'react-router-dom';
 import mainImg from '../assets/images/LookBook12.webp';
 import mainImg2 from '../assets/images/LookBook11.webp';
-import '../styles/home.css';
-import logoImg from '../assets/images/RefinerLogo.webp'
-import cutImg from '../assets/images/TheCutLogo.webp'
-import 'react-responsive-carousel/lib/styles/carousel.min.css'; 
-import img4 from '../assets/images/Simon Miller - Jessie Cundiff.jpeg'
-import img5 from '../assets/images/Lara Angelil Flashes Hi-Style Accessories in ELLE UK March 2022 — Anne of Carversville.jpeg'
-import img6 from '../assets/images/Bolso Lula de charol con hebilla - Negro _ CHARLES & KEITH.jpeg'
+import logoImg from '../assets/images/RefinerLogo.webp';
+import cutImg from '../assets/images/TheCutLogo.webp';
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
+import img4 from '../assets/images/Simon Miller - Jessie Cundiff.jpeg';
+import img5 from '../assets/images/Lara Angelil Flashes Hi-Style Accessories in ELLE UK March 2022 — Anne of Carversville.jpeg';
+import img6 from '../assets/images/Bolso Lula de charol con hebilla - Negro _ CHARLES & KEITH.jpeg';
+import prada from '../assets/images/prada.webp'
+import prad1 from '../assets/images/prada1.webp'
 
 const Home = () => {
   const videoRef1 = useRef(null);
@@ -107,23 +108,20 @@ const Home = () => {
   return (
     <div>
       <Helmet title={"Home"} />
-      <div style={{ position: 'relative', display: 'flex', alignItems: 'center' }}>
-        <video controls autoPlay poster="your-poster-image.jpg" ref={videoRef1} style={{ height: '700px', marginLeft: "20px", borderRadius: "10px" }}>
-          <source src="/videos/cq5dam.mp4" type="video/mp4" />
-          Video not supported
-        </video>
-        <div style={{ position: 'absolute', top: '20px', left: '50px', color: 'white', fontSize: '24px', fontWeight: 'bold' }}>
-          Fall Winter 2023
-        </div>
-        <div style={{ position: 'absolute', top: '60px', left: '20px', color: 'white', fontSize: '18px', fontWeight: 'bold', display: 'flex', flexDirection: 'row', alignItems: 'center', marginLeft: '30px' }}>
-        <Link to="/bags" className="video-links">
-          <div>Bags</div>
-        </Link>
-        <Link to="/shoes" className="video-links">
-          <div>Shoes</div>
-        </Link>
-        </div>
+    <div style={{ position: 'relative'}}>
+    <img src={prada} alt="" />
+    <div style={{ position: 'absolute', top: '20px', left: '50px', color: 'white', fontSize: '24px', fontWeight: 'bold' }}>
+         Fall Winter 2023
       </div>
+      <div style={{ position: 'absolute', top: '60px', left: '20px', color: 'white', fontSize: '18px', fontWeight: 'bold', display: 'flex', flexDirection: 'row', alignItems: 'center', marginLeft: '30px' }}>
+          <Link to="/bags" className="video-links">
+            <div>Bags</div>
+          </Link>
+          <Link to="/shoes" className="video-links">
+            <div>Shoes</div>
+          </Link>
+        </div>
+    </div>
       <div className="animation-container">
         <div className="text-container">
           <span className="moving-text">VogueVie</span>
@@ -146,13 +144,34 @@ const Home = () => {
           <span className="moving-text">VogueVie</span>
         </div>
       </div>
-      <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+      <div style={{ position: 'relative', display: 'flex', alignItems: 'center' }}>
+        <div className="video-container">
+          <video controls autoPlay poster="your-poster-image.jpg" ref={videoRef1}>
+            <source src="/videos/cq5dam.mp4" type="video/mp4" />
+            Video not supported
+          </video>
+        </div>
+        <div style={{ position: 'absolute', top: '20px', left: '50px', color: 'white', fontSize: '24px', fontWeight: 'bold' }}>
+         VogueVie
+       </div>
+        <div style={{ position: 'absolute', top: '60px', left: '20px', color: 'white', fontSize: '18px', fontWeight: 'bold', display: 'flex', flexDirection: 'row', alignItems: 'center', marginLeft: '30px' }}>
+          <Link to="/bags" className="video-links">
+            <div>Bags</div>
+          </Link>
+          <Link to="/shoes" className="video-links">
+            <div>Shoes</div>
+          </Link>
+        </div>
+      </div>
+      <div style={{ display: 'flex', marginTop:'10px',marginLeft:'20px' }}>
         <div style={{ flex: '1', marginRight: '20px' }}>
           <div style={{ position: 'relative' }}>
-            <video controls autoPlay poster="your-poster-image.jpg" ref={videoRef2} style={{ height: 'auto', width: "600px", borderRadius: "10px", marginLeft: "20px", marginTop: "20px" }}>
-              <source src="/videos/cq4.mp4" type="video/mp4" />
-              Video not supported
-            </video>
+            <div className="video-container">
+              <video controls autoPlay poster="your-poster-image.jpg" ref={videoRef2}>
+                <source src="/videos/cq4.mp4" type="video/mp4" />
+                Video not supported
+              </video>
+            </div>
             <div style={{ position: 'absolute', top: '20px', left: '50px', color: 'white', fontSize: '24px', fontWeight: 'bold' }}>
               <Link to="/bags">
                 <div>Women's Bags</div>
@@ -162,10 +181,7 @@ const Home = () => {
         </div>
         <div style={{ flex: '1', marginRight: '20px' }}>
           <div style={{ position: 'relative' }}>
-            <video controls autoPlay poster="your-poster-image.jpg" ref={videoRef3} style={{ height: 'auto', width: "600px", borderRadius: "10px", marginLeft: "20px", marginTop: "20px" }}>
-              <source src="/videos/cq5dam.video.mp4" type="video/mp4" />
-              Video not supported
-            </video>
+            <img src={prad1} alt="" style={{height:'339px'}} />
             <div style={{ position: 'absolute', top: '20px', left: '50px', color: 'white', fontSize: '24px', fontWeight: 'bold' }}>
               <Link to="/shoes">
                 <div> Women's Shoes</div>
@@ -174,6 +190,21 @@ const Home = () => {
           </div>
         </div>
       </div>
+      <div style={{ flex: '1',marginTop:'10px' }}>
+          <div style={{ position: 'relative' }}>
+            <div className="video-container">
+              <video controls autoPlay poster="your-poster-image.jpg" ref={videoRef3}>
+                <source src="/videos/cq5dam.video.mp4" type="video/mp4" />
+                Video not supported
+              </video>
+            </div>
+            <div style={{ position: 'absolute', top: '20px', left: '50px', color: 'white', fontSize: '24px', fontWeight: 'bold' }}>
+              <Link to="/shoes">
+                <div> Women's Shoes</div>
+              </Link>
+            </div>
+          </div>
+        </div>
       <section className='back_stock'>
         <Container>
           <Row>

@@ -18,12 +18,9 @@ const Footer = () => {
                 <Row>
                 <div style={{ borderBottom: '1px solid gray', marginBottom: '20px', marginTop: '-50px' }}></div>
                 <Col lg='4'>
-                    <div className='logo' onClick={handleLogoClick}>
-                        <img src={logo} alt='logo' />
-                    <div>
-                        <h1>VogueVie</h1>
-              </div>
-                    </div>
+                 
+                        <h1 style={{fontWeight:'bold',fontSize:'25px'}}>VogueVie</h1>
+             
                         <p className="footer__text mt-4">
                         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minus distinctio sed provident adipisci omnis quis iste, consequuntur porro, id harum fuga.
                         </p>

@@ -111,7 +111,7 @@ const Shop = () => {
         <Container>
           <Row>
             <Col lg='12'>
-              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '30px',marginLeft:'180px' }}>
                 {loading ? (
                   <h5 className='fw-bold'>Loading....</h5>
                 ) : (

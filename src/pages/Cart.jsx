@@ -108,9 +108,9 @@ const Tr = ({ item, increaseQuantity, decreaseQuantity, deleteProduct }) => {
         <td>{item.productName}</td>
         <td>{item.price}</td>
         <td>
-          <button onClick={decreaseQuantity}>-</button>
-          {item.quantity}px
-          <button onClick={increaseQuantity}>+</button>
+        <button className="increase-button" onClick={increaseQuantity}>+</button>
+{item.quantity}px
+<button className="decrease-button" onClick={decreaseQuantity}>-</button>
         </td>
         <td>
           <motion.i

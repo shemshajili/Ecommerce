@@ -87,3 +87,15 @@
 .active__admin-menu{
   background:#232323;
 }
+
+@keyframes rotateIcon {
+  0% {
+      transform: rotate(0deg);
+  }
+  100% {
+      transform: rotate(360deg);
+  }
+}
+.search__icon.active {
+  animation: rotateIcon 1s infinite linear; 
+}

@@ -1,27 +1,33 @@
-.revenue__box, .order__box {
-    background-color: #f7f7f7;
-    border: 2px solid rgb(215, 5, 5);
-    padding: 20px;
-    text-align: center;
-    transition: transform 0.3s ease-in-out;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  }
-  
-  .revenue__box h5, .order__box h5 {
-    font-size: 1.2rem;
-    margin: 0;
-    color: #333;
-  }
-  
-  .revenue__box span, .order__box span {
-    font-size: 2rem;
-    font-weight: bold;
-    color: #333;
-  }
-  
-  .revenue__box:hover, .order__box:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  }
-  
+.dashboard__box {
+  background-color: #f7f7f7;
+  border: 2px solid rgb(215, 5, 5);
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.3s ease-in-out;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  margin-bottom: 20px;
+}
+
+.dashboard__icon {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.dashboard__box h5 {
+  font-size: 1.2rem;
+  margin: 0;
+  color: #333;
+}
+
+.dashboard__box span {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.dashboard__box:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}

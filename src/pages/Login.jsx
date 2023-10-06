@@ -8,24 +8,22 @@ import { toast } from 'react-toastify';
 import React, { useState, useEffect } from 'react';
 
 const Login = () => {
-
   useEffect(() => {
-        
     window.scroll(0, 0);
-    
-    // sehifenin basa getmesi ucun kod
+
     const hash = window.location.hash;
     if (hash) {
-        const targetElement = document.querySelector(hash);
-        if (targetElement) {
-            targetElement.scrollIntoView({ behavior: 'smooth' });
-        }
+      const targetElement = document.querySelector(hash);
+      if (targetElement) {
+        targetElement.scrollIntoView({ behavior: 'smooth' });
+      }
     }
-}, []);
+  }, []);
 
   const [passwordVisible, setPasswordVisible] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [rememberMe, setRememberMe] = useState(false); // Yeni durumu ekliyoruz
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
@@ -39,6 +37,14 @@ const Login = () => {
       const user = userCredential.user;
       console.log(user);
       setLoading(false);
+
+      // Eğer "Remember Me" seçeneği işaretlendi ise, çereze kullanıcı bilgilerini kaydet
+      if (rememberMe) {
+        localStorage.setItem('rememberedUser', JSON.stringify({ email, password }));
+      } else {
+        localStorage.removeItem('rememberedUser');
+      }
+
       navigate('/checkout');
     } catch (error) {
       setLoading(false);
@@ -46,9 +52,19 @@ const Login = () => {
     }
   };
 
-   const handleReset=()=>{
-    navigate('/reset')
-   }
+  useEffect(() => {
+    // Sayfa yüklendiğinde, çerezde kullanıcı bilgilerini kontrol ederek otomatik olarak doldur
+    const rememberedUser = JSON.parse(localStorage.getItem('rememberedUser'));
+    if (rememberedUser) {
+      setEmail(rememberedUser.email);
+      setPassword(rememberedUser.password);
+      setRememberMe(true);
+    }
+  }, []);
+
+  const handleReset = () => {
+    navigate('/reset');
+  };
 
   return (
     <Helmet title='Login'>
@@ -73,23 +89,33 @@ const Login = () => {
                     />
                   </FormGroup>
                   <FormGroup className='form__group'>
-                  <input
-                  type={passwordVisible ? 'text' : 'password'}
-                  placeholder='Enter your password'
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  />
-                <span
-                   className={`password-toggle-icon ${passwordVisible ? 'visible' : ''}`}
-                   onClick={() => setPasswordVisible(!passwordVisible)}
-                >
-                {passwordVisible ? '👁️' : '👁️‍🗨️'}
-                </span>
-              <p onClick={handleReset}>Forgot Password?</p>
-                </FormGroup>
+                    <input
+                      type={passwordVisible ? 'text' : 'password'}
+                      placeholder='Enter your password'
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
+                    />
+                    <span
+                      className={`password-toggle-icon ${passwordVisible ? 'visible' : ''}`}
+                      onClick={() => setPasswordVisible(!passwordVisible)}
+                    >
+                      {passwordVisible ? '👁️' : '👁️‍🗨️'}
+                    </span>
+                  </FormGroup>
+                  <FormGroup className='form__group remember-me-group'>
+                  <label>
+                  RememberMe
+                    <input
+                      type="checkbox"
+                      checked={rememberMe}
+                      onChange={() => setRememberMe(!rememberMe)}
+                    />
+                  </label>
+                  </FormGroup>
                   <button type='submit' className='buy__btn auth__btn'>
                     Login
                   </button>
+                  <p onClick={handleReset}>Forgot Password?</p>
                   <p>
                     Don't have an account? <Link to='/signup'>Create an account</Link>
                   </p>

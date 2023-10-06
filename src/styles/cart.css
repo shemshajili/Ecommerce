@@ -72,3 +72,32 @@
     }
 }
 
+.increase-button {
+    background-color: #d6d6d6; /* Arkaplan rengi */
+    color: rgb(0, 0, 0); /* Metin rengi */
+    border: none; /* Kenarlık yok */
+    border-radius: 3px; /* Kenar yuvarlama */
+    padding: 2px 4px; /* Dolgu (yukarı-aşağı, sağ-sol) */
+    cursor: pointer; /* İşaretçi türü */
+  }
+  
+  .decrease-button {
+    background-color: #d6d6d6; /* Arkaplan rengi */
+    color: rgb(0, 0, 0); /* Metin rengi */
+    border: none; /* Kenarlık yok */
+    border-radius: 3px; /* Kenar yuvarlama */
+    padding: 2px 4px; /* Dolgu (yukarı-aşağı, sağ-sol) */
+    cursor: pointer; /* İşaretçi türü */
+  }
+  
+  .increase-button:hover {
+    background-color: #000000;
+    color: white;
+  }
+  
+  /* Azalan (decrease) düğme hover efekti */
+  .decrease-button:hover {
+    background-color: #000000;
+    color: rgb(255, 255, 255);
+  }
+  

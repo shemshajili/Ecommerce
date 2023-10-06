@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import Helmet from '../components/Helmet/Helmet';
 import '../styles/productDetails.css';
 import CommonSection from '../components/UI/CommonSection';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { cartActions } from '../redux/slices/cartSlice';
 import { toast } from 'react-toastify';
 import { motion } from 'framer-motion';
@@ -14,12 +14,10 @@ import { storage } from '../firebase.config';
 import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
 import useGetData from '../custom-hooks/useGetData';
 
-
-
 const ProductDetails = () => {
   const [product, setProduct] = useState({});
-  const [comments, setComments] = useState([]); // Commentleri saklar
-  const [imageURL, setImageURL] = useState(''); // Yorum resmi URL'si
+  const [comments, setComments] = useState([]);
+  const [imageURL, setImageURL] = useState('');
 
   useEffect(() => {
     window.scroll(0, 0);
@@ -45,7 +43,7 @@ const ProductDetails = () => {
     const getProduct = async () => {
       try {
         const docSnap = await getDoc(docRef);
-  
+
         if (docSnap.exists()) {
           setProduct(docSnap.data());
         } else {
@@ -55,11 +53,10 @@ const ProductDetails = () => {
         console.error('Error fetching product:', error);
       }
     };
-  
+
     getProduct();
     loadComments();
   }, [id, docRef]);
-  
 
   const {
     imgUrl,
@@ -87,23 +84,22 @@ const ProductDetails = () => {
 
   const submitHandler = async (e) => {
     e.preventDefault();
-  
+
     const reviewUserName = reviewUser.current.value;
     const reviewUserMsg = reviewMsg.current.value;
-  
+
     try {
-      await addComment(id, reviewUserName, reviewUserMsg, imageURL, rating);
+      await addComment(id, reviewUserName, reviewUserMsg, imageURL);
       toast.success('Review submitted');
       loadComments();
       reviewUser.current.value = '';
       reviewMsg.current.value = '';
       setImageURL('');
-      setRating(null); 
     } catch (error) {
       console.error('Error adding comment:', error);
     }
   };
-  
+
   const addToCart = () => {
     dispatch(
       cartActions.addItem({
@@ -119,10 +115,9 @@ const ProductDetails = () => {
   const [tab, setTab] = useState('desc');
   const [rating, setRating] = useState();
 
-  // Firestore'dan yorumları yüklemek için
   const loadComments = async () => {
-    const commentsCollection = collection(db, 'comments'); // Comment koleksiyonundan verileri alır
-    const q = query(commentsCollection, where('productId', '==', id)); 
+    const commentsCollection = collection(db, 'comments');
+    const q = query(commentsCollection, where('productId', '==', id));
     const querySnapshot = await getDocs(q);
 
     const commentsArray = [];
@@ -135,11 +130,9 @@ const ProductDetails = () => {
 
   const deleteComment = async (commentId) => {
     try {
-      // Firestore'dan yorumu siler
       const commentDocRef = doc(db, 'comments', commentId);
       await deleteDoc(commentDocRef);
 
-      // Yorumlar listesini günceller
       const updatedComments = comments.filter((comment) => comment.id !== commentId);
       setComments(updatedComments);
 
@@ -153,30 +146,25 @@ const ProductDetails = () => {
   const handleImageUpload = async (e) => {
     const imageFile = e.target.files[0];
     const storageRef = ref(storage, `comment_images/${id}/${imageFile.name}`);
-  
+
     try {
-      // Resmi yükle
       const uploadTask = uploadBytesResumable(storageRef, imageFile);
       await uploadTask;
-  
-      // Resmin URL'sini al
+
       const imageURL = await getDownloadURL(storageRef);
-  
-      // imageURL'yi ayarla
+
       setImageURL(imageURL);
-  
-      // Bildirim göster
+
       toast.success('Image uploaded successfully');
     } catch (error) {
       console.error('Error uploading image:', error);
       toast.error('An error occurred while uploading the image');
     }
   };
-  
 
   return (
     <Helmet title={productName}>
-      <CommonSection title={productName} />
+      <CommonSection tittle={productName} />
       <section className='pt-0'>
         <Container>
           <Row>
@@ -245,7 +233,7 @@ const ProductDetails = () => {
                 <div className='product__review mt-5'>
                   <div className='review__wrapper'>
                     <div className='review__form'>
-                      <h4>Live your experience</h4><br></br>
+                      <h4>Live your experience</h4>
                       <form action='' onSubmit={submitHandler}>
                         <div className='form__group'>
                           <input
@@ -266,16 +254,16 @@ const ProductDetails = () => {
                         </div>
                         <div className='form__group'>
                           <label htmlFor='imageInput' className='camera-icon'>
-                              <i className='ri-camera-line'></i> Add Image
+                            <i className='ri-camera-line'></i> Add Image
                           </label>
-                            <input
-                              className='camera'
-                              id='imageInput'
-                              type='file'
-                              accept='image/*'
-                              onChange={handleImageUpload}
-                              style={{ display: 'none' }}
-                            />
+                          <input
+                            className='camera'
+                            id='imageInput'
+                            type='file'
+                            accept='image/*'
+                            onChange={handleImageUpload}
+                            style={{ display: 'none' }}
+                          />
                         </div>
                         <motion.button
                           whileTap={{ scale: 1.2 }}

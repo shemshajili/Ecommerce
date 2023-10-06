@@ -99,7 +99,29 @@
   }
   
   .password-toggle-icon.visible {
-    color: #007bff; /* veya istediğiniz bir renk */
+    color: #007bff; 
   }
   
+  .form__group label input[type="checkbox"]:checked + span {
+    color: #007bff;
+    font-weight: bold;
+  }
+  .remember-me-group {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Seçeneği sola hizala */
+    margin-top: 10px;
+  }
+  
+  .remember-me-group label {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  
+  .remember-me-group label input[type="checkbox"] {
+    margin-right: 15px !important;
+    cursor: pointer;
+  }
   
