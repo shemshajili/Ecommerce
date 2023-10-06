@@ -74,5 +74,20 @@
       flex: 0 0 100%;
       max-width: 100%;
     }
+}
+@media (max-width: 768px) {
+  .datapro {
+    display: flex;
+    justify-content: flex-end; /* İçeriği yatayda sağa yasla */
+    align-items: center; /* İçeriği dikeyde merkezle */
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-left: 0; /* Soldan boşluk kaldırmak için */
   }
+
+  .datapro .product {
+    width: 50%; /* İçeriği büyütmek için istenilen boyutu ayarlayın */
+  }
+}
+
   

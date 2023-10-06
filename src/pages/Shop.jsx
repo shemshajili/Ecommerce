@@ -111,7 +111,7 @@ const Shop = () => {
         <Container>
           <Row>
             <Col lg='12'>
-              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '30px',marginLeft:'180px' }}>
+              <div className='datapro' style={{ display: 'flex', flexWrap: 'wrap', gap: '30px',marginLeft:'180px' }}>
                 {loading ? (
                   <h5 className='fw-bold'>Loading....</h5>
                 ) : (
@@ -119,7 +119,7 @@ const Shop = () => {
                     {filteredProducts.length === 0 ? (
                       <h5 className='fw-bold'>No products to display.</h5>
                     ) : (
-                      <ProductsList data={filteredProducts} />
+                      <ProductsList  data={filteredProducts} />
                     )}
                   </>
                 )}
